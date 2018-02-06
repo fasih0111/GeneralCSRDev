@@ -1,0 +1,119 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+
+    <h2>Find a Team</h2>
+    <p class="bottom-space hide-tiny">Search for Teams (small peer groups) by location, issue, category and more.</p>
+
+    @*<form class="form" action="#" method="post" id="matching-form">
+            <div class="grid12">
+                <div class="show-tiny mobile-header">
+                    <button class="modal-close pull-right" data-action="closeModal"><span class="icon-close"></span></button>
+                    <h2 class="">Search for Circles and Chapters</h2>
+                </div>
+                <div class="column3">
+                    <label class="form--label">I’m looking for Circles or Chapters…</label>
+                    <label class="form--select">
+                        <select id="search-type" name="search-type">
+                            <option>Select One</option>
+                            <option value="local" selected="">near where I live</option>
+                            <option value="company">at my Company</option>
+                            <option value="campus">on my campus</option>
+                            <option value="military">in my military branch</option>
+                            <option value="virtual">that meet online</option>
+                        </select>
+                    </label>
+                </div>
+                <div id="mid-search">
+                    <div class="column6 hide search-type-filter" id="search-type-campus">
+                        <label for="campus" class="form--label">Campus</label>
+                        <input type="text" id="campus" name="campus" data-plugin="campusSearch" class="form--input" placeholder="Enter your campus" value="" autocomplete="off"><div class="complete" style="display: none; width: 450px; top: 0px; left: 0px; max-height: 142px; z-index: 5;"><ul></ul></div>
+                        <button type="button" class="form--clear" data-action="clearCampus" data-popbox="" data-popbox-text="Show Campuses Everywhere">×</button>
+                        <p class="form--description form--hide">Can’t find your campus? Email us at <a href="mailto:circle-support@leanin.org">circle-support@leanin.org</a> to get it added.</p>
+                    </div>
+                    <div class="column6 hide search-type-filter" id="search-type-military">
+                        <label for="military" class="form--label">Military</label>
+                        <label class="form--select">
+                            <select id="military" name="militaryBranch">
+                                <option value="" selected="">Select your branch</option>
+                                <option value="Air Force">Air Force</option>
+                                <option value="Army">Army</option>
+                                <option value="Civilian">Civilian</option>
+                                <option value="Coast Guard">Coast Guard</option>
+                                <option value="Department of Defense">Department of Defense</option>
+                                <option value="Joint">Joint</option>
+                                <option value="Marines">Marines</option>
+                                <option value="Navy">Navy</option>
+                                <option value="Veterans">Veterans</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div id="search-type-local" class=" search-type-filter">
+                        <div class="column6 location-input">
+                            <label for="location" class="form--label">Location</label>
+                            <input type="text" id="location" name="location" class="form--input form--highlight" data-popbox-text="Enter your location to get started" data-popbox-direction="up" placeholder="City, State, Country" value="" autocomplete="off"><div class="complete" style="display: none; width: 490px; top: 63px; left: 20px; max-height: 142px; z-index: 99999;"><ul></ul></div>
+                            <button type="button" class="form--locate  selected" id="locateButton" data-action="locate" data-popbox="" data-popbox-text="Use your current location">
+                                <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                </svg>
+                            </button>
+                            <button type="button" class="form--clear form--clear-location" data-action="clearLocation" data-popbox="" data-popbox-text="Show Circles Everywhere">×</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="column6 hide search-type-filter" id="search-type-company">
+                    <label for="company" class="form--label">Company</label>
+                    <input type="text" id="company" name="company" class="form--input" value="" placeholder="Enter your company" autocomplete="off"><div class="complete" style="display: none; width: 450px; top: 0px; left: 0px; max-height: 142px; z-index: 5;"><ul></ul></div>
+                    <button type="button" class="form--clear" data-action="clearCompany">×</button>
+                    <p class="form--description form--hide">Can’t find your Company? Email us at <a href="mailto:circle-support@leanin.org">circle-support@leanin.org</a> to get it added.</p>
+                </div>
+                <div class="column3">
+                    <label for="sort" class="form--label">Sort By</label>
+                    <label class="form--select">
+                        <select id="sort" name="sort">
+                            <option value="activity" selected="">Activity</option>
+                            <option value="distance">Distance</option>
+                            <option value="slug">A-Z</option>
+                            <option value="createdOn">Most Recent</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="show-tiny mobile-submit">
+                    <button type="button" data-action="mobileSubmit" class="btn btn--large btn--full">Apply</button>
+                </div>
+            </div>
+        </form>*@
+</div>
+
+<div class="timeline row">
+    @*<div class="col-xs-12 col-md-3 col-lg-3 timeline-block">
+            <div class="panel">
+                <div class="panel-heading panel-heading-gray title">
+                    My Teams
+                </div>
+                <div class="panel-body no-padding list-group " style="padding: 0px 2px 8px 2px !important;">
+
+                </div>
+            </div>
+        </div>*@
+
+    <div class="col-xs-12 col-md-12 col-lg-12 timeline-block">
+        <div class="">
+            <h3>
+                Recent Teams
+            </h3>
+            <div class="row team-div">
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            getTeams();
+        });
+    </script>
+}

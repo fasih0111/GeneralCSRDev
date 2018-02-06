@@ -1,0 +1,605 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Rikyas</title>
+    @*<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">*@
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600" media="all">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/assets/vendors/css/all.min.css" rel="stylesheet" />
+    <link href="/assets/custom/css/style.css" rel="stylesheet" />
+    <link href="/assets/vendors/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+
+    <link href="~/assets/vendors/css/fileinput.min.css" rel="stylesheet" />
+
+    <script src="/assets/vendors/jquery/jquery-3.1.1.min.js"></script>
+    @*<script src="/assets/vendors/script/emojione.min.js"></script>*@
+    <script src="/assets/vendors/script/emojionearea.min.js"></script>
+    <link href="/assets/vendors/css/emojionearea.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
+
+    <script src="~/Signalr/Hubs"></script>
+
+    <script>
+        var generalHub = $.connection.generalHub;
+    </script>
+    <script src="/assets/custom/script/hub/posts.js"></script>
+
+    <script>
+
+        $.connection.hub.start().done(function () {
+            // generalHub.server.userOnConnect();
+            var Data = { "ConnectionID": $.connection.hub.id }
+            runAjax('@Url.Action("UserOnConnect", "Home")', Data, false, $("body"), "full", "");
+        });
+
+        //generalHub.client.hello = function () { console.log("Connected"); }
+
+        //generalHub.client.setPost = function (data) {
+        //    //console.log("Set Post Working");
+        //    //console.log(data);
+        //    //setPosts(data);
+        //    if (data.Table[0].length > 0) {
+        //        $(".no-activity").remove();
+        //        $(".post-div").prepend(getPostElem(data.Table[0]));
+        //    }
+        //}
+    </script>
+
+</head>
+<body>
+    <div class="st-container">
+        <div class="navbar navbar-main navbar-primary navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @*<a href="#sidebar-chat" data-toggle="sidebar-menu" class="toggle pull-right visible-xs"><i class="fa fa-comments"></i></a>*@
+                    <a class="navbar-brand" href="~/Home/Index">Rikyas</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                @*<div class="input-group search-bar dropdown">
+                        @*<input type="text" class="form-control" id="pref-search" onclick="showCreatePostModal();">
+                        <i class="fa fa-spinner fa-spin search-loading" style="display: none"></i>
+                        <input type="text" class="form-control" onkeyup="fullSearch(event)" onkeydown="changeSearchLi(event)" onclick="$('.dropdown-menu.modal-group-list').show()" id="pref-search">
+                        <ul class="dropdown-menu modal-group-list" role="menu" style="width:150%; max-height: 310px; overflow-y: auto;">
+                            <li><h4 class="text-center">No Recent Search!</h4></li>
+                        </ul>
+                        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                    </div>*@
+
+                @*<button class="btn btn-issue col-md-4 col-md-offset-3" onclick="showCreatePostModal();">Lets solve it</button>*@
+                <button class="btn btn-issue col-md-4 col-md-offset-3" onclick="showCreatePostWizard();">Lets solve it</button>
+                <div class="collapse navbar-collapse" id="main-nav">
+                    <ul class="nav navbar-nav  navbar-right ">
+
+                        <li class="">
+                            <a href="javascript:void(0)" class="with-title" onclick="showSearchBar(this)">
+                                <div>
+                                    <i class="material-icons">search</i>
+                                </div>
+                                <span>Search</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="~/Home/Invitation" class="with-title">
+                                <div>
+                                    <i class="material-icons">person_add</i>
+                                </div>
+                                <span>Invite</span>
+                            </a>
+                        </li>
+
+                        <li class="timeline-block dropdown">
+                            <a href="#" data-toggle="dropdown" class="with-title">
+                                <div>
+                                    <i class="material-icons">notifications</i>
+                                </div>
+                                <span>Notifications</span>
+                                <span class="count noti-count">10</span>
+                            </a>
+                            <div class="panel panel-default notification dropdown-menu" role="menu">
+                                <div class="panel-heading title">
+                                    Notifications
+                                </div>
+                                <div class="panel-body no-padding">
+
+                                    <ul class="modal-group-list">
+                                        <li>
+                                            <div class="media-left">
+                                                <a href="/Profile/Index/1">
+                                                    <img src="/assets/images/people/Common.jpg" width="28" height="28" class="media-object img-circle">
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="user-details">Common and 12 others commented on your post</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="media-left">
+                                                <a href="/Profile/Index/1">
+                                                    <img src="/assets/images/people/sample.png" width="28" height="28" class="media-object img-circle">
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="user-details">Faisal follow your post</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="media-left">
+                                                <a href="/Profile/Index/1">
+                                                    <img src="/assets/images/people/AliMotiwala.jpg" width="28" height="28" class="media-object img-circle">
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="user-details">Ali endorse in your comment</div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="media-left">
+                                                <a href="/Profile/Index/1">
+                                                    <img src="/assets/images/people/Common.jpg" width="28" height="28" class="media-object img-circle">
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="user-details">Common endorse in your comment</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    @*<ul class="comments">
+                                            <li class="media">
+                                                <div class="media-left">
+                                                    <a href="">
+                                                        <img src="/assets/images/people/50/guy-5.jpg" class="media-object">
+                                                    </a>
+                                                </div>
+                                                <div class="media-body">
+                                                    <p>Hi Mary, Nice Party</p>
+
+                                                </div>
+                                            </li>
+                                            <li class="media">
+                                                <div class="media-left">
+                                                    <a href="">
+                                                        <img src="/assets/images/people/50/woman-5.jpg" class="media-object">
+                                                    </a>
+                                                </div>
+                                                <div class="media-body">
+                                                    <span>Thanks Bill</span>
+
+                                                </div>
+                                            </li>
+                                        </ul>*@
+
+                                </div>
+                            </div>
+                            @*<ul class="dropdown-menu" role="menu">
+                                    <li></li>
+
+                                </ul>*@
+                        </li>
+
+                        <li class="dropdown" style="border-left: 1px solid #5c6f7c">
+                            <a href="#" class="dropdown-toggle user with-title" data-toggle="dropdown">
+                                <div>
+                                    <img src="/assets/images/people/Sample.png" alt="Bill" class="img-circle" />
+                                </div>
+                                <span class="">Me&nbsp;&#9660;</span>
+                                @*<span class="caret"></span>*@
+                            </a>
+                            <ul class="dropdown-menu user" role="menu" style="width: 260px;">
+                                <li>
+                                    <div href="javascript:void(0)" style="padding: 16px;">
+                                        <img src="/assets/images/people/Sample.png" alt="Bill" class="img-circle" width="50" height="50" />
+                                        <span class="full-name" style="margin-bottom: 0px;">Muhammad Common</span>
+                                    </div>
+                                </li>
+                                <li><a href="/Profile/Index">My Profile</a></li>
+                                <li><a href="/Home/StarredMessages">Starred Messages</a></li>
+                                <li><a href="#" onclick="todo(this)">Settings & Privacy</a></li>
+                                <li><a href="javascript:void(0)" onclick="Logout();">Log out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    @*<div class=""></div>*@
+    <div class="footer"></div>
+
+
+    <div class="modal-div"></div>
+
+    @*<div class="hidden post-modal">
+            <div class="row ">
+                <div class="col-md-12">
+                    <div class="stepform" action="" method="post">
+                        <fieldset class="sf-step">
+                            <div class="panel-heading panel-heading-gray title">1. Basic Details</div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="title">(What is your issue about? Please post briefly)</label>
+                                    <input type="text" class="form-control" id="title" data-validate="required" onfocus="validateOn(this, event)" onblur="validateOn(this, event)">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="title">(If you need to explain your issue further, you can describe it below)</label>
+                                    <textarea id="body"></textarea>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="sf-step">
+                            <legend>Which category is the best fit for this issue. You can tick maximum two categories</legend>
+                            <div class="" id="category"><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="1"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/01.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="2"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/02.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="3"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/03.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="4"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/04.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="5"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/05.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="6"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/06.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="7"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/07.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="8"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/08.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="9"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/09.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="10"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/10.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="11"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/11.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="12"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/12.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="13"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/13.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="14"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/14.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="15"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/15.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="16"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/16.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="17"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/17.png"><div class="check-wrapper"><div class="check"></div></div></div></div>
+                        </fieldset>
+
+                        <fieldset class="sf-step">
+                            <legend></legend>
+                            <p class="radio">
+                                <label><input name="nameradio1" type="radio" value="online" />Online </label>
+                                <label><input name="nameradio1" type="radio" value="offline" />Offline </label>
+                                <label><input name="nameradio1" type="radio" value="later" />Later </label>
+                            </p>
+                            <p>
+                                <label class="control-label" for="namecard">Name on Card</label>
+                                <input class="form-control" id="namecard" name="namecard" type="text" />
+                            </p>
+                            <p class="radio">
+                                <label><input name="nameradio2" type="radio" />Option 1 </label>
+                                <label><input name="nameradio2" type="radio" />Option 2 </label>
+                                <label><input name="nameradio2" type="radio" />Option 3 </label>
+                                <label><input name="nameradio2" type="radio" />Option 4 </label>
+                            </p>
+                        </fieldset>
+                        <fieldset class="sf-step">
+                            <legend>4. Newsletter</legend>
+                            <p class="checkbox">
+                                <label><input name="subscribeto" type="checkbox" />News</label>
+                                <label><input name="subscribeto" type="checkbox" />Events</label>
+                                <label><input name="subscribeto" type="checkbox" />Jobs</label>
+                            </p>
+
+
+                            <p>
+                                <label class="control-label" for="newsletter">Newsletter</label>
+                                <select id="newsletter" name="newsletter" class="form-control">
+                                    <option value="Daily" selected>Daily</option>
+                                    <option value="Weekly">Weekly</option>
+                                    <option value="Monthly">Monthly</option>
+                                    <option value="Never">Never</option>
+                                </select>
+                            </p>
+                        </fieldset>
+
+                        <fieldset class="sf-step">
+                            <legend>Confirm</legend>
+                            <p>
+                                Please look at the data below and confirm.
+                            </p>
+                            <p>Name <mark data-sf-bind="firstname"></mark> | <mark data-sf-bind="lastname"></mark></p>
+                            <p>Email <mark data-sf-bind="email"></mark></p>
+                            <p>Phone <mark data-sf-bind="mobile"></mark></p>
+                            <p class="text-center">
+                                <input type="submit" value="Submit" name='submit' class="btn btn-success">
+                            </p>
+                        </fieldset>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>*@
+
+
+    
+
+
+    <script src="/assets/vendors/script/all.min.js"></script>
+    <script src="/assets/vendors/script/bootstrap-material-datetimepicker.js"></script>
+    <script src="/assets/vendors/script/caretposition.js"></script>
+
+    <script src="/assets/custom/script/func.js?v=1"></script>
+    <script src="/assets/custom/script/posts.js?v=1"></script>
+    <script src="/assets/custom/script/arrays.js?v=1"></script>
+    <script src="/assets/custom/script/main.js?v=1"></script>
+    <script src="/assets/custom/script/profile.js?v=1"></script>
+    <script src="/assets/custom/script/validaion.js?v=1"></script>
+    <script src="/assets/custom/script/fileUpload.js?v=1"></script>
+    <script src="/assets/custom/script/actions.js?v=1"></script>
+    <script src="/assets/custom/script/loadingMockups.js?v=1"></script>
+    <script src="/assets/custom/script/registration.js?v=1"></script>
+    @*<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>*@
+
+    <script src="/assets/vendors/script/emojione.min.js?v=1"></script>
+    <script src="~/assets/vendors/script/jq.stepform.js"></script>
+    <script src="~/assets/vendors/script/dropzone.js"></script>
+    <script src="~/assets/vendors/script/fileinput.min.js"></script>
+    <script>
+
+
+
+        $("#file-1").fileinput({
+            theme: 'fa',
+            uploadUrl: 'http://localhost:1838/Home/fileuploadsingle', // you must set a valid URL here else you will get an error
+            allowedFileExtensions: ['jpg', 'png', 'gif'],
+            overwriteInitial: false,
+            maxFileSize: 1000,
+            maxFilesNum: 10,
+            //allowedFileTypes: ['image', 'video', 'flash'],
+            slugCallback: function (filename) {
+                return filename.replace('(', '_').replace(']', '_');
+            }
+        });
+
+
+        $(document).ready(function () {
+            getHeaderDetails();
+            //$("select").selectpicker()
+            $(document).keyup(function (ev) {
+                if (ev.keyCode == 27) {
+                    closeModal($(".modal-div .modal:last .modal-dialog"));
+                    closeSearchBar("#pref-search");
+                }
+            });
+        });
+
+        function getHeaderDetails() {
+            console.time();
+
+
+            var Data = { "UserID": "" }
+            runAjax('@Url.Action("GetHeaderDetails", "Home")', Data, false, $("body"), "full", setHeaderDetails);
+            //runAjax('@Url.Action("GetUserDetails", "Home")', Data, false, $("body"), "full", setHeaderDetails);
+        }
+        function setHeaderDetails(data, e) {
+            //$(".full-name").text(data[0]["FirstName"] + " " + data[0]["LastName"]);
+            //$(".user img").attr("src", "/assets/images/people/" + data[0]['ImageUrl']);
+            //userDetails.FirstName = data[0]["FirstName"];
+            //userDetails.LastName = data[0]["LastName"];
+            //userDetails.UserID = data[0]["ID"];
+            //userDetails.UserTypeID = data[0]["fk_UserTypeID"];
+            //userDetails.ImgURL = data[0]["ImageUrl"];
+
+            $(".full-name").text(data["FirstName"] + " " + data["LastName"]);
+            $(".user img").attr("src", "/assets/images/people/" + data['ImageUrl']);
+            userDetails.FirstName = data["FirstName"];
+            userDetails.LastName = data["LastName"];
+            userDetails.UserID = data["ID"];
+            userDetails.UserTypeID = data["fk_UserTypeID"];
+            userDetails.ImgURL = data["ImageUrl"];
+
+            console.timeEnd();
+
+            afterUserDetails();
+        }
+
+        @*$('.tooltip-name').tooltipster({
+            content: 'Loading...',
+            functionBefore: function (instance, helper) {
+                var $origin = $(helper.origin);
+                if ($origin.data('loaded') !== true) {
+                    $.get('@Url.Action("GetUserProfileDetails", "Home")', { UserID: "1" }, function (data) {
+                        instance.content(data);
+                        $origin.data('loaded', true);
+                    });
+                }
+            }
+        });*@
+
+        @*var Data = { "UserID": userID }
+        runAjax('@Url.Action("GetUserProfileDetails", "Home")', Data, false, $("body"), "full", setUserDetails);*@
+        function myMap() {
+            var mapProp = {
+                center: new google.maps.LatLng(51.508742, -0.120850),
+                zoom: 5,
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        }
+        function showCreatePostWizard() {
+            var $bodyElem = '';
+
+            $bodyElem += '<div class="row">';
+            $bodyElem += '<div class="col-md-12">';
+            $bodyElem += '<div class="stepform">';
+            $bodyElem += '<fieldset class="sf-step">';
+            $bodyElem += '<div class="panel-heading panel-heading-gray title">Basic Details</div>';
+            $bodyElem += '<div class="panel-body">';
+            $bodyElem += '<div class="row">';
+            $bodyElem += '<div class="col-md-12">';
+            $bodyElem += '<div class="form-group">';
+            $bodyElem += '<label for="title">What is your issue about? Please post briefly</label>';
+            //$bodyElem += '<input type="text" class="form-control" id="title" data-validate="required" onfocus="validateOn(this, event)" onblur="validateOn(this, event)">';
+            $bodyElem += '<input type="text" class="form-control" id="title" data-validate="text" data-min-value="10" data-max-value="50" >';
+            $bodyElem += '</div>';
+            $bodyElem += '</div>';
+            $bodyElem += '<div class="col-md-12">';
+            $bodyElem += '<div class="form-group">';
+            $bodyElem += '<label for="title">If you need to explain your issue further, you can describe it below</label>';
+            $bodyElem += '<textarea id="" rows="6" id="body" class="form-control"></textarea>';
+            $bodyElem += '</div>';
+            $bodyElem += '</div>';
+            $bodyElem += '</div>';
+            $bodyElem += '</div>';
+
+            $bodyElem += '</fieldset>';
+            $bodyElem += '<fieldset class="sf-step">';
+
+            $bodyElem += '<div class="panel-heading panel-heading-gray title">Which category is the best fit for this issue.</div>';
+            $bodyElem += '<div class="panel-body">';
+            $bodyElem += '<div class="" id="category"><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="1"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/01.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="2"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/02.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="3"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/03.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="4"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/04.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="5"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/05.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="6"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/06.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="7"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/07.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="8"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/08.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="9"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/09.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="10"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/10.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="11"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/11.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="12"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/12.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="13"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/13.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="14"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/14.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="15"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/15.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="16"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/16.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="17"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/17.png"><div class="check-wrapper"><div class="check"></div></div></div></div>';
+            $bodyElem += '</fieldset>';
+
+            $bodyElem += '<fieldset class="sf-step">';
+            $bodyElem += '<div class="panel-heading panel-heading-gray title">Where is this issue located.</div>';
+            $bodyElem += '<div class="panel-body">';
+            $bodyElem += '<div class="row">';
+            $bodyElem += '<div class="col-md-12">';
+            //$bodyElem += '<div class="form-group">';
+            //$bodyElem += '<label for="title">City</label>';
+
+            //$bodyElem += '<input type="text" class="form-control" id="title">';
+            //$bodyElem += '</div>';
+            //$bodyElem += '</div>';
+            //$bodyElem += '<div class="col-md-12">';
+            //$bodyElem += '<div class="form-group">';
+            //$bodyElem += '<label for="title">State/Province</label>';
+            //$bodyElem += '<input type="text" class="form-control" id="title">';
+            //$bodyElem += '</div>';
+            //$bodyElem += '</div>';
+            //$bodyElem += '<div class="col-md-12">';
+            //$bodyElem += '<div class="form-group">';
+            //$bodyElem += '<label for="title">Country</label>';
+            //$bodyElem += '<input type="text" class="form-control" id="title">';
+            //$bodyElem += '</div>';
+            $bodyElem += '<div class="form-group">';
+            $bodyElem += '<div id="googleMap" style="width:100%;height:260px;"></div>';
+            $bodyElem += '</div>';
+
+            $bodyElem += '<div class="form-group">';
+            $bodyElem += '<input type="text" class="form-control" placeholder="Area, City, Country">';
+            $bodyElem += '</div>';
+
+            $bodyElem += '</div>';
+            $bodyElem += '</div>';
+            $bodyElem += '</fieldset>';
+
+            //$bodyElem += '<fieldset class="sf-step">';
+
+            //$bodyElem += '<div class="panel-heading panel-heading-gray title">Would you like to request someone specifically to respond to your issue?</div>';
+            //$bodyElem += '<div class="panel-body">';
+            //$bodyElem += '<div class="col-md-12">';
+            //$bodyElem += '<input type="text" class="form-control" placeholder="Search User">';
+            //$bodyElem += '<div class="search-content " style="display: hidden;"><ul class="modal-group-list"><li><h4 class="text-center">No Recent Search!</h4></li></ul></div>';
+
+            //$bodyElem += '</div>';
+            //$bodyElem += '</div>';
+            //$bodyElem += '</fieldset>';
+
+            $bodyElem += '<fieldset class="sf-step">';
+
+            $bodyElem += '<div class="panel-heading panel-heading-gray title">Would you like to add any attachments?</div>';
+            $bodyElem += '<div class="panel-body">';
+            $bodyElem += '<div class="attach">';
+
+            //$bodyElem += '<span>Attach File</span>';
+            $bodyElem += '<form enctype="multipart/form-data" method="POST">';
+            $bodyElem += '<div class="form-group">';
+            //// $bodyElem += '<div class="file-loading">';
+            //           $bodyElem += '<input id="file-4" type="file" class="file" data-upload-url="#">';
+            $bodyElem += '<input id="file1" name="file1" type="file" multiple class="file">';
+            ////$bodyElem += '</div>';
+            $bodyElem += '</div>';
+
+            //$bodyElem += '<form enctype="multipart/form-data">';
+       
+            //$bodyElem += '<div class="form-group">';
+            //$bodyElem += '<div class="file-loading">';
+            //$bodyElem += '<input id="file-1" type="file" multiple class="file" data-overwrite-initial="false" data-min-file-count="2">';
+            //$bodyElem += '</div>';
+            //$bodyElem += '</div>';
+            //$bodyElem += '<hr>';
+            //$bodyElem += '</form>';
+
+
+
+
+           // $bodyElem += '</div>';
+
+            $bodyElem += '</form>';
+            $bodyElem += '</div>';
+            $bodyElem += '</fieldset>';
+
+            $bodyElem += '</div>';
+            $bodyElem += '</div>';
+            $bodyElem += '</div>';
+            showModal(false, false, false, "", $bodyElem, "");
+            $(".stepform").stepform();
+
+            //$("#file-4").fileinput({
+            //    theme: 'fa',
+            //    uploadExtraData: { kvId: '10' },
+            //    'previewFileType': 'any',
+            //    uploadUrl: "/Home/fileuploadsingle/1",
+            //});
+
+            $("#file-4").fileinput({
+                theme: 'fa',
+                uploadAsync: true,
+                uploadUrl: 'http://localhost:1838/Home/fileuploadsingle',
+                allowedFileExtensions: ['jpg', 'png', 'gif', 'jpeg', 'pdf'],
+                maxFileSize: 1000,
+                maxFilesNum: 10,
+                //allowedFileTypes: ['image', 'video', 'flash'],
+                //slugCallback: function (filename) {
+                //    return filename.replace('(', '_').replace(']', '_');
+                //}
+            });
+
+            $("#file1").fileinput({
+                theme: 'fa',
+                uploadUrl: 'http://localhost:1838/Home/fileuploadsingle', // you must set a valid URL here else you will get an error
+                allowedFileExtensions: ['jpg', 'png', 'gif', 'jpeg', 'pdf', 'docs', 'doc', 'mp4'],
+                overwriteInitial: false,
+                maxFileSize: 156297,
+                maxFilesNum: 10,
+                //allowedFileTypes: ['image', 'video', 'flash'],
+                slugCallback: function (filename) {
+                    return filename.replace('(', '_').replace(']', '_');
+                }
+            });
+
+            myMap();
+            $("#body").emojioneArea({
+                pickerPosition: "bottom",
+                tonesStyle: "bullet",
+                saveEmojisAs: "shortname",
+                events: {
+                    keyup: function (editor, event) {
+                        // console.log(editor.text());
+
+
+                        // //console.log(editor.getCaretPosition()); // Work Late On Position To Show Suggestions Dropdown
+                        //// editor.replaceText(/this|that/gi, "the other");
+                        // // /\B#(\w*[0-9a-zA-Z])/gi Hashtag Regular Expression
+                        // // editor.replaceText(///#(\w*[0-9a-zA-Z])/gi, "<b>$1</b>");
+                        // if ((event.keyCode > 65 && event.keyCode < 90) || event.keyCode == 51) {
+
+                        //     var afterReplace = editor.html();
+                        //     afterReplace = afterReplace.replace(new RegExp("<b>", "g"), "");
+                        //     afterReplace = afterReplace.replace(new RegExp("</b>", "g"), "");
+                        //     editor.html(afterReplace.replace(new RegExp(/#(\w*[0-9a-zA-Z])/, "g"), "<span style='color: blue'>$1</span>"));
+                        //     //$(this).html($(this).html().replace(/(#\S+)/, '<span style="color: blue">$1</span>'));
+                        //     // editor.html(afterReplace.replace(new RegExp("</b>", "g"), ""));
+                        //     //editor.replaceText(/#(\w*[0-9a-zA-Z])/gi, "<b>$1</b>");
+
+                        // }
+
+                    }
+                }
+
+                
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiZ7OKlN8w33q8D0osx6YOVQYGPDXx0nU"></script>
+    @RenderSection("Scripts", false)
+</body>
+</html>

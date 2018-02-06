@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Create";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="jumbotron text-center">
+            <h1>Gain new skills and go further with Team</h1>
+            <p>
+                Teams are small groups who meet regularly to learn and grow together, and they're changing lives.
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <h1>START YOUR TEAM</h1>
+    </div>
+    <div class="col-md-7">
+        <div class="form-group">
+            <label for="title">Choose a name for your Team</label>
+            <input type="text" class="form-control" id="team-name">
+        </div>
+        <div class="form-group">
+            <label for="title">Location</label><input type="text" class="form-control" id="location" placeholder="City, State or City, Country">
+        </div>
+        <div class="form-group">
+            <label for="title">Description</label>
+            <textarea class="form-control" rows="4" id="description" placeholder="Write a short description of your Team and its goals."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="title">Select Profile Image</label>
+            <div class="avatar" id="img-url">
+                <img src="~/assets/images/teams/team-sample-2.jpg" width="120" data-img-val="team-sample-2.jpg" class="selected" />
+                <img src="~/assets/images/teams/team-sample-3.jpg" width="120" data-img-val="team-sample-3.jpg" />
+                <img src="~/assets/images/teams/team-sample-4.jpg" width="120" data-img-val="team-sample-4.jpg" />
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="col-md-3 no-padding">
+                <button class="btn btn-primary form-control" onclick="createTeam(this);">Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $(".btn.btn-primary").attr("data-issue-id", getURLParameter());
+        $(".avatar img").click(function () {
+            $(this).closest(".avatar").find("img").removeClass("selected");
+            $(this).addClass("selected");
+        });
+    });
+</script>
