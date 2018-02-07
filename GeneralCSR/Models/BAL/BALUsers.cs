@@ -73,5 +73,11 @@ namespace Models
         {
             return base.UpdateUserDescriptions(UserID, DescribeID, UserBrief, IsExpert, Address, DOB, Gender, Expertise);
         }
+        public override DataRow IsFirstLogin(int UserID)
+        {
+            return base.IsFirstLogin(UserID);
+        }
+
+
     }
 }

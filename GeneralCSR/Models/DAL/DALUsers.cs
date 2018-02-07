@@ -149,6 +149,14 @@ namespace Models
             return SqlHelper.ExecuteDataTable(FCommon.ConStr, CommandType.StoredProcedure, "spUpdateUserDescriptions", param).Rows[0];
         }
 
-        
+        public virtual DataRow IsFirstLogin(int UserID)
+        {
+            SqlParameter[] param = {
+                                   new SqlParameter("@UserID", UserID)
+                               };
+            return SqlHelper.ExecuteDataTable(FCommon.ConStr, CommandType.StoredProcedure, "IsFirstLogin", param).Rows[0];
+        }
+
+
     }
 }

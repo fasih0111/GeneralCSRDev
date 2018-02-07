@@ -101,6 +101,7 @@ namespace GeneralCSR.Controllers
                     Sess.LastName = dr["LastName"].ToString();
                     Sess.ImageUrl = dr["ImageUrl"].ToString();
                     Sess.fk_UserTypeID = Convert.ToInt32(dr["fk_UserTypeID"]);
+                    Sess.IsFirstLogin = Convert.ToBoolean(dr["IsFirstLogin"]);
                     Session["CFSess"] = Sess;
                 }
                 else

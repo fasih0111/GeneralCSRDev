@@ -561,6 +561,9 @@ input[type=radio]:focus + label::before {
 .padding-4 {
     padding: 4px;
 }
+.padding-6 {
+    padding: 6px;
+}
 
 .padding-10 {
     padding: 10px;
@@ -1645,12 +1648,12 @@ button.selectpicker {
         position: absolute;
         width: 0;
         height: 0;
-        border: 5px solid #0073b1;
+        border: 5px solid #ffffff;
         border-left-color: transparent;
         border-top-color: transparent;
         border-right-color: transparent;
         top: -10px;
-        right: 16px;
+        right: 44px;
     }
 
 xmp {
@@ -3059,6 +3062,7 @@ ul.comments li {
     width: 60px;
     height: 60px;
 }
+
 .img-50 {
     width: 50px;
     height: 50px;
@@ -3082,3 +3086,31 @@ ul.comments li {
     resize: both;
     background-position: center;
 }
+
+.jumbotron p {
+    font-size: 16px;
+}
+
+.profile-icon-container {
+    bottom: -87px;
+    left: 50px;
+    position: absolute;
+    transition: bottom .3s;
+    z-index: 3;
+    height: 200px;
+    width: 200px;
+}
+.profile-icon {
+    border: 5px solid #fff;
+   
+}
+.navbar-nav > li > div {
+    text-align: center;
+    padding: 0px 16px;
+    font-weight: bold;
+}
+.navbar-nav > li > div > h5, .navbar-nav > li > div > h6{
+    font-weight: bold;
+}
+
+

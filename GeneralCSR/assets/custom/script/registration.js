@@ -14,7 +14,7 @@
                 '<h2 class="fs-title">What best describes you?</h2>' +
                 '<h3 class="fs-subtitle">This is step 1</h3>' +
                 '<div class="row jumbotron ">' +
-                    '<div class="col-md-2"><div class="img-circle padding-10 color-bg-hover" data-id="1" onclick="setDescribe(this);" style="background-color: #ccc;"><img class="img-responsive" src="/assets/images/WBDY/Working.png" /></div><div style="margin-top: 4px;">Work</div></div>' +
+                    '<div class="col-md-2 col-md-offset-1"><div class="img-circle padding-10 color-bg-hover" data-id="1" onclick="setDescribe(this);" style="background-color: #ccc;"><img class="img-responsive" src="/assets/images/WBDY/Working.png" /></div><div style="margin-top: 4px;">Work</div></div>' +
                     '<div class="col-md-2"><div class="img-circle padding-10 color-bg-hover" data-id="2" onclick="setDescribe(this);" style="background-color: #ccc;"><img class="img-responsive" src="/assets/images/WBDY/Study.png" /></div><div style="margin-top: 4px;">Study</div></div>' +
                     '<div class="col-md-2"><div class="img-circle padding-10 color-bg-hover" data-id="3" onclick="setDescribe(this);" style="background-color: #ccc;"><img class="img-responsive" src="/assets/images/WBDY/Business.png" /></div><div style="margin-top: 4px;">Buisness</div></div>' +
                     '<div class="col-md-2"><div class="img-circle padding-10 color-bg-hover" data-id="4" onclick="setDescribe(this);" style="background-color: #ccc;"><img class="img-responsive" src="/assets/images/WBDY/Non-Profit.png" /></div><div style="margin-top: 4px;">Non-profit</div></div>' +
@@ -50,7 +50,7 @@
                 '<h3 class="fs-subtitle">An expert\'s role is to respond constructively with the perspective to provide solutions on issue\'s posted.</h3>' +
                 '<div class="row jumbotron">' +
                     
-                    '<div class="col-md-2"><div class="img-circle padding-10 color-bg-hover" data-id="1" onclick="setDescribe(this);" style="background-color: #ccc;"><img class="img-responsive" src="/assets/images/professor.png" /></div><div style="margin-top: 4px;">Expert</div></div>' +
+                    '<div class="col-md-2 col-md-offset-4"><div class="img-circle padding-10 color-bg-hover" data-id="1" onclick="setDescribe(this);" style="background-color: #ccc;"><img class="img-responsive" src="/assets/images/professor.png" /></div><div style="margin-top: 4px;">Expert</div></div>' +
                     '<div class="col-md-2"><div class="img-circle padding-10 color-bg-hover" data-id="0" onclick="setDescribe(this);" style="background-color: #ccc;"><img class="img-responsive" src="/assets/images/male.png" /></div><div style="margin-top: 4px;">User</div></div>' +
                 '</div>' +
                 '<input type="button" name="previous" class="previous action-button" value="Previous" />' +
@@ -70,6 +70,7 @@
 
                 '<input type="button" name="previous" class="previous action-button" value="Previous" />' +
                 '<input type="button" name="submit" class="submit action-button" value="Submit" onclick="updateUserDescription(this)"/>' +
+                //'<input type="button" name="submit" class="submit action-button" value="Submit" onclick="closeThisModal(this)"/>' +
             '</fieldset>' +
         '</form>' +
     '</div>';
@@ -77,94 +78,94 @@
     return $elem;
 }
 
-$(document).ready(function () {
-    //$("body").append(createWizardForm());
+//$(document).ready(function () {
+//    $("body").append(createWizardForm());
 
-    //jQuery time
-    var current_fs, next_fs, previous_fs; //fieldsets
-    var left, opacity, scale; //fieldset properties which we will animate
-    var animating; //flag to prevent quick multi-click glitches
+//    //jQuery time
+//    var current_fs, next_fs, previous_fs; //fieldsets
+//    var left, opacity, scale; //fieldset properties which we will animate
+//    var animating; //flag to prevent quick multi-click glitches
 
-    $(".next").click(function () {
-        console.log("before")
-        if (animating) return false;
-        animating = true;
-        console.log("after")
-        current_fs = $(this).parent();
-        next_fs = $(this).parent().next();
+//    $(".next").click(function () {
+//        console.log("before")
+//        if (animating) return false;
+//        animating = true;
+//        console.log("after")
+//        current_fs = $(this).parent();
+//        next_fs = $(this).parent().next();
 
-        //activate next step on progressbar using the index of next_fs
-        $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+//        //activate next step on progressbar using the index of next_fs
+//        $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 
-        //show the next fieldset
-        next_fs.show();
-        //hide the current fieldset with style
-        current_fs.animate({ opacity: 0 }, {
-            step: function (now, mx) {
-                //as the opacity of current_fs reduces to 0 - stored in "now"
-                //1. scale current_fs down to 80%
-                scale = 1 - (1 - now) * 0.02;
-                //2. bring next_fs from the right(50%)
-                left = (now * 30) + "%";
-                //3. increase opacity of next_fs to 1 as it moves in
-                opacity = 1 - now;
-                current_fs.css({
-                    'transform': 'scale(' + scale + ')',
-                    'position': 'absolute'
-                });
-                next_fs.css({ 'left': left, 'opacity': opacity });
-            },
-            duration: 500,
-            complete: function () {
-                current_fs.hide();
-                animating = false;
-            },
-            //this comes from the custom easing plugin
-            easing: 'easeInOutBack'
-        });
-    });
+//        //show the next fieldset
+//        next_fs.show();
+//        //hide the current fieldset with style
+//        current_fs.animate({ opacity: 0 }, {
+//            step: function (now, mx) {
+//                //as the opacity of current_fs reduces to 0 - stored in "now"
+//                //1. scale current_fs down to 80%
+//                scale = 1 - (1 - now) * 0.02;
+//                //2. bring next_fs from the right(50%)
+//                left = (now * 30) + "%";
+//                //3. increase opacity of next_fs to 1 as it moves in
+//                opacity = 1 - now;
+//                current_fs.css({
+//                    'transform': 'scale(' + scale + ')',
+//                    'position': 'absolute'
+//                });
+//                next_fs.css({ 'left': left, 'opacity': opacity });
+//            },
+//            duration: 500,
+//            complete: function () {
+//                current_fs.hide();
+//                animating = false;
+//            },
+//            //this comes from the custom easing plugin
+//            easing: 'easeInOutBack'
+//        });
+//    });
 
-    $(".previous").click(function () {
-        if (animating) return false;
-        animating = true;
+//    $(".previous").click(function () {
+//        if (animating) return false;
+//        animating = true;
 
-        current_fs = $(this).parent();
-        previous_fs = $(this).parent().prev();
+//        current_fs = $(this).parent();
+//        previous_fs = $(this).parent().prev();
 
-        //de-activate current step on progressbar
-        $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+//        //de-activate current step on progressbar
+//        $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
 
-        //show the previous fieldset
-        previous_fs.show();
-        //hide the current fieldset with style
-        current_fs.animate({ opacity: 0 }, {
-            step: function (now, mx) {
-                //as the opacity of current_fs reduces to 0 - stored in "now"
-                //1. scale previous_fs from 80% to 100%
-                scale = 0.8 + (1 - now) * 0.2;
-                //2. take current_fs to the right(50%) - from 0%
-                left = ((1 - now) * 50) + "%";
-                //3. increase opacity of previous_fs to 1 as it moves in
-                opacity = 1 - now;
-                current_fs.css({ 'left': left });
-                previous_fs.css({ 'transform': 'scale(' + scale + ')', 'opacity': opacity });
-            },
-            duration: 500,
-            complete: function () {
-                current_fs.hide();
-                animating = false;
-            },
-            //this comes from the custom easing plugin
-            easing: 'easeInOutBack'
-        });
-    });
+//        //show the previous fieldset
+//        previous_fs.show();
+//        //hide the current fieldset with style
+//        current_fs.animate({ opacity: 0 }, {
+//            step: function (now, mx) {
+//                //as the opacity of current_fs reduces to 0 - stored in "now"
+//                //1. scale previous_fs from 80% to 100%
+//                scale = 0.8 + (1 - now) * 0.2;
+//                //2. take current_fs to the right(50%) - from 0%
+//                left = ((1 - now) * 50) + "%";
+//                //3. increase opacity of previous_fs to 1 as it moves in
+//                opacity = 1 - now;
+//                current_fs.css({ 'left': left });
+//                previous_fs.css({ 'transform': 'scale(' + scale + ')', 'opacity': opacity });
+//            },
+//            duration: 500,
+//            complete: function () {
+//                current_fs.hide();
+//                animating = false;
+//            },
+//            //this comes from the custom easing plugin
+//            easing: 'easeInOutBack'
+//        });
+//    });
 
-    $(".submit").click(function () {
-        return false;
-    });
+//    $(".submit").click(function () {
+//        return false;
+//    });
 
-    $('#dob').bootstrapMaterialDatePicker({ weekStart: 0, time: false });
-})
+//    $('#dob').bootstrapMaterialDatePicker({ weekStart: 0, time: false });
+//})
 
 function setDescribe(e) {
     var $me = $(e);
@@ -196,4 +197,11 @@ function afterUpdateUserDescription(data, e) {
 
     getPosts("0", "0");
     
+}
+
+function closeThisModal(e) {
+    var $me= $(e)
+    $me.closest("div").fadeOut("fast", function () {
+        $(this).remove();
+    });
 }

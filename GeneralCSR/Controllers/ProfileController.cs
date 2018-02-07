@@ -35,13 +35,25 @@ namespace GeneralCSR.Controllers
             return JsonConvert.SerializeObject(BALUser.InsertUserInterestedCategories(CFSess.ID, Categories));
         }
 
+        //[HttpPost]
+        //public string UpdateUserDescriptions(int DescribeID, string UserBrief, bool IsExpert, string Address, DateTime DOB, bool Gender, string Expertise)
+        //{
+        //    CFSession CFSess = (CFSession)Session["CFSess"];
+        //    int UserID = Convert.ToInt32(CFSess.ID);
+        //    return JsonConvert.SerializeObject(BALUser.UpdateUserDescriptions(UserID, DescribeID, UserBrief, IsExpert, Address, DOB, Gender, Expertise));
+        //}
+
         [HttpPost]
-        public string UpdateUserDescriptions(int DescribeID, string UserBrief, bool IsExpert, string Address, DateTime DOB, bool Gender, string Expertise)
+        public string UpdateUserDescriptions()
         {
+
             CFSession CFSess = (CFSession)Session["CFSess"];
             int UserID = Convert.ToInt32(CFSess.ID);
-            return JsonConvert.SerializeObject(BALUser.UpdateUserDescriptions(UserID, DescribeID, UserBrief, IsExpert, Address, DOB, Gender, Expertise));
+            CFSess.IsFirstLogin = false;
+            Session["CFSess"] = CFSess;
+            return JsonConvert.SerializeObject(BALUser.IsFirstLogin(UserID));
         }
+
 
     }
 }

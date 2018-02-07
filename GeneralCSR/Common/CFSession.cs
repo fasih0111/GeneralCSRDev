@@ -16,6 +16,7 @@ namespace Common
         public string Email { get; set; }
         public string ImageUrl { get; set; }
         public int fk_UserTypeID { get; set; }
+        public bool IsFirstLogin { get; set; }
 
         public bool CheckSession()
         {
