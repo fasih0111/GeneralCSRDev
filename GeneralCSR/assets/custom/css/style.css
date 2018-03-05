@@ -561,6 +561,7 @@ input[type=radio]:focus + label::before {
 .padding-4 {
     padding: 4px;
 }
+
 .padding-6 {
     padding: 6px;
 }
@@ -962,10 +963,10 @@ a.comment-author {
         }
 
 .profile-card {
-    margin-top: 100px;
+    margin-top: 36px;
 }
 
-    .profile-card .panel-body {
+/*.profile-card .panel-body {
         background: #fff;
     }
 
@@ -976,8 +977,7 @@ a.comment-author {
             margin-top: -100px;
             margin-bottom: 10px;
             display: block;
-            /*background: #0073b1;
-            border: 1px solid #239a8e;*/
+           
             text-align: center;
             line-height: 120px;
             overflow: hidden;
@@ -1019,7 +1019,7 @@ a.comment-author {
 
                 .profile-card .panel-body .profile-card-items li:not(:last-of-type) {
                     border-bottom: 1px solid #f5f5f5;
-                }
+                }*/
 
 .panel.share .panel-body textarea.form-control {
     padding: 0px;
@@ -2885,7 +2885,7 @@ span.email {
         color: white;
         text-transform: uppercase;
         font-size: 9px;
-        width: 16.66%;
+        width: 33.33%;
         float: left;
         position: relative;
     }
@@ -3084,7 +3084,7 @@ ul.comments li {
     width: inherit;
     height: inherit;
     resize: both;
-    background-position: center;
+    background-position: top;
 }
 
 .jumbotron p {
@@ -3100,17 +3100,27 @@ ul.comments li {
     height: 200px;
     width: 200px;
 }
+
 .profile-icon {
     border: 5px solid #fff;
-   
 }
-.navbar-nav > li > div {
+
+.panel .navbar-nav > li > div {
     text-align: center;
-    padding: 0px 16px;
+    padding: 6px 14px;
     font-weight: bold;
-}
-.navbar-nav > li > div > h5, .navbar-nav > li > div > h6{
-    font-weight: bold;
+    margin-left: 8px;
+    cursor: pointer;
+    transition-duration: 0.2s;
+    
 }
 
+   .panel .navbar-nav > li > div.active, .navbar-nav > li > div:hover {
+        background-color: #0077b5;
+        color: #ffffff;
+        box-shadow: 0 0 1px #000;
+    }
 
+    .panel .navbar-nav > li > div > h5, .navbar-nav > li > div > h6 {
+        font-weight: bold;
+    }

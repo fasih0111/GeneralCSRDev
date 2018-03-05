@@ -8,46 +8,71 @@
 
 
             <div class="profile-icon-container">
-                <div class="profile-icon img-circle responsive-image" style="background-image: url(../../assets/images/people/fasih.jpg);">
-
-                </div>
+                <div class="profile-icon img-circle responsive-image" style="background-image: url(../../assets/images/people/Sample.png);"></div>
             </div>
 
         </div>
-        <div style="background-color: #fff; " class="panel-body padding-10">
-            <div class="col-md-6 col-md-offset-3">
+        <div style="background-color: #fff; " class="panel-body padding-6">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
                 <ul class="nav navbar-nav">
-                    <li class="">
-                        <div href="/Home/Invitation">
+                    <li>
+                        <div href="/Home/Invitation" class="active" onclick="changeProfile(this)">
                             <h6 class="no-margin">Issues</h6>
-                            <h5 class="no-margin padding-6 padding-bottom-none">3</h5>
+                            <h5 class="no-margin padding-6 padding-bottom-none" id="PostCount">0</h5>
                         </div>
                     </li>
                     <li class="">
-                        <div href="/Home/Invitation">
+                        <div href="/Home/Invitation" onclick="changeProfile(this)">
                             <h6 class="no-margin">Followings</h6>
-                            <h5 class="no-margin padding-6 padding-bottom-none">550</h5>
+                            <h5 class="no-margin padding-6 padding-bottom-none" id="FollowingsCount">0</h5>
                         </div>
                     </li>
                     <li class="">
-                        <div href="/Home/Invitation">
+                        <div href="/Home/Invitation" onclick="changeProfile(this)">
                             <h6 class="no-margin">Followers</h6>
-                            <h5 class="no-margin padding-6 padding-bottom-none">250</h5>
+                            <h5 class="no-margin padding-6 padding-bottom-none" id="FollowersCount">0</h5>
                         </div>
                     </li>
                     <li class="">
-                        <div href="/Home/Invitation">
+                        <div href="/Home/Invitation" onclick="changeProfile(this)">
                             <h6 class="no-margin">Teams</h6>
-                            <h5 class="no-margin padding-6 padding-bottom-none">2</h5>
+                            <h5 class="no-margin padding-6 padding-bottom-none" id="TeamCount">0</h5>
                         </div>
                     </li>
                 </ul>
             </div>
             <div class="col-md-3">
-                <input type="button" class="btn btn-default pull-right" value="Edit profile"/>
+                @*<input type="button" class="btn btn-default pull-right" value="Edit profile" style="margin-top: 6px;" />*@
+                <button class="btn btn-default pull-right" style="margin-top: 6px;">
+                    Edit profile
+                </button>
             </div>
         </div>
     </div>
+</div>
+
+<div class="timeline row">
+    <div class="col-md-3">
+        <div class="profile-card clearfix-xs">
+            <h4 class="profile-card-full-name"></h4>
+            @*<ul class="links">
+                    <li><a href="#">Posts 10</a></li>
+                    <li><a href="#">Endorses 25</a></li>
+                    <li><a href="#">Supports 10</a></li>
+                    <li><a href="#">Followers 10</a></li>
+                    <li><a href="#">Following 20</a></li>
+                </ul>*@
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-6 timeline-block">
+      
+        
+          @{Html.RenderPartial("_Posts");}
+
+
+    </div>
+
 </div>
 
 @*<div class="timeline row">
@@ -103,7 +128,7 @@
     <script>
         $(document).ready(function () {
             getUserDetails(getURLParameter());
-            //getPosts("0", getURLParameter());
+            getPosts("0", getURLParameter());
             //getFollowers(getURLParameter());
             //getFollowings(getURLParameter());
         });
@@ -112,27 +137,42 @@
             var Data = { "UserID": userID }
             runAjax('@Url.Action("GetUserProfileDetails", "Home")', Data, false, $("body"), "full", setUserDetails);
         }
+
+
         function setUserDetails(data, e) {
             $(".profile-card-full-name").text(data.Table[0]["FirstName"] + " " + data.Table[0]["LastName"]);
 
             ///$(".profile-card .profile-card-icon img").attr("src", "/assets/images/people/" + data.Table[0]['ImageUrl']);
-            $(".profile-card .profile-card-icon").append('<img src="/assets/images/people/' + data.Table[0]['ImageUrl'] + '" width="120" />');
-            $(".profile-card .profile-card-icon").removeClass("animated-background");
+            // $(".profile-card .profile-card-icon").append('<img src="/assets/images/people/' + data.Table[0]['ImageUrl'] + '" width="120" />');
+            //$(".profile-card .profile-card-icon").removeClass("animated-background");
 
+            $(".profile-icon-container .profile-icon").css("backgroundImage", "url(../../assets/images/people/" + data.Table[0]['ImageUrl'] + ")");
+            
+            
+            
+            
+            $("#FollowersCount").text(data.Table[0]['FollowersCount']);
+            $("#FollowingsCount").text(data.Table[0]['FollowingsCount']);
+            $("#PostCount").text(data.Table[0]['PostCount']);
+            $("#TeamCount").text(data.Table[0]['TeamCount']);
 
-            $("#btn-follow").attr("data-user-id", data.Table[0]["ID"]);
+            //$("#btn-follow").attr("data-user-id", data.Table[0]["ID"]);
 
-            if (data.Table[0]["IsMyFollow"] > 0) {
-                $("#btn-follow").removeClass("btn-default");
-                $("#btn-follow").addClass("btn-primary");
-                $("#btn-follow").text("Unfollow");
-            } else {
-                $("#btn-follow").removeClass("btn-primary");
-                $("#btn-follow").addClass("btn-default");
-                $("#btn-follow").text("Follow");
-            }
+            //if (data.Table[0]["IsMyFollow"] > 0) {
+            //    $("#btn-follow").removeClass("btn-default");
+            //    $("#btn-follow").addClass("btn-primary");
+            //    $("#btn-follow").text("Unfollow");
+            //} else {
+            //    $("#btn-follow").removeClass("btn-primary");
+            //    $("#btn-follow").addClass("btn-default");
+            //    $("#btn-follow").text("Follow");
+            //}
         }
-
+        function changeProfile(e) {
+            var $me = $(e);
+            $me.closest("ul").find("div").removeClass("active");
+            $me.addClass("active");
+        }
         function getFollowers(userID) {
             var Data = { "UserID": userID }
             runAjax('@Url.Action("GetFollowers", "Home")', Data, false, $("body"), "full", setFollowers);

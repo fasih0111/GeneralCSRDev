@@ -13,6 +13,10 @@ public class AuthorizeSessionAttribute : AuthorizeAttribute
         {
             httpContext.Response.Redirect("/Account/Login?ref=" + httpContext.Request.Path); return false;
         }
-        else { return true; }
+        else
+        {
+            
+            return true;
+        }
     }
 }
