@@ -144,10 +144,10 @@ namespace Common
         public static bool SendEmail(string from, string to, string subject, string body)
         {
             MailMessage msg = new MailMessage();
-           
+
             msg.From = new MailAddress(from, "Rikyas");
             msg.To.Add(to);
-           
+
             msg.Subject = subject;
             msg.Body = body;
             msg.IsBodyHtml = true;
@@ -869,11 +869,11 @@ namespace Common
             {
                 bmp1.Save(Path, codec, paramss);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
 
             }
-            
+
 
             //// Get a bitmap. The using statement ensures objects  
             //// are automatically disposed from memory after use.  
@@ -919,6 +919,17 @@ namespace Common
             }
             return null;
         }
-
+        public static bool CheckEmptyStrings(params string[] vals)
+        {
+            try { foreach (string val in vals) if (val == null || val.Trim() == "") return false; }
+            catch { return false; }
+            return true;
+        }
+        public static bool CheckEmptyInt(params int[] vals)
+        {
+            try { foreach (int val in vals) if (val == 0) return false; }
+            catch { return false; }
+            return false;
+        }
     }
 }

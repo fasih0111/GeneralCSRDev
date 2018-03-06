@@ -60,6 +60,7 @@ namespace GeneralCSR.Controllers
         }
 
         [HttpPost]
+        [AuthorizeSession]
         public string UserOnConnect(string ConnectionID)
         {
             CFSession CFSess = (CFSession)Session["CFSess"];

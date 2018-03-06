@@ -1577,8 +1577,10 @@ function setUserHoverDetails() {
 
 function deletePost(e) {
     var $me = $(e);
-
-
     var Data = { "RefID": $me.closest(".panel").data("id") };
-    runAjax("/Post/DeletePost", Data, true, $me, "button", afterCreateTeam, $me);
+    runAjax("/Post/DeletePost", Data, true, $me, "button", afterDeletePost, $me);
+}
+
+function afterDeletePost(data, e) {
+    var $me = $(e);
 }

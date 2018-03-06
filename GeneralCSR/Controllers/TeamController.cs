@@ -17,12 +17,12 @@ namespace GeneralCSR.Controllers
         {
             return View();
         }
-
+        [AuthorizeSession]
         public ActionResult Profile(int id)
         {
             return View();
         }
-
+        [AuthorizeSession]
         public ActionResult Create(int? id)
         {
             if (id != 0 && id != null)
@@ -72,12 +72,14 @@ namespace GeneralCSR.Controllers
         [HttpPost]
         public string CreateTeam(string TeamName, string Description, int IssueID, string ImgUrl)
         {
-            if (
-                (TeamName != "" & TeamName != null) &
-                (Description != "" & Description != null) &
-                (IssueID != 0) &
-                (ImgUrl != "" & ImgUrl != null)
-                )
+            //if (
+            //    (TeamName != "" & TeamName != null) &
+            //    (Description != "" & Description != null) &
+            //    (IssueID != 0) &
+            //    (ImgUrl != "" & ImgUrl != null)
+            //    )
+
+            if (FCommon.CheckEmptyStrings(TeamName, Description, ImgUrl) && FCommon.CheckEmptyInt(IssueID))
             {
                 CFSession CFSess = (CFSession)Session["CFSess"];
                 BAL.TeamID = 0;
