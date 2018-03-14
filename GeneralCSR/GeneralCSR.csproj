@@ -355,6 +355,8 @@
     <Content Include="assets\images\social\100\1.jpg" />
     <Content Include="assets\images\social\100\2.jpg" />
     <Content Include="assets\images\social\100\3.jpg" />
+    <Content Include="assets\images\social\Facebook.png" />
+    <Content Include="assets\images\social\new-google-favicon-512.png" />
     <Content Include="assets\images\teams\team-sample-2.jpg" />
     <Content Include="assets\images\teams\team-sample-3.jpg" />
     <Content Include="assets\images\teams\team-sample-4.jpg" />
@@ -468,6 +470,7 @@
     <None Include="Properties\PublishProfiles\Rikyas.pubxml" />
     <Content Include="Views\Team\Create.cshtml" />
     <Content Include="Views\Archive\Index.cshtml" />
+    <Content Include="Views\Account\Signin.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

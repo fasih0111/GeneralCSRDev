@@ -7,6 +7,7 @@ using Microsoft.Owin.Security.Cookies;
 using Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Facebook;
+using Microsoft.Owin.Security.Google;
 
 namespace GeneralCSR
 {
@@ -47,7 +48,11 @@ namespace GeneralCSR
             //};
 
 
-            //app.UseGoogleAuthentication();
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "258113206264-kgro6spfcfaik17tkd7nm2pa1bapnd5t.apps.googleusercontent.com",
+                ClientSecret = "KBI0E7IV8uWo_4G_jlcWTeW-"
+            });
         }
     }
 

@@ -20,6 +20,13 @@ namespace GeneralCSR.Controllers
             return View();
         }
 
+        public ActionResult Signin()
+        {
+            return View();
+        }
+
+
+
         public ActionResult Register(string q)
         {
             var Url = FCommon.Decrypt(HttpUtility.UrlDecode(q));

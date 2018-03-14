@@ -44,6 +44,7 @@ namespace GeneralCSR.Controllers
         //}
 
         [HttpPost]
+        [AuthorizeSession]
         public string UpdateUserDescriptions()
         {
 
