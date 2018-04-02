@@ -175,3 +175,51 @@ generalHub.client.setCommentEndorse = function (data) {
         //$obj.attr("data-count", data[0].SupportCount);
     }
 }
+
+generalHub.client.setCommentSupportOppose = function (data) {
+    var $me = $(".panel[data-type='P'][data-id='" + data[0].PostID + "']");
+    //var $objMain = $me.find("ul.comments > li[data-id='" + data[0].RefID + "']");
+    //var $obj = $me.find("ul.comments > li[data-id='" + data[0].RefID + "'] .support-count");
+
+    var $objMain = $("ul.comments > li[data-id='" + data[0].RefID + "']");
+    var $objSupport = $("ul.comments > li[data-id='" + data[0].RefID + "'] .support-count");
+    var $objOppose = $("ul.comments > li[data-id='" + data[0].RefID + "'] .oppose-count");
+
+
+    if (data.length > 0) {
+        if (data[0].SupportCount > 0) {
+            var $text = data[0].SupportCount + ' Support';
+            if (data[0].SupportCount > 1) $text += 's';
+            $objSupport.text($text);
+            if ($objMain.find(".endorse-count").text().length > 0) {
+                $objMain.find(".dot-space:eq(0)").html("&nbsp;&nbsp;&#8226;&nbsp;&nbsp;");
+            }
+            $objMain.find(".line-separator").addClass("now");
+        } else {
+            $objSupport.empty();
+            $objMain.find(".dot-space:eq(0)").empty();
+            if ($objMain.find(".endorse-count").text().length < 1) {
+                $objMain.find(".line-separator").removeClass("now");
+            }
+        }
+
+        if (data[0].OpposeCount > 0) {
+            var $text = data[0].OpposeCount + ' Oppose';
+            if (data[0].OpposeCount > 1) $text += 's';
+            $objOppose.text($text);
+            if ($objMain.find(".support-count").text().length > 0) {
+                $objMain.find(".dot-space:eq(1)").html("&nbsp;&nbsp;&#8226;&nbsp;&nbsp;");
+            }
+            $objMain.find(".line-separator").addClass("now");
+        } else {
+            $objOppose.empty();
+            $objMain.find(".dot-space:eq(1)").empty();
+            if ($objMain.find(".support-count").text().length < 1) {
+                $objMain.find(".line-separator").removeClass("now");
+            }
+        }
+
+
+       
+    }
+}

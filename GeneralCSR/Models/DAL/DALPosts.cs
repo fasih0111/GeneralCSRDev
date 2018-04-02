@@ -173,10 +173,12 @@ namespace Models
                                };
             return SqlHelper.ExecuteDataTable(FCommon.ConStr, CommandType.StoredProcedure, "spGetCommentEndorse", param);
         }
-        public virtual DataTable GetCommentSupport(string RefID)
+        public virtual DataTable GetCommentSupport(string RefID, bool IsSupport)
         {
             SqlParameter[] param = {
                                        new SqlParameter("@RefID", RefID),
+                                       new SqlParameter("@IsSupport", IsSupport),
+
                                };
             return SqlHelper.ExecuteDataTable(FCommon.ConStr, CommandType.StoredProcedure, "spGetCommentSupport", param);
         }
@@ -232,5 +234,16 @@ namespace Models
                                };
             return SqlHelper.ExecuteDataTable(FCommon.ConStr, CommandType.StoredProcedure, "spInactivePost", param);
         }
+
+        public virtual DataTable InsertSupportOppose(int UserID, int CommentID, bool IsSupport)
+        {
+            SqlParameter[] param = {
+                                       new SqlParameter("@UserID", UserID),
+                                       new SqlParameter("@CommentID", CommentID),
+                                       new SqlParameter("@IsSupport", IsSupport)
+                               };
+            return SqlHelper.ExecuteDataTable(FCommon.ConStr, CommandType.StoredProcedure, "InsertSupportOppose", param);
+        }
+        
     }
 }

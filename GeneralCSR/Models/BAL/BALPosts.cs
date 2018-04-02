@@ -79,9 +79,9 @@ namespace Models
         {
             return base.GetCommentEndorse(RefID);
         }
-        public override DataTable GetCommentSupport(string RefID)
+        public override DataTable GetCommentSupport(string RefID, bool IsSupport)
         {
-            return base.GetCommentSupport(RefID);
+            return base.GetCommentSupport(RefID, IsSupport);
         }
         public override DataTable GetAttachments(string RefID, string Type)
         {
@@ -106,6 +106,10 @@ namespace Models
         public override DataTable InactivePost(string MyID, string PostID, bool IsActive)
         {
             return base.InactivePost(MyID, PostID, IsActive);
+        }
+        public override DataTable InsertSupportOppose(int UserID, int CommentID, bool IsSupport)
+        {
+            return base.InsertSupportOppose(UserID, CommentID, IsSupport);
         }
     }
 }

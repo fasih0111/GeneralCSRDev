@@ -25,6 +25,11 @@ namespace GeneralCSR.Controllers
             return View();
         }
 
+        public ActionResult Signin2()
+        {
+            return View();
+        }
+
 
 
         public ActionResult Register(string q)
@@ -118,7 +123,55 @@ namespace GeneralCSR.Controllers
                 }
             }
             return JsonConvert.SerializeObject(dr);
-        }    
+        }
+
+        
+        public ActionResult DLogin(string id)
+        {
+
+            if (id != "")
+            {
+                string dQuery = HttpUtility.UrlDecode(FCommon.Decrypt(id));
+                string[] dQueryArr = dQuery.Split('~');
+
+                DataRow dr = BALUser.LoginAuthentication(dQueryArr[0].ToString(), dQueryArr[1].ToString());
+                if (dr["ID"].ToString().Equals("0"))
+                {
+
+                }
+                else
+                {
+                    if (dr["IsActive"].ToString().Equals("True"))
+                    {
+                        CFSession Sess = new CFSession();
+                        Sess.ID = dr["ID"].ToString();
+                        Sess.FirstName = dr["FirstName"].ToString();
+                        Sess.LastName = dr["LastName"].ToString();
+                        Sess.ImageUrl = dr["ImageUrl"].ToString();
+                        Sess.fk_UserTypeID = Convert.ToInt32(dr["fk_UserTypeID"]);
+                        Sess.IsFirstLogin = Convert.ToBoolean(dr["IsFirstLogin"]);
+                        Session["CFSess"] = Sess;
+
+                        //Response.Redirect("/Home/Index");
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+
+                    }
+                }
+
+                return View();
+            }
+            return View();
+        }
+
+        
+        public ActionResult Encrypt(string Email, string Pass)
+        {
+            return Json(HttpUtility.UrlEncode(FCommon.Encrypt(Email + "~" + Pass)), JsonRequestBehavior.AllowGet);
+        }
+
 
         [HttpPost]
         public string Logout()

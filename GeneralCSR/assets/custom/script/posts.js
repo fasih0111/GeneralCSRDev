@@ -71,7 +71,7 @@ function showCreatePostModal() {
 
 
 
-    showModal(true, true, true, "Lets solve an issue", $bodyElem, $footerElem);
+    showModal("", true, true, true, "Lets solve an issue", $bodyElem, $footerElem);
 
 
     $("#body").closest(".modal-body").css("overflow", "visible");
@@ -134,7 +134,7 @@ function submitPost(e) {
             success: function (response) {
                 if (response != "") {
                     $me.closest(".panel").find(".box-file").remove();
-                    var Data = { "Title": $("#title").val(), "Category": $me.closest(".modal").find(".cat-info.following").data("id"), "Body": $("#body").text(), "FileName": response.split("|")[0], "FileGeneratedName": response.split("|")[1] };
+                    var Data = { "Title": $("#title").val(), "Category": $me.closest(".modal").find(".cat-info.following").data("id"), "Body": $("#body").val(), "FileName": response.split("|")[0], "FileGeneratedName": response.split("|")[1] };
                     runAjax("/Home/InsertPost", Data, true, $(e).closest(".panel"), "full", afterCreatePost, $(e));
                 }
             },
@@ -144,7 +144,7 @@ function submitPost(e) {
         });
         $($me.closest(".modal").find("input[type='file']")).replaceWith($me.closest(".modal").find("input[type='file']").clone(true));
     } else {
-        var Data = { "Title": $("#title").val(), "Category": $me.closest(".modal").find(".cat-info.following").data("id"), "Body": $("#body").text(), "FileName": "", "FileGeneratedName": "" };
+        var Data = { "Title": $("#title").val(), "Category": $me.closest(".modal").find(".cat-info.following").data("id"), "Body": $("#body").val(), "FileName": "", "FileGeneratedName": "" };
         runAjax("/Home/InsertPost", Data, true, $(e).closest(".modal"), "full", afterCreatePost, $(e));
     }
 
@@ -268,21 +268,31 @@ function getPostElem(data) {
     $elem += '<div class="panel panel-default animated fadeIn loading-div" data-id="' + data["ID"] + '" data-type="P" data-user-id="' + data["UserID"] + '" data-offset="0" data-team-id="' + data["IsTeamExists"] + '">';
     $elem += '<div class="panel-heading">';
     $elem += '<div class="media">';
-    $elem += '<div class="media-left">';
-    $elem += '<a href="/Profile/Index/' + data["UserID"] + '" class="img-50">';
+    $elem += '<div class="media-left profile-image">';
+    $elem += '<a href="/Profile/Index/' + data["UserID"] + '" class="img-50 ">';
     //$elem += '<img src="/assets/images/people/' + data["ImgUrl"] + '" class="media-object">';
     $elem += '<div style="background-image: url(../../assets/images/people/' + data["ImgUrl"] + ')" class="responsive-image img-circle"></div>';
-
     $elem += '</a>';
+    if (data["UserType"] == 2) {
+        $elem += '<img class="badge-icon" src="../../assets/images/badge.png" title="Expert user"/>';
+    }
     $elem += '</div>';
     $elem += '<div class="media-body">';
 
+
+    $elem += '<div class="dropdown">';
+    $elem += '<a href="javascript:void(0)" class="pull-right text-muted" data-toggle="dropdown" class="toggle-button"><i class="material-icons" style=" font-size: 20px; ">keyboard_arrow_down</i></a>';
     if (data["UserID"] == userDetails.UserID) {
-        $elem += '<div class="dropdown">';
-        $elem += '<a href="javascript:void(0)" class="pull-right text-muted" data-toggle="dropdown" class="toggle-button"><i class="material-icons" style=" font-size: 20px; ">keyboard_arrow_down</i></a>';
         $elem += getPostMenuElem();
-        $elem += '</div>';
+    } else {
+        $elem += '<ul class="dropdown-menu pull-right" role="menu"><li><a href="#" onclick="showCommentReport(this);">Report</a></li>';
+        //$elem += '<li><a href="javascript:void(0)" onclick="showCreateTeam(this)">Create a team</a></li>';
+        $elem += '</ul>';
     }
+    $elem += '</div>';
+
+
+
 
 
     $elem += '<a class="color-hover user-hover-details" data-user-id="' + data["UserID"] + '" title="testings" href="/Profile/Index/' + data["UserID"] + '">' + data["FullName"] + '</a><br />';
@@ -529,25 +539,44 @@ function seeMoreComment(e) {
 }
 
 function todo(e) {
-    showModal(true, true, true, "Alert", "<h4 class='text-center'><i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Sorry! This feature is not available yet. please check back in the future</h4>", "");
+    showModal("", true, true, true, "Alert", "<h4 class='text-center'><i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Sorry! This feature is not available yet. please check back in the future</h4>", "");
+}
+function showCommentBox(e) {
+    var $me = $(e);
+    var $elem = '' +
+        '<div class="fa fa-paperclip fileinput-button comment-attachment">' +
+            '<input onchange="checkCommentFile(this);" multiple="multiple" type="file" placeholder="Write your response">' +
+        '</div>' +
+        '<a href="/Profile/Index/' + userDetails.UserID + '">' +
+            '<img src="/assets/images/people/' + userDetails.ImgURL + '" class="media-object pull-left">' +
+        '</a>' +
+       ' <textarea type="text" rows="3" class="form-control comment-body form-group"  onkeydown="if (event.keyCode==13){ event.preventDefault(); insertComment(this); }" placeholder="Write your response"></textarea>';
+
+    //$me.closest(".comment-form").empty();
+    $me.closest(".comment-form").append($elem);
+    $me.remove();
 }
 function showHideComments(e) {
     var $me = $(e);
     var $obj = $me.closest(".panel");
-    var $elem = '';
-    $elem += '<ul class="comments animated fadeIn">';
-    $elem += '<li class="comment-form">';
-    $elem += '<div class="fa fa-paperclip fileinput-button comment-attachment">';
-    $elem += '<input onchange="checkCommentFile(this);" multiple="multiple" type="file">';
-    $elem += '</div>';
-    $elem += '<a href="/Profile/Index/' + userDetails.UserID + '">';
-    $elem += '<img src="/assets/images/people/' + userDetails.ImgURL + '" class="media-object pull-left">';
-    $elem += '</a>';
-    $elem += '<input type="text" ' + (userDetails.UserTypeID == 1 ? $obj.attr("data-user-id") == userDetails.UserID ? "" : "disabled" : "") + ' class="form-control comment-body form-group"  onkeydown="if (event.keyCode==13){ event.preventDefault(); insertComment(this); }"/>';
-    $elem += '<div class="row">';
-    $elem += '<div class="col-md-12 file-div"></div></div>';
-    $elem += '</li>';
-    $elem += '</ul>';
+    var $elem = '' +
+    '<ul class="comments animated fadeIn">' +
+        '<li class="comment-form">' +
+            '<button class="btn btn-default" onclick="showCommentBox(this)">Would you like to respond?</button>' +
+    //'<div class="fa fa-paperclip fileinput-button comment-attachment">' +
+    //    '<input onchange="checkCommentFile(this);" multiple="multiple" type="file" placeholder="Write your response">' +
+    //'</div>' +
+    //'<a href="/Profile/Index/' + userDetails.UserID + '">' +
+    //    '<img src="/assets/images/people/' + userDetails.ImgURL + '" class="media-object pull-left">' +
+    //'</a>' +
+    //// $elem += '<input type="text" ' + (userDetails.UserTypeID == 1 ? $obj.attr("data-user-id") == userDetails.UserID ? "" : "disabled" : "") + ' class="form-control comment-body form-group"  onkeydown="if (event.keyCode==13){ event.preventDefault(); insertComment(this); }"/>';
+    //'<input type="text" class="form-control comment-body form-group"  onkeydown="if (event.keyCode==13){ event.preventDefault(); insertComment(this); }"/>' +
+    ////'<div class="row">' +
+    ////    '<div class="col-md-12 file-div"></div>' +
+    ////'</div>' +
+
+    '</li>' +
+'</ul>';
     if ($obj.find(".comments").length > 0) {
         $obj.find(".comments").remove();
         $obj.find(".comment-filter").remove();
@@ -596,7 +625,7 @@ function showCreateComment(e) {
     $footerElem += '<button type="button" class="btn btn-primary" onclick="insertComment(this);" data-id="'
         + $obj.data("id") + '" data-type="' + $obj.data("type") + '">Submit</button>';
 
-    showModal(true, true, true, "Write A Comment", $bodyElem, $footerElem);
+    showModal("", true, true, true, "Write A Comment", $bodyElem, $footerElem);
     $(".txt-comment").emojioneArea({
         pickerPosition: "bottom",
         tonesStyle: "bullet",
@@ -634,7 +663,7 @@ function showCreateShareFiles(e) {
     $footerElem += '<button type="button" class="btn btn-primary" onclick="insertCommentAttachment(this);" data-id="'
         + $obj.data("id") + '" data-type="' + $obj.data("type") + '">Submit</button>';
 
-    showModal(true, true, true, "Share Files", $bodyElem, $footerElem);
+    showModal("", true, true, true, "Share Files", $bodyElem, $footerElem);
 }
 
 function checkCommentFile(e) {
@@ -643,9 +672,15 @@ function checkCommentFile(e) {
     if (e.files.length > 0) {
         var $bodyElem = '';
         $bodyElem += '<div class="row">'; $bodyElem += '<div class="col-md-12">';
+
+        $bodyElem += '<div class="form-group">';
+        $bodyElem += '<label for="body">Title</label>';
+        $bodyElem += '<input type="text" class="txt-comment form-control">';
+        $bodyElem += '</div>';
+
         $bodyElem += '<div class="form-group">';
         $bodyElem += '<label for="body">Description</label>';
-        $bodyElem += '<textarea type="text" class="txt-description form-control"></textarea>';
+        $bodyElem += '<textarea class="txt-description form-control" rows="4"></textarea>';
         $bodyElem += '</div>';
 
         for (var i = 0; i < e.files.length; i++) {
@@ -668,7 +703,7 @@ function checkCommentFile(e) {
         }
         $bodyElem += '</div></div>'
         var $footerElem = '<button type="button" class="btn btn-primary" onclick="insertCommentAttachment(this , ' + $me.closest(".panel").attr("data-id") + ');">Submit</button>';
-        showModal(true, true, true, "Share Files", $bodyElem, $footerElem);
+        showModal("", true, true, true, "Share File", $bodyElem, $footerElem);
     }
 }
 
@@ -847,6 +882,9 @@ function getCommentsElem(data) {
     //}
 
 
+
+
+
     $elem += '<div class="comment-body-wrapper">';
     $elem += '<a data-user-id="' + data["UserID"] + '" href="/Profile/Index/' + data["UserID"] + '" class="color-hover comment-author pull-left user-hover-details" >' + data["FullName"] + '</a>';
 
@@ -885,15 +923,34 @@ function getCommentsElem(data) {
     //$elem += '<span class="color-hover btn-support ' + $isActiveClass + '" onclick="insertCommentSupport(this);">Oppose</span>';
     //$elem += $dotSpace
 
+
+
+
+
     if (data["IsMySupport"] > 0) $isActiveClass = $activeClass; else $isActiveClass = "";
-    $elem += '<span class="color-hover btn-support ' + $isActiveClass + '" onclick="insertCommentSupport(this);">Support</span>';
+    $elem += '<span class="color-hover btn-support ' + $isActiveClass + '" data-type="true" onclick="insertCommentSupportOppose(this);">Support</span>';
     $elem += $dotSpace
+
+    if (data["IsMyOppose"] > 0) $isActiveClass = $activeClass; else $isActiveClass = "";
+    $elem += '<span class="color-hover btn-oppose ' + $isActiveClass + '" data-type="false" onclick="insertCommentSupportOppose(this);">Oppose</span>';
+    $elem += $dotSpace
+
+    //if (data["IsMySupport"] > 0) $isActiveClass = $activeClass; else $isActiveClass = "";
+    //$elem += '<span class="color-hover btn-support ' + $isActiveClass + '" onclick="insertCommentSupport(this);">Support</span>';
+    //$elem += $dotSpace
 
     var $isFullStar = "";
     if (data["IsMyStar"] > 0) { $isActiveClass = $activeClass; $isFullStar = "star" } else { $isActiveClass = ""; $isFullStar = "star_border" }
     $elem += '<span class="color-hover btn-star ' + $isActiveClass + ' " onclick="insertCommentFlagged(this);" title="Highlight Message"><i class="material-icons">' + $isFullStar + '</i></span>';
 
-    if (data["EndorseCount"] > 0 || data["SupportCount"] > 0) { $elem += '<span class="line-separator now"></span>'; }
+    //$elem += $dotSpace
+    //$elem += '<span class="color-hover" onclick="insertCommentReport(this);" title="Report">Report</span>';
+
+
+
+
+
+    if (data["EndorseCount"] > 0 || data["SupportCount"] > 0 || data["OpposeCount"] > 0) { $elem += '<span class="line-separator now"></span>'; }
     else { $elem += '<span class="line-separator"></span>'; }
 
 
@@ -907,14 +964,48 @@ function getCommentsElem(data) {
 
     if (data["EndorseCount"] > 0 && data["SupportCount"] > 0) $elem += '<span class="dot-space">&nbsp;&nbsp;&#8226;&nbsp;&nbsp;</span>';
     else $elem += '<span class="dot-space"></span>';
-    $elem += '<span class="color-hover support-count" onclick="showCommentSupport(this)">';
+    $elem += '<span class="color-hover support-count" data-type="true" onclick="showCommentSupportOppose(this)">';
     if (data["SupportCount"] > 0) {
         $elem += data["SupportCount"] + ' Support';
         if (data["SupportCount"] > 1) $elem += 's';
     }
+
     $elem += '</span>';
+
+    if (data["SupportCount"] > 0 && data["OpposeCount"] > 0) $elem += '<span class="dot-space">&nbsp;&nbsp;&#8226;&nbsp;&nbsp;</span>';
+    else $elem += '<span class="dot-space"></span>';
+    $elem += '<span class="color-hover oppose-count" data-type="false" onclick="showCommentSupportOppose(this)">';
+    if (data["OpposeCount"] > 0) {
+        $elem += data["OpposeCount"] + ' Oppose';
+        if (data["OpposeCount"] > 1) $elem += 's';
+    }
     $elem += '</span>';
+    // $elem += '</span>';
     $elem += '</div>';
+    $elem += '</div>';
+
+
+    $elem += '<div class="media-right">';
+    if (data["UserID"] != "") {
+
+        $elem += '<div class="dropdown" data-show-hover="li">';
+        $elem += '<a href="#" data-toggle="dropdown" class="toggle-button">';
+        $elem += '<i class="material-icons">more_vert</i>';
+        $elem += '</a>';
+        $elem += '<ul class="dropdown-menu pull-right" role="menu">';
+
+        //$elem += '<li><a href="javascript:void(0)" onclick="showCommentEditPopup(this);">Edit</a></li>';
+        //$elem += '<li><a href="javascript:void(0)" onclick="showCommentDeletePopup(this);">Delete</a></li>';
+
+
+        $elem += '<li><a href="javascript:void(0)" onclick="showCommentReport(this);">Report</a></li>';
+
+
+
+        $elem += '</ul>';
+        $elem += '</div>';
+    }
+
     $elem += '</div>';
     $elem += '</li>';
     return $elem;
@@ -973,6 +1064,28 @@ function setCommentFlagged(data, e) {
         } else if (data[0].Action == "Add") {
             $me.addClass("active");
             $me.find("i.material-icons").text("star")
+        }
+    }
+}
+
+function insertCommentSupportOppose(e) {
+    var $me = $(e);
+    var $obj = $me.closest("li.media");
+
+    var Data = { "RefID": $obj.data("id"), "Type": $me.data("type") };
+    runAjax("/Home/InsertCommentSupportOppose", Data, true, $obj, "full", setCommentSupportOppose, $me);
+}
+
+function setCommentSupportOppose(data, e) {
+    var $me = $(e);
+
+    var $obj = $(e).closest(".comment-action");
+    $obj.find(".btn-support, .btn-oppose").removeClass("active");
+    if (data.length > 0) {
+        if (data[0].Action == "Delete") {
+            $me.removeClass("active");
+        } else {
+            $me.addClass("active");
         }
     }
 }
@@ -1061,15 +1174,16 @@ function showPostFollowers(data, e) {
             $bodyElem += getModalListLi(data[i]);
         }
         $bodyElem += '</ul>';
-        showModal(true, true, true, "Post Followers", $bodyElem, "");
+        showModal("", true, true, true, "Post Followers", $bodyElem, "");
     } else
         console.log("No Followers");
 }
 
-function showCommentSupport(e) {
+function showCommentSupportOppose(e) {
     var $me = $(e);
+
     var $obj = $me.closest("li.media");
-    var Data = { "RefID": $obj.data("id") };
+    var Data = { "RefID": $obj.data("id"), "Type": $me.data("type") };
     runAjax("/Post/GetCommentSupport", Data, true, $obj, "full", showCommentSupporters, $me);
 }
 
@@ -1082,7 +1196,11 @@ function showCommentSupporters(data, e) {
             $bodyElem += getModalListLi(data[i]);
         }
         $bodyElem += '</ul>';
-        showModal(true, true, true, "Comment Support", $bodyElem, "");
+        if ($me.data("type") == "true") {
+            showModal("", true, true, true, "Comment Support", $bodyElem, "");
+        } else {
+            showModal("", true, true, true, "Comment Oppose", $bodyElem, "");
+        }
     } else {
         console.log("No Support");
     }
@@ -1106,7 +1224,7 @@ function showCommentEndorsers(data, e) {
             $bodyElem += getModalListLi(data[i]);
         }
         $bodyElem += '</ul>';
-        showModal(true, true, true, "Comment Endorse", $bodyElem, "");
+        showModal("", true, true, true, "Comment Endorse", $bodyElem, "");
     } else {
         console.log("No Endorse");
     }
@@ -1181,7 +1299,7 @@ function setCommentAttachments(data, e) {
             }
             $elem += '</div>';
             $elem += '</div>';
-            showModal(true, true, true, "Attachments", $elem, "");
+            showModal("", true, true, true, "Archives", $elem, "");
         }
     }
 }
@@ -1241,11 +1359,11 @@ function setArchiveAttachment(data, e) {
         }
         $elem += '</tbody>';
         $elem += '</table>';
-        showModal(true, true, true, "Attachments", $elem, "");
+        showModal("modal-lg", true, true, true, "Archives", $elem, "");
 
         setOverflowToLastModal();
     } else
-        showModal(true, true, true, "Attachments", "<h3 class='text-center'>No Attachment found</h3>", "");
+        showModal("", true, true, true, "Archives", "<h3 class='text-center'>No Attachment found</h3>", "");
 }
 
 function showOrganization(e) {
@@ -1272,7 +1390,7 @@ function showOrganization(e) {
     $bodyElem += '</div>';
     $bodyElem += '</li>';
     $bodyElem += '</ul>';
-    showModal(true, true, true, "Organization", $bodyElem, "");
+    showModal("", true, true, true, "Organization", $bodyElem, "");
 }
 
 function showInviteModal(e) {
@@ -1286,7 +1404,7 @@ function showInviteModal(e) {
     $bodyElem += '</div>';
 
     $bodyElem += '<div class="text-right"><span class="color-hover" onclick="addMoreInviteEmail(this)">Add More</span></div>';
-    showModal(true, true, true, "Invitation", $bodyElem, "");
+    showModal("", true, true, true, "Invitation", $bodyElem, "");
 }
 
 function addMoreInviteEmail(e) {
@@ -1379,7 +1497,7 @@ function showCommentEditPopup(e) {
     $bodyElem += '<textarea class="form-control" rows="4">' + $comm + '</textarea>';
     $bodyElem += '</div>';
     var $footerElem = '<button type="button" class="btn btn-primary" onclick="editComment(this);" data-id="' + $obj.attr("data-id") + '"  data-post-id="' + $objMain.attr("data-id") + '" data-type="' + $objMain.attr("data-type") + '">Edit</button>';
-    showModal(true, true, true, "Edit Comment", $bodyElem, $footerElem);
+    showModal("", true, true, true, "Edit Comment", $bodyElem, $footerElem);
 }
 
 function editComment(e) {
@@ -1398,7 +1516,7 @@ function showCommentDeletePopup(e) {
     var $obj = $me.closest('li.media');
     var $bodyElem = '<strong>Note:</strong> This comment will be deleted and you\'ll no longer be able to find it';
     var $footerElem = '<button type="button" class="btn btn-primary" onclick="deleteComment(this);" data-id="' + $obj.attr("data-id") + '">Delete</button>';
-    showModal(true, true, true, "Confirmation", $bodyElem, $footerElem);
+    showModal("", true, true, true, "Confirmation", $bodyElem, $footerElem);
 }
 
 function deleteComment(e) {
@@ -1417,7 +1535,7 @@ function showPostInvite(e) {
     $bodyElem = '';
     var $footerElem = '<a class="btn btn-link" href="javascript:void(0)" onclick="closeModal(this);">No thanks, maybe later</a>';
     $footerElem += '<input type="button" class="btn btn-primary" value="Send Invitation" onclick="sendInvitation(this);" />';
-    showModal(true, true, false, "Who do you want to invite?", $bodyElem, $footerElem);
+    showModal("", true, true, false, "Who do you want to invite?", $bodyElem, $footerElem);
 
 }
 /*Team*/
@@ -1454,7 +1572,7 @@ function showCreateTeam(e) {
     var $footerElem = '<a class="btn btn-link" href="javascript:void(0)" onclick="closeModal(this);">Cancel</a>';
     $footerElem += '<input type="button" class="btn btn-primary" value="Create Team" onclick="createTeam(this);" data-issue-id="' + $me.closest(".panel").data("id") + '"/>';
 
-    showModal(true, true, false, "Want to create a team", $bodyElem, $footerElem);
+    showModal("", true, true, false, "Want to create a team", $bodyElem, $footerElem);
 }
 
 function createTeam(e) {
@@ -1482,7 +1600,7 @@ function getTeams() {
 
 function setTeams(data) {
     if (data.length > 0) {
-        var $obj = $(".team-div");
+        var $obj = $(".recent-team-div");
         $elem = '';
         for (var i = 0; i < data.length; i++) {
             $elem +=
@@ -1583,4 +1701,37 @@ function deletePost(e) {
 
 function afterDeletePost(data, e) {
     var $me = $(e);
+}
+
+function insertCommentReport(e) {
+    var $me = $(e);
+    showModal("", true, true, false, "Want to create a team", $bodyElem, $footerElem);
+}
+
+function showCommentReport(e) {
+    var $me = $(e);
+
+
+    var $bodyElem = '' +
+        '<ul class="links">' +
+            '<li><input type="radio" name="cReport" /> Harassment: Disparaging or adversarial towards a person or group</li>' +
+            '<li><input type="radio" name="cReport" /> Spam: Undisclosed promotion for a link or product</li>' +
+            '<li><input type="radio" name="cReport" /> Doesn\'t Answer the Question: Does not address question that was asked</li>' +
+            '<li><input type="radio" name="cReport" /> Plagiarism: Reusing content without attribution (link and blockquotes)</li>' +
+            '<li><input type="radio" name="cReport" /> Joke Answer: Not a sincere answer</li>' +
+            '<li><input type="radio" name="cReport" /> Out of Date: Is no longer relevant or accurate</li>' +
+            '<li><input type="radio" name="cReport" /> Bad Image: Content contains image that violates policy</li>' +
+        '</ul>';
+
+    var $footerElem = '<a class="btn btn-link" href="javascript:void(0)" onclick="closeModal(this);">Cancel</a>';
+    $footerElem += '<input type="button" class="btn btn-primary" value="Report" onclick="reportComment(this);" />';
+
+    showModal("", true, true, false, "Why are you reporting this?", $bodyElem, $footerElem);
+}
+
+function reportComment(e) {
+    var $me = $(e);
+    closeModal($me);
+    var $footerElem = '<a class="btn btn-link" href="javascript:void(0)" onclick="closeModal(this);">Close</a>';
+    showModal("", true, true, false, "Confirmation", "<h5>Report submitted successfully</h5>", $footerElem);
 }

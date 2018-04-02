@@ -52,7 +52,7 @@
 
 
     $bodyElem += '</div>';
-    showModal(true, true, true, "Donation", $bodyElem, "");
+    showModal("", true, true, true, "Donation", $bodyElem, "");
 }
 
 function showVolunteerPopup(e) {
@@ -109,7 +109,7 @@ function showVolunteerPopup(e) {
 
 
     $bodyElem += '</div>';
-    showModal(true, true, true, "Volunteer", $bodyElem, "");
+    showModal("", true, true, true, "Volunteer", $bodyElem, "");
 }
 
 function showPetitionPopup(e) {
@@ -166,7 +166,7 @@ function showPetitionPopup(e) {
 
 
     $bodyElem += '</div>';
-    showModal(true, true, true, "Petition", $bodyElem, "");
+    showModal("", true, true, true, "Petition", $bodyElem, "");
 }
 
 function showSkillVolunteerPopup(e) {
@@ -223,7 +223,7 @@ function showSkillVolunteerPopup(e) {
 
 
     $bodyElem += '</div>';
-    showModal(true, true, true, "Skill Based Volunteer", $bodyElem, "");
+    showModal("", true, true, true, "Skill Based Volunteer", $bodyElem, "");
 }
 
 function showWhitePaperPopup(e) {
@@ -310,7 +310,7 @@ function showWhitePaperPopup(e) {
 
 
     $bodyElem += '</div>';
-    showModal(true, true, true, "White Paper", $bodyElem, "");
+    showModal("", true, true, true, "White Paper", $bodyElem, "");
 }
 
 function showArchivePopup(e) {
@@ -368,7 +368,7 @@ function showEventsPopup(e) {
 
 
     $bodyElem += '</div>';
-    showModal(true, true, true, "Events", $bodyElem, "");
+    showModal("", true, true, true, "Events", $bodyElem, "");
 }
 
 function createAnAction(e) {
@@ -411,5 +411,5 @@ function createAnAction(e) {
     }
 
     $bodyElem += '</div>';
-    showModal(true, true, true, "Actions", $bodyElem, "");
+    showModal("", true, true, true, "Actions", $bodyElem, "");
 }

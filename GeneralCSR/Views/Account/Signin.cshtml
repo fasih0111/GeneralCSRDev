@@ -147,16 +147,16 @@
             display: none;
         }
 
-        .sign-up-text  {
+        .sign-up-text {
             font-size: 14px;
             display: inline;
-            
             background-repeat: no-repeat;
             background-position: left center;
             background-size: 20px 20px;
             clear: right;
             padding: 5px 0 5px 30px;
         }
+
             .sign-up-text.google {
                 background-image: url(../assets/images/social/new-google-favicon-512.png);
             }
@@ -164,20 +164,43 @@
             .sign-up-text.facebook {
                 background-image: url(../assets/images/social/Facebook.png);
             }
-
     </style>
     <script src="~/assets/vendors/jquery/jquery-3.1.1.min.js"></script>
 </head>
 <body>
     <div class="full">
         <div class="left">
-            <h1 class="text-center">Rikyas</h1>
+            <h1 class="text-center" style="color: #d6d6d6;">Rikyas</h1>
             <p style="font-size: 50px;">
-                A place to share knowledge and better understand the world
+                Uniting resources to solve our problems
             </p>
+            @*<br />
+            <br />
+            <div>
+                <div>&#9679;&nbsp; Solving our issues</div>
+                <div>
+                    &#9679;&nbsp; Make your lives better
+                </div>
+                <div>
+                    &#9679;&nbsp; Social brainstorming
+                </div>
+                <div>
+                    &#9679;&nbsp; Get issues resolved
+                </div>
+                <div>
+                    &#9679;&nbsp; Implementing new ways to solve all problems
+                </div>
+                <div>
+                    &#9679;&nbsp; Solving problems, more efficiently, quicker
+                </div>
+            </div>*@
         </div>
         <div class="right">
             <div class="div-email-signup">
+                
+                <button class="btn btn-default mb-14" style="width: 100%" type="button"> <span class="sign-up-text google">Sign up with Google</span></button>
+                <button class="btn btn-default mb-14" style="width: 100%" type="button"> <span class="sign-up-text facebook">Sign up with Facebook</span></button>
+
                 <h4 class="title ">Sign Up</h4>
                 <div class="signup-link mb-20">or <a href="#" onclick="showHideLogin(this);">sign in to your account</a></div>
                 <input type="text" id="FName" class="form-control mb-14" placeholder="First Name" />
@@ -188,17 +211,19 @@
                     By clicking "Sign Up" you indicate that you have read and agree to the Terms of Service and <a href="/Account/Privacy" target="_blank">Privacy Policy</a>
                 </div>
                 <button class="btn btn-primary mb-14" style="width: 100%" id="signup-btn" onclick="SignUp(this)" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing...">Sign up</button>
-                <button class="btn btn-default mb-14" style="width: 100%" type="button"> <span class="sign-up-text google">Sign up with Google</span></button>
-                <button class="btn btn-default mb-14" style="width: 100%" type="button"> <span class="sign-up-text facebook">Sign up with Facebook</span></button>
+                
             </div>
             <div class="div-email-login hidden">
+                
+                <button class="btn btn-default mb-14" style="width: 100%" type="button"> <span class="sign-up-text google">Sign in with Google</span></button>
+                <button class="btn btn-default mb-14" style="width: 100%" type="button"> <span class="sign-up-text facebook">Sign in with Facebook</span></button>
+
                 <h4 class="title ">Sign In</h4>
                 <div class="signup-link mb-20">or <a href="#" onclick="showHideLogin(this);">create an account</a></div>
                 <input type="text" id="Email-Signup" class="form-control mb-14" name="" placeholder="Email" />
                 <input type="password" id="Pass-Signup" class="form-control mb-14" name="" placeholder="Password" />
                 <button class="btn btn-primary mb-14" style="width: 100%" id="signup-btn" onclick="SignUp(this)" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing...">Sign in</button>
-                <button class="btn btn-default mb-14" style="width: 100%" type="button"> <span class="sign-up-text google">Sign in with Google</span></button>
-                <button class="btn btn-default mb-14" style="width: 100%" type="button"> <span class="sign-up-text facebook">Sign in with Facebook</span></button>
+                
             </div>
         </div>
     </div>

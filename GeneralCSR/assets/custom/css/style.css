@@ -1770,10 +1770,10 @@ xmp {
 .comment-attachment {
     position: absolute;
     overflow: hidden;
-    right: 22px;
-    top: 11px;
+    right: 24px;
+    top: 30px;
     color: #adadad;
-    font-size: 16px;
+    font-size: 20px;
     z-index: 10;
     padding: 0px;
 }
@@ -2159,14 +2159,16 @@ ul.links {
 
 .post-div ul.comments > li {
     border: none !important;
-    padding: 7px 26px 7px 16px;
+    padding: 7px 16px 7px 16px;
     line-height: 17px;
+    
 }
 
     .post-div ul.comments > li.comment-form {
-        padding: 4px 12px 12px !important;
+        padding: 20px 12px 12px !important;
         margin: 0px !important;
         position: relative;
+        text-align: center;
     }
 
     .post-div ul.comments > li.write-comment {
@@ -3112,10 +3114,9 @@ ul.comments li {
     margin-left: 8px;
     cursor: pointer;
     transition-duration: 0.2s;
-    
 }
 
-   .panel .navbar-nav > li > div.active, .navbar-nav > li > div:hover {
+    .panel .navbar-nav > li > div.active, .navbar-nav > li > div:hover {
         background-color: #0077b5;
         color: #ffffff;
         box-shadow: 0 0 1px #000;
@@ -3124,3 +3125,13 @@ ul.comments li {
     .panel .navbar-nav > li > div > h5, .navbar-nav > li > div > h6 {
         font-weight: bold;
     }
+
+.badge-icon {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+}
+
+.profile-image {
+    position: relative;
+}

@@ -85,7 +85,8 @@
                         </div>
                     </div>
                 </a>
-                <a href="javascript:showEventsPopup(this);">
+                @*<a href="javascript:showEventsPopup(this);">*@
+                <a href="/Events">
                     <div class="col-md-4 padding-4">
                         <div class="panel text-center no-margin padding-4">
                             <img src="/assets/images/events.png" width="50"><div class="action-title">Events</div>
@@ -172,33 +173,33 @@
         <div class="timeline-block">
 
             @*<div class="panel panel-default">
-                <div class="panel-heading panel-heading-gray title">Show Me</div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <select class="selectpicker form-control" id="show-me" onchange="onChangeCall(this)">
-                                <option value="1">Trending Issues</option>
-                                <option value="2">Issues I Follow</option>
-                                <option value="3">Latest Issues Posted</option>
-                                <option value="4">Issues Successfully Closed</option>
-                                <option value="5">Issues With Petition</option>
-                                <option value="6">Issues With Crowd Funding</option>
-                                <option value="7">Issues where voluntary work is required</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <input class="form-control" id="start-date" type="text" placeholder="Start Date" />
-                        </div>
-                        <div class="col-md-3">
-                            <input class="form-control" id="end-date" type="text" placeholder="End Date" />
-                        </div>
-                        <div class="row col-md-1">
-                            <button type="button" class="btn btn-primary" onclick="todo(this);"> <span class="fa fa-search"></span></button>
-                        </div>
+                    <div class="panel-heading panel-heading-gray title">Show Me</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <select class="selectpicker form-control" id="show-me" onchange="onChangeCall(this)">
+                                    <option value="1">Trending Issues</option>
+                                    <option value="2">Issues I Follow</option>
+                                    <option value="3">Latest Issues Posted</option>
+                                    <option value="4">Issues Successfully Closed</option>
+                                    <option value="5">Issues With Petition</option>
+                                    <option value="6">Issues With Crowd Funding</option>
+                                    <option value="7">Issues where voluntary work is required</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <input class="form-control" id="start-date" type="text" placeholder="Start Date" />
+                            </div>
+                            <div class="col-md-3">
+                                <input class="form-control" id="end-date" type="text" placeholder="End Date" />
+                            </div>
+                            <div class="row col-md-1">
+                                <button type="button" class="btn btn-primary" onclick="todo(this);"> <span class="fa fa-search"></span></button>
+                            </div>
 
+                        </div>
                     </div>
-                </div>
-            </div>*@
+                </div>*@
         </div>
         @*<div class="panel form-inline">
                 <div class="form-group">

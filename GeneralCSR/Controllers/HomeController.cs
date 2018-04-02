@@ -273,6 +273,23 @@ namespace GeneralCSR.Controllers
         }
 
         [HttpPost]
+        public string InsertCommentSupportOppose(string RefID, string type)
+        {
+            //System.Threading.Thread.Sleep(10000);
+            CFSession CFSess = (CFSession)Session["CFSess"];
+
+            DataTable dr = BALPost.InsertSupportOppose(Convert.ToInt32(CFSess.ID), Convert.ToInt32(RefID), Convert.ToBoolean(type));
+            if (dr != null)
+            {
+                var hubContext = GlobalHost.ConnectionManager.GetHubContext<GeneralHub>();
+                hubContext.Clients.All.setCommentSupportOppose(dr);
+            }
+
+            return JsonConvert.SerializeObject(dr);
+
+        }
+
+        [HttpPost]
         [AuthorizeSession]
         public string InsertCommentFlag(string RefID)
         {

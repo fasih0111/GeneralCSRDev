@@ -85,14 +85,14 @@ function showAlert(type, text, destination, isPrepend) {
 }
 
 
-function showModal(isHeader, isFooter, isCloseButton, title, body, footer) {
+function showModal(modalSizeClass, isHeader, isFooter, isCloseButton, title, body, footer) {
     var $elem = '';
     var $randId = Math.random();
     var $animationClass = "";
     //if ((Math.floor(Math.random() * 2) + 1) == 1) $animationClass = "bounceInDown"; else $animationClass = "flipInX";
     $elem += '<div class="modal main-validate" id="' + $randId + '">';
     //$elem += '<div class="modal-dialog animated ' + $animationClass + '">';
-    $elem += '<div class="modal-dialog ">';
+    $elem += '<div class="modal-dialog ' + modalSizeClass + '">';
     $elem += '<div class="modal-content">';
     if (isHeader) {
         $elem += '<div class="modal-header">';
@@ -117,6 +117,7 @@ function showModal(isHeader, isFooter, isCloseButton, title, body, footer) {
     $(".modal-div .modal:last, body modal-backdrop.in:last").fadeIn("fast");
     $(".st-container").addClass("blurry");
 }
+
 function closeModal(e) {
     var $me = $(e);
 
@@ -168,4 +169,17 @@ function getExtensionFromFileName(fileName) {
 function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
+}
+
+function getObjects(obj, key, val) {
+    var objects = [];
+    for (var i in obj) {
+        if (!obj.hasOwnProperty(i)) continue;
+        if (typeof obj[i] == 'object') {
+            objects = objects.concat(getObjects(obj[i], key, val));
+        } else if (i == key && obj[key] == val) {
+            objects.push(obj);
+        }
+    }
+    return objects;
 }

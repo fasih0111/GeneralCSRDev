@@ -175,6 +175,7 @@
     <Compile Include="Common\UserConnIDs.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArchiveController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -208,8 +209,18 @@
     <Content Include="assets\custom\script\profile.js" />
     <Content Include="assets\custom\script\registration.js" />
     <Content Include="assets\custom\script\validaion.js" />
+    <Content Include="assets\Extras\img-01.jpg" />
+    <Content Include="assets\Extras\img-02.jpg" />
+    <Content Include="assets\Extras\img-03.jpg" />
+    <Content Include="assets\Extras\img-04.jpg" />
+    <Content Include="assets\Extras\img-05.jpg" />
+    <Content Include="assets\Extras\logo-mashu-up-white.svg" />
+    <Content Include="assets\Extras\main.97292821.css" />
+    <Content Include="assets\Extras\main.faaf51f9.js" />
+    <Content Include="assets\Extras\Untitled.png" />
     <Content Include="assets\images\220px-SoftwareHouse-ChangePyramid.jpg" />
     <Content Include="assets\images\archive.png" />
+    <Content Include="assets\images\badge.png" />
     <Content Include="assets\images\male.png" />
     <Content Include="assets\images\businessman.png" />
     <Content Include="assets\images\check-image.png" />
@@ -471,6 +482,10 @@
     <Content Include="Views\Team\Create.cshtml" />
     <Content Include="Views\Archive\Index.cshtml" />
     <Content Include="Views\Account\Signin.cshtml" />
+    <Content Include="Views\Account\Signin2.cshtml" />
+    <Content Include="Views\Events\Create.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Account\LoginOld.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

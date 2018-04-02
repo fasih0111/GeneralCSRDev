@@ -23,11 +23,17 @@
 
             //    '<input type="button" name="next" class="next action-button" value="Next" />' +
             //'</fieldset>' +
-            
+
             '<fieldset class="user-expertise">' +
-                '<h2 class="fs-title">Add your areas of expertise, skills, hobbies and interests.</h2>' +
-                '<h3 class="fs-subtitle">Tick all that apply.</h3>' +
-                '<input type="text" class="expertise" name="fname" placeholder="Type here" />' +
+                '<h2 class="fs-title">Broadly speaking, What are your areas of expertise</h2>' +
+                '<h3 class="fs-subtitle">This helps us in showing you relevant feeds</h3>' +
+                '<div class="dropdown">' +
+                    '<input type="text" style="margin-bottom: 0px" class="expertise" placeholder="Search here" onclick="searchOccupation(this);"/>' +
+                    '<ul class="dropdown-menu" style="width: 100%">' +
+                        '<li>Test</li>' +
+                    '</ul>' +
+                '</div>' +
+                '<div class="expertise-tag"></div>' +
 
                 //'<input type="button" name="previous" class="previous action-button" value="Previous" />' +
                 '<input type="button" name="next" class="next action-button" value="Next" />' +
@@ -35,13 +41,13 @@
             '<fieldset class="user-description">' +
                 '<h2 class="fs-title">Write a brief sentence about yourself, interests or expertise.</h2>' +
                 '<h3 class="fs-subtitle">This will be your profile description.</h3>' +
-                '<textarea rows="4"></textarea>' +
+                '<textarea rows="4" placeholder="eg. Read mathematics, Love astronomy, Technology enthusiast, Blogger, Passionate about cooking, etc."></textarea>' +
                 '<input type="button" name="previous" class="previous action-button" value="Previous" />' +
                 '<input type="button" name="next" class="next action-button" value="Next" />' +
             '</fieldset>' +
             '<fieldset class="category">' +
                 '<h2 class="fs-title">What categories are you most passionate about?</h2>' +
-                '<h3 class="fs-subtitle">We will never sell it</h3>' +
+                //'<h3 class="fs-subtitle">We will never sell it</h3>' +
                 '<div class="sf-step" id="category" ><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="1"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/01.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="2"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/02.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="3"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/03.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="4"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/04.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="5"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/05.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="6"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/06.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="7"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/07.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="8"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/08.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="9"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/09.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="10"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/10.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="11"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/11.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="12"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/12.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="13"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/13.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="14"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/14.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="15"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/15.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="16"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/16.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="17"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/17.png"><div class="check-wrapper"><div class="check"></div></div></div></div>' +
                 '<input type="button" name="previous" class="previous action-button" value="Previous" />' +
                 //'<input type="button" name="next" class="next action-button" value="Next" />' +
@@ -51,7 +57,7 @@
             //    '<h2 class="fs-title">Please tick this box if you think you are a better fit as an "Expert"</h2>' +
             //    '<h3 class="fs-subtitle">An expert\'s role is to respond constructively with the perspective to provide solutions on issue\'s posted.</h3>' +
             //    '<div class="row jumbotron">' +
-                    
+
             //        '<div class="col-md-2 col-md-offset-4"><div class="img-circle padding-10 color-bg-hover" data-id="1" onclick="setDescribe(this);" style="background-color: #ccc;"><img class="img-responsive" src="/assets/images/professor.png" /></div><div style="margin-top: 4px;">Expert</div></div>' +
             //        '<div class="col-md-2"><div class="img-circle padding-10 color-bg-hover" data-id="0" onclick="setDescribe(this);" style="background-color: #ccc;"><img class="img-responsive" src="/assets/images/male.png" /></div><div style="margin-top: 4px;">User</div></div>' +
             //    '</div>' +
@@ -65,7 +71,7 @@
 
             //    '<div class="row jumbotron">' +
             //        '<h5 class="col-md-12 text-left">Gender</h5>' +
-                    
+
             //        '<div class="col-md-2"><div class="img-circle padding-10 color-bg-hover" data-id="1" onclick="setDescribe(this);" style="background-color: #ccc;"><img class="img-responsive" src="/assets/images/male.png" /></div><div style="margin-top: 4px;">Male</div></div>' +
             //        '<div class="col-md-2"><div class="img-circle padding-10 color-bg-hover" data-id="0" onclick="setDescribe(this);" style="background-color: #ccc;"><img class="img-responsive" src="/assets/images/female.png" /></div><div style="margin-top: 4px;">Female</div></div>' +
             //    '</div>' +
@@ -197,13 +203,35 @@ function afterUpdateUserDescription(data, e) {
     });
 
 
-    getPosts("0", "0");
-    
+    //getPosts("0", "0");
+
 }
 
 function closeThisModal(e) {
-    var $me= $(e)
+    var $me = $(e)
     $me.closest("div").fadeOut("fast", function () {
         $(this).remove();
     });
+}
+
+function searchOccupation(e) {
+    var $me = $(e);
+
+
+
+
+    //if ($me.val().trim() != "") {
+    //    infoData = $(occupation).filter(function () {
+    //        return (this.search($me.val()) >= 0)
+    //    });
+    //    var n = infoData.length;
+    //    for (var item = 0; item < n ; item++) {
+    //        //console.log("item: " + item + " data : " + infoData[item]);
+    //        var $elem = '';
+
+
+    //        $me.after("")
+    //        //expertise - tag
+    //    }
+    //}
 }

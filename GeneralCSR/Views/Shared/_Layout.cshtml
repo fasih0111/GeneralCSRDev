@@ -57,7 +57,7 @@
     <div class="st-container">
         <div class="navbar navbar-main navbar-primary navbar-fixed-top" role="navigation">
             <div class="container">
-                <div class="navbar-header">
+                <div class="navbar-header col-md-3">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -79,8 +79,8 @@
                     </div>*@
 
                 @*<button class="btn btn-issue col-md-4 col-md-offset-3" onclick="showCreatePostModal();">Lets solve it</button>*@
-                <button class="btn btn-issue col-md-4 col-md-offset-3" onclick="showCreatePostWizard();">Lets solve it</button>
-                <div class="collapse navbar-collapse" id="main-nav">
+                <button class="btn btn-issue col-md-6" onclick="showCreatePostWizard();">Post your issue here</button>
+                <div class="collapse navbar-collapse col-md-3 col-xs-12" id="main-nav">
                     <ul class="nav navbar-nav  navbar-right ">
 
                         <li class="">
@@ -524,15 +524,16 @@
             $bodyElem += '<div class="row">';
             $bodyElem += '<div class="col-md-12">';
             $bodyElem += '<div class="form-group">';
-            $bodyElem += '<label for="title">What is your issue about? Please post briefly</label>';
+            $bodyElem += '<label for="title">Briefly, write down the issue you want to solve</label>';
             //$bodyElem += '<input type="text" class="form-control" id="title" data-validate="required" onfocus="validateOn(this, event)" onblur="validateOn(this, event)">';
             $bodyElem += '<input type="text" class="form-control" id="title" data-validate="text" data-min-value="10" data-max-value="50" >';
             $bodyElem += '</div>';
             $bodyElem += '</div>';
             $bodyElem += '<div class="col-md-12">';
             $bodyElem += '<div class="form-group">';
+            //$bodyElem += '<label for="title">If you need to explain your issue further, you can describe it below <small>(this should be wrapped after 2 lines with ‘show more’ option)</small></label>';
             $bodyElem += '<label for="title">If you need to explain your issue further, you can describe it below</label>';
-            $bodyElem += '<textarea id="" rows="6" id="body" class="form-control"></textarea>';
+            $bodyElem += '<textarea rows="6" id="body" class="form-control"></textarea>';
             $bodyElem += '</div>';
             $bodyElem += '</div>';
             $bodyElem += '</div>';
@@ -629,7 +630,7 @@
             $bodyElem += '</div>';
             $bodyElem += '</div>';
             $bodyElem += '</div>';
-            showModal(false, false, false, "", $bodyElem, "");
+            showModal("", false, false, false, "", $bodyElem, "");
             $(".stepform").stepform();
 
             //$("#file-4").fileinput({
@@ -666,36 +667,36 @@
             });
 
             myMap();
-            $("#body").emojioneArea({
-                pickerPosition: "bottom",
-                tonesStyle: "bullet",
-                saveEmojisAs: "shortname",
-                events: {
-                    keyup: function (editor, event) {
-                        // console.log(editor.text());
+            //$("#body").emojioneArea({
+            //    pickerPosition: "bottom",
+            //    tonesStyle: "bullet",
+            //    saveEmojisAs: "shortname",
+            //    events: {
+            //        keyup: function (editor, event) {
+            //            // console.log(editor.text());
 
 
-                        // //console.log(editor.getCaretPosition()); // Work Late On Position To Show Suggestions Dropdown
-                        //// editor.replaceText(/this|that/gi, "the other");
-                        // // /\B#(\w*[0-9a-zA-Z])/gi Hashtag Regular Expression
-                        // // editor.replaceText(///#(\w*[0-9a-zA-Z])/gi, "<b>$1</b>");
-                        // if ((event.keyCode > 65 && event.keyCode < 90) || event.keyCode == 51) {
+            //            // //console.log(editor.getCaretPosition()); // Work Late On Position To Show Suggestions Dropdown
+            //            //// editor.replaceText(/this|that/gi, "the other");
+            //            // // /\B#(\w*[0-9a-zA-Z])/gi Hashtag Regular Expression
+            //            // // editor.replaceText(///#(\w*[0-9a-zA-Z])/gi, "<b>$1</b>");
+            //            // if ((event.keyCode > 65 && event.keyCode < 90) || event.keyCode == 51) {
 
-                        //     var afterReplace = editor.html();
-                        //     afterReplace = afterReplace.replace(new RegExp("<b>", "g"), "");
-                        //     afterReplace = afterReplace.replace(new RegExp("</b>", "g"), "");
-                        //     editor.html(afterReplace.replace(new RegExp(/#(\w*[0-9a-zA-Z])/, "g"), "<span style='color: blue'>$1</span>"));
-                        //     //$(this).html($(this).html().replace(/(#\S+)/, '<span style="color: blue">$1</span>'));
-                        //     // editor.html(afterReplace.replace(new RegExp("</b>", "g"), ""));
-                        //     //editor.replaceText(/#(\w*[0-9a-zA-Z])/gi, "<b>$1</b>");
+            //            //     var afterReplace = editor.html();
+            //            //     afterReplace = afterReplace.replace(new RegExp("<b>", "g"), "");
+            //            //     afterReplace = afterReplace.replace(new RegExp("</b>", "g"), "");
+            //            //     editor.html(afterReplace.replace(new RegExp(/#(\w*[0-9a-zA-Z])/, "g"), "<span style='color: blue'>$1</span>"));
+            //            //     //$(this).html($(this).html().replace(/(#\S+)/, '<span style="color: blue">$1</span>'));
+            //            //     // editor.html(afterReplace.replace(new RegExp("</b>", "g"), ""));
+            //            //     //editor.replaceText(/#(\w*[0-9a-zA-Z])/gi, "<b>$1</b>");
 
-                        // }
+            //            // }
 
-                    }
-                }
+            //        }
+            //    }
 
 
-            });
+            //});
         }
 
         //function noBack() {

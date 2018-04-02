@@ -40,9 +40,9 @@ namespace GeneralCSR.Controllers
         }
 
         [HttpPost]
-        public string GetCommentSupport(string RefID)
+        public string GetCommentSupport(string RefID, string Type)
         {
-            DataTable dt = BALPost.GetCommentSupport(RefID);
+            DataTable dt = BALPost.GetCommentSupport(RefID, Convert.ToBoolean(Type));
             return JsonConvert.SerializeObject(dt);
         }
 
