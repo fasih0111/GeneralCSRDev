@@ -562,7 +562,7 @@ function showHideComments(e) {
     var $elem = '' +
     '<ul class="comments animated fadeIn">' +
         '<li class="comment-form">' +
-            '<button class="btn btn-default" onclick="showCommentBox(this)">Would you like to respond?</button>' +
+            '<button class="btn btn-default form-control" onclick="showCommentBox(this)">Would you like to respond?</button>' +
     //'<div class="fa fa-paperclip fileinput-button comment-attachment">' +
     //    '<input onchange="checkCommentFile(this);" multiple="multiple" type="file" placeholder="Write your response">' +
     //'</div>' +
@@ -1601,9 +1601,10 @@ function getTeams() {
 function setTeams(data) {
     if (data.length > 0) {
         var $obj = $(".recent-team-div");
-        $elem = '';
+        var $myObj = $(".my-team-div");
+       
         for (var i = 0; i < data.length; i++) {
-            $elem +=
+            var $elem = ''+
                 //'<div class="panel" data-team-id="' + data[i].TeamID + '">' +
                 //    '<div class="panel-heading no-padding">' +
                 //        '<ul class="modal-group-list">' +
@@ -1655,16 +1656,18 @@ function setTeams(data) {
                             '<p><strong>' + data[i].MembersCount + ' Members</strong></p>' +
                         '</div>' +
                         '<div class="chin">' +
-                        (data[i].IsMeExist == 0 ? '<a class="btn btn-primary" type="button" onclick="joinMainUnjoinTeam(this)">Join</a>' :
-                            '<a class="btn btn-primary" type="button" onclick="joinMainUnjoinTeam(this)">Joined</a>') +
+                        (data[i].IsMeExist == 0 ? '<a class="btn btn-primary" type="button" onclick="joinMainUnjoinTeam(this)">Join team</a>' :
+                            '<a class="btn btn-primary" type="button" onclick="joinMainUnjoinTeam(this)">Unjoin</a>') +
                             '<a class="btn btn-primary" href="/Team/Profile/' + data[i].TeamID + '" target="_blank">View</a>' +
                         '</div>' +
                     '</div>' +
                 '</div>' +
             '</div>';
+            $obj.append($elem);
+            if (data[i].IsMeExist == 1) {
+                $myObj.append($elem);
+            }
         }
-
-        $obj.append($elem);
     }
 }
 
@@ -1678,9 +1681,9 @@ function setMeInTeam(data, e) {
     var $me = $(e);
     if (data.Table.length > 0) {
         if (data.Table[0].IsMeExists > 0) {
-            $me.text("Joined");
+            $me.text("Unjoin");
         } else {
-            $me.text("Join");
+            $me.text("Join team");
         }
     }
     console.timeEnd()

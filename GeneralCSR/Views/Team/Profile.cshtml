@@ -24,6 +24,9 @@
         }
         function setTeamDetails(data, e) {
             if (data.length > 0) {
+
+                var d = new Date(data[0].CreatedDate);
+
                 var $leftElem = '' +
                 '<div class="" data-team-id="' + data[0].TeamID + '">' +
                     '<div class="panel-body no-padding">' +
@@ -39,23 +42,26 @@
                          '<div class="panel-body">' +
                             '<h4 class="profile-card-full-name">' + data[0].TeamName + '</h4>' +
                             '<ul class="links">' +
-                                '<li><a href="#">Category</a></li>' +
-                                '<li><a href="#">Members</a></li>' +
-                                '<li><a href="#">Expert</a></li>' +
-                                '<li><a href="#">Status</a></li>' +
-                                '<li><a href="#">Action</a></li>' +
-                                '<li><a href="#">Created</a></li>' +
+                                '<li><a href="#">' + data[0].CategoryName + '</a></li>' +
+                                '<li><a href="#">Members: ' + data[0].MembersCount + '</a></li>' +
+                                '<li><a href="#">Experts: 0</a></li>' +
+                                '<li><a href="#">Status: ' + data[0].Status + '</a></li>' +
+                                '<li><a href="#">No action perform yet!</a></li>' +
+                                '<li><a href="#">Start Date: ' + d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear() + '</a></li>' +
                             '</ul>' +
                         '</div>' +
                     '</div>' +
                 '</div>';
 
                 var $rightElem = '' +
-               '<div class="">' +
+               '<div class="panel" data-team-id="' + data[0].TeamID + '" style="background: transparent;box-shadow: none;">' +
+                   (data[0].IsMeExist == 0 ?
+                           '<button type="button" class="btn btn-primary pull-right" onclick="joinUnjoinTeam(this)">Join team</button>' :
+                           '<button type="button" class="btn btn-default pull-right" onclick="joinUnjoinTeam(this)">Exit team</button>') +
                     '<h3 class="margin-top-none">' + data[0].TeamName + '</h3>' +
                    //data[0].Description +
                     '<div>Karachi, Sindh, Pakistan</div>' +
-                    '<div>18 Members</div>' +
+                    '<div>' + data[0].MembersCount + ' Members</div>' +
                     '<hr>' +
                     '<h4>About this Team</h4>' +
                     '<p>' + data[0].Description + '</p>' +
@@ -112,9 +118,9 @@
             var $me = $(e);
             if (data.Table.length > 0) {
                 if (data.Table[0].IsMeExists > 0) {
-                    $me.text("Joined");
+                    $me.text("Exit team");
                 } else {
-                    $me.text("Join");
+                    $me.text("Join team");
                 }
             }
             console.timeEnd()

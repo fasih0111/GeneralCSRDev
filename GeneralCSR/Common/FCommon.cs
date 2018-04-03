@@ -929,7 +929,7 @@ namespace Common
         {
             try { foreach (int val in vals) if (val == 0) return false; }
             catch { return false; }
-            return false;
+            return true;
         }
     }
 }
