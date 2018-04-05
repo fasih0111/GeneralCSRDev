@@ -154,7 +154,7 @@ namespace Common
 
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
-            smtp.Credentials = new NetworkCredential("fasih01111@gmail.com", "bRuce1000");
+            smtp.Credentials = new NetworkCredential("fasih01111@gmail.com", "bRuce1111");
             smtp.Port = 587;
             smtp.EnableSsl = true;
 

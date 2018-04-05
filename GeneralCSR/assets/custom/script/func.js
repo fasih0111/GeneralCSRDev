@@ -183,3 +183,24 @@ function getObjects(obj, key, val) {
     }
     return objects;
 }
+function showCustomAlert(title, body, type, location) {
+    var $elem = '' +
+    '<div class="custom-alert ' + type + '">' +
+        '<div class="alert-title">' + title + '</div>' +
+        '<div class="alert-body">' + body + '</div>' +
+        '<div class="alert-close">✖</div>' +
+    '</div>';
+
+    $(".custom-alert-wrapper." + location).append($elem);
+}
+
+function filterValuePart(arr, part) {
+    part = part.toLowerCase();
+
+    return arr.filter(function (obj) {
+        return Object.keys(obj)
+                     .some(function (k) {
+                         return obj[k].toLowerCase().indexOf(part) !== -1;
+                     });
+    });
+};

@@ -113,17 +113,18 @@
             runAjax("/Team/InsertTeamMember", Data, false, "", "button", setMeInTeam, $me);
         }
         function afterUserDetails() { }
+
         function setMeInTeam(data, e) {
-            console.time()
             var $me = $(e);
             if (data.Table.length > 0) {
                 if (data.Table[0].IsMeExists > 0) {
                     $me.text("Exit team");
+                    showCustomAlert("Success", "Join team successfully", "success", "bottom-left");
                 } else {
                     $me.text("Join team");
+                    showCustomAlert("Success", "You exit from team", "success", "bottom-left");
                 }
             }
-            console.timeEnd()
         }
     </script>
 }

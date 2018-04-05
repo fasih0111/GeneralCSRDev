@@ -32,12 +32,24 @@
                             <input type="text" id="txt-email" class="form-control" />
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email">Invite as an expert:</label>
+                            <p>
+                                <input type="checkbox" id="chk-isexpert" />
+                            </p>
+
+
+
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="email">Personal mesaage (Optional)</label>
-                            <textarea type="text" id="txt-desc" class="form-control" rows="5"></textarea>
+                            <textarea type="text" id="txt-desc" class="form-control" rows="5" placeholder="Hi,
+Join me on Rikyas, a great community for international people, where you can network, meet at regular events and get information and tips on living abroad."></textarea>
                         </div>
                     </div>
                 </div>
@@ -70,6 +82,11 @@
 
     function afterSendInvitation(data, e) {
         //$(e).closest(".panel-footer").find("a").click();
-        window.location = "http://localhost:1838/Home/Index";
+        //window.location = "http://localhost:1838/Home/Index";
+        $("#txt-fName").val("");
+        $("#txt-lName").val("");
+        $("#txt-email").val("");
+        $("#txt-desc").val("");
+        showAlert("s", "Invitation sent successfully!", $(e).closest(".panel").find(".panel-body"), true);
     }
 </script>

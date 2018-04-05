@@ -285,8 +285,7 @@ function getPostElem(data) {
     if (data["UserID"] == userDetails.UserID) {
         $elem += getPostMenuElem();
     } else {
-        $elem += '<ul class="dropdown-menu pull-right" role="menu"><li><a href="#" onclick="showCommentReport(this);">Report</a></li>';
-        //$elem += '<li><a href="javascript:void(0)" onclick="showCreateTeam(this)">Create a team</a></li>';
+        $elem += '<ul class="dropdown-menu pull-right" role="menu"><li><a href="#" onclick="showCommentReport(this);"><i class="material-icons">report</i> Report this post</a></li>';
         $elem += '</ul>';
     }
     $elem += '</div>';
@@ -473,10 +472,12 @@ function getPostElem(data) {
 }
 
 function getPostMenuElem() {
-    var $elem = '';
-    $elem += '<ul class="dropdown-menu pull-right" role="menu"><li><a href="#">Edit</a></li><li><a href="javascript:void(0)" onclick="showDeletePost(this)">Delete</a></li><li><a href="javascript:void(0)" onclick="createAnAction(this)">Create an action</a></li><li><a href="javascript:void(0)" onclick="showPostInvite(this)">Invite User</a></li>';
-    //$elem += '<li><a href="javascript:void(0)" onclick="showCreateTeam(this)">Create a team</a></li>';
-    $elem += '</ul>';
+    var $elem = '' +
+    '<ul class="dropdown-menu pull-right" role="menu">' +
+        '<li><a href="javascript:void(0)" onclick="showEditPost(this);"><i class="material-icons">mode_edit</i> Edit Post</a></li>' +
+        '<li><a href="javascript:void(0)" onclick="showDeletePost(this);"><i class="material-icons">delete</i> Delete Post</a></li>' +
+        '<li><a href="javascript:void(0)" onclick="showPostInvite(this);"><i class="material-icons">insert_invitation</i> Invite User</a></li>' +
+    '</ul>';
     return $elem;
 }
 
@@ -500,7 +501,8 @@ function afterUserHoverDetails(data, e) {
                     '<li>' +
                         '<div class="media-full">' +
                             //'<ul class="modal-group-list">' +
-                            '<div><span>Followed by: ' + data.Table[0].FollowCount + '</span></div>' +
+                            '<div><span>Followers: ' + data.Table[0].FollowersCount + '</span></div>' +
+                            '<div><span>Followings: ' + data.Table[0].FollowingsCount + '</span></div>' +
                             '<div><span>Posts: ' + data.Table[0].PostCount + '</span></div>' +
                             '<div><span>Teams: ' + data.Table[0].TeamCount + '</span></div>' +
                             //'</ul>' +
@@ -998,7 +1000,7 @@ function getCommentsElem(data) {
         //$elem += '<li><a href="javascript:void(0)" onclick="showCommentDeletePopup(this);">Delete</a></li>';
 
 
-        $elem += '<li><a href="javascript:void(0)" onclick="showCommentReport(this);">Report</a></li>';
+        $elem += '<li><a href="javascript:void(0)" onclick="showCommentReport(this);"><i class="material-icons">report</i> Report this comment</a></li>';
 
 
 
@@ -1602,9 +1604,9 @@ function setTeams(data) {
     if (data.length > 0) {
         var $obj = $(".recent-team-div");
         var $myObj = $(".my-team-div");
-       
+
         for (var i = 0; i < data.length; i++) {
-            var $elem = ''+
+            var $elem = '' +
                 //'<div class="panel" data-team-id="' + data[i].TeamID + '">' +
                 //    '<div class="panel-heading no-padding">' +
                 //        '<ul class="modal-group-list">' +

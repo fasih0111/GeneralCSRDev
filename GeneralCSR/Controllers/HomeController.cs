@@ -81,7 +81,7 @@ namespace GeneralCSR.Controllers
         {
 
             //System.Threading.Thread.Sleep(20000);
-            if (Category == "" ||Category == null )
+            if (Category == "" || Category == null)
             {
                 Category = "1";
             }
@@ -402,10 +402,12 @@ namespace GeneralCSR.Controllers
             CFSession CFSess = (CFSession)Session["CFSess"];
             string Fasih = HttpUtility.UrlEncode(FCommon.Encrypt("ToID:" + ((CFSession)Session["CFSess"]).ID + "~ToEmail:" + Email + "~FName:" + FName + "~LName:" + LName + "~Desc:" + Desc));
 
-            string link = "http://192.168.100.50:8080/Account/Register?q=" + Fasih;
+            string link = "http://175.107.202.227:8080/Account/Register?q=" + Fasih;
             Content = Content.Replace("@Link", link);
             Content = Content.Replace("@MyName", CFSess.FirstName + " " + CFSess.LastName);
             Content = Content.Replace("@UserName", FName + " " + LName);
+            Content = Content.Replace("@Note", Desc);
+
             if (FCommon.SendEmail("fasih01111@gmail.com", Email, "Invitation", Content))
             {
                 return JsonConvert.SerializeObject(BALUser.InsertUpdateInvitation(((CFSession)Session["CFSess"]).ID, Email, 0));

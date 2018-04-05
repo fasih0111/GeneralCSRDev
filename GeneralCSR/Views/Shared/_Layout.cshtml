@@ -364,8 +364,11 @@
                 }
             });
 
-
-
+            $.extend($.expr[":"], {
+                "containsNC": function (elem, i, match, array) {
+                    return (elem.textContent || elem.innerText || "").toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+                }
+            });
         });
 
         function getHeaderDetails() {
@@ -400,6 +403,12 @@
             if (data["IsFirstLogin"] == true) {
 
                 $("body").append(createWizardForm());
+
+                var $liElem = '';
+                for (var i = 0; i < occupations.length; i++) {
+                    $liElem += '<li class="hidden" onclick="selectOccupation(this);"><a>' + occupations[i]["name"] + '</a></li>';
+                }
+                $(".occupations").append($liElem);
 
                 //jQuery time
                 var current_fs, next_fs, previous_fs; //fieldsets
@@ -725,5 +734,10 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiZ7OKlN8w33q8D0osx6YOVQYGPDXx0nU"></script>
     @RenderSection("Scripts", false)
+
+    <div class="custom-alert-wrapper top-left"></div>
+    <div class="custom-alert-wrapper top-right"></div>
+    <div class="custom-alert-wrapper bottom-left"></div>
+    <div class="custom-alert-wrapper bottom-right"></div>
 </body>
 </html>

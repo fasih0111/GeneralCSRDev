@@ -26,14 +26,13 @@
 
             '<fieldset class="user-expertise">' +
                 '<h2 class="fs-title">Broadly speaking, What are your areas of expertise</h2>' +
-                '<h3 class="fs-subtitle">This helps us in showing you relevant feeds</h3>' +
+                '<h3 class="fs-subtitle">Select upto 3</h3>' +
                 '<div class="dropdown">' +
-                    '<input type="text" style="margin-bottom: 0px" class="expertise" placeholder="Search here" onclick="searchOccupation(this);"/>' +
-                    '<ul class="dropdown-menu" style="width: 100%">' +
-                        '<li>Test</li>' +
+                    '<input type="text" style="margin-bottom: 0px" class="expertise" placeholder="Search here" onclick="searchOccupation(this);" onkeyup="searchOccupation(this);"/>' +
+                    '<ul class="dropdown-menu occupations" style="width: 100%">' +
                     '</ul>' +
                 '</div>' +
-                '<div class="expertise-tag"></div>' +
+                '<div class="row expertise-tag"></div>' +
 
                 //'<input type="button" name="previous" class="previous action-button" value="Previous" />' +
                 '<input type="button" name="next" class="next action-button" value="Next" />' +
@@ -52,6 +51,7 @@
                 '<input type="button" name="previous" class="previous action-button" value="Previous" />' +
                 //'<input type="button" name="next" class="next action-button" value="Next" />' +
                 '<input type="button" name="submit" class="submit action-button" value="Submit" onclick="updateUserDescription(this)"/>' +
+                '<a onclick="todo(this);">Connect with social network</a>' +
             '</fieldset>' +
             // '<fieldset class="is-expert">' +
             //    '<h2 class="fs-title">Please tick this box if you think you are a better fit as an "Expert"</h2>' +
@@ -84,6 +84,9 @@
     '</div>';
 
     return $elem;
+
+
+
 }
 
 //$(document).ready(function () {
@@ -217,6 +220,14 @@ function closeThisModal(e) {
 function searchOccupation(e) {
     var $me = $(e);
 
+    if ($me.val().trim() != "") {
+        if (!($me.closest(".dropdown").hasClass("open"))) $me.closest(".dropdown").addClass("open");
+        $(".occupations li").addClass("hidden");
+        $(".occupations li:containsNC('" + $me.val() + "')").removeClass("hidden");
+    } else {
+        $me.closest(".dropdown").removeClass("open");
+        $(".occupations li").addClass("hidden");
+    }
 
 
 
@@ -235,3 +246,25 @@ function searchOccupation(e) {
     //    }
     //}
 }
+
+function selectOccupation(e) {
+    var $me = $(e);
+    var $elem = '' +
+        '<div class="selected-occ">' + $me.find("a").text() + '' +
+            '<div class="selected-occ-close" onclick="removeOccItem(this)">✖</div>' +
+        '</div>';
+    $(".expertise-tag").append($elem);
+
+    $(".occupations li").addClass("hidden");
+    $(".occupations").closest(".dropdown").removeClass("open");
+    $(".expertise").val("");
+    $(".expertise").focus();
+}
+
+function removeOccItem(e) {
+    var $me = $(e);
+    $me.closest(".selected-occ").fadeOut("fast", function () {
+        $(this).remove();
+    });
+}
+

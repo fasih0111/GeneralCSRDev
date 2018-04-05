@@ -1490,17 +1490,30 @@ a.comment-author {
     overflow: visible;
 }
 
-.comment-body-wrapper .dropdown .dropdown-menu li a, .timeline-block .panel-heading .media-body .dropdown .dropdown-menu li a {
+.comments .dropdown a .material-icons {
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+}
+
+.comment-body-wrapper .dropdown .dropdown-menu li a, .dropdown .dropdown-menu li a {
     display: block;
-    padding: 3px 20px;
+    padding: 10px 20px;
     clear: both;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.42857143;
     color: #333;
     white-space: nowrap;
     width: 100%;
-    font-size: 13px;
+    font-size: 14px;
+    border-bottom: 1px solid #cdcfd2;
 }
+
+    .comment-body-wrapper .dropdown .dropdown-menu li a .material-icons, .dropdown .dropdown-menu li a .material-icons {
+        margin-right: 4px;
+        line-height: 1.2;
+    }
+
 
     .comment-body-wrapper .dropdown .dropdown-menu li a:hover, .timeline-block .panel-heading .media-body .dropdown .dropdown-menu li a:hover {
         color: #005f92;
@@ -2158,7 +2171,7 @@ ul.links {
 
 .post-div ul.comments > li {
     border: none !important;
-    padding: 7px 16px 7px 16px;
+    padding: 10px 16px 10px 16px;
     line-height: 17px;
 }
 
@@ -3132,4 +3145,96 @@ ul.comments li {
 
 .profile-image {
     position: relative;
+}
+
+
+.custom-alert-wrapper {
+    position: fixed;
+}
+
+.custom-alert {
+    background-color: #fff;
+    width: 300px;
+    box-shadow: 0 0 10px #676767;
+    border-left: 5px solid;
+    padding: 20px;
+    position: relative;
+    margin-bottom: 6px;
+}
+
+.custom-alert-wrapper.top-left {
+    top: 76px;
+    left: 30px;
+}
+
+.custom-alert-wrapper.top-right {
+    top: 76px;
+    right: 30px;
+}
+
+.custom-alert-wrapper.bottom-left {
+    bottom: 30px;
+    left: 30px;
+}
+
+.custom-alert-wrapper.bottom-right {
+    bottom: 30px;
+    right: 30px;
+}
+
+.custom-alert.success {
+    border-color: #3c763d;
+}
+
+.custom-alert.info {
+    border-color: #004085;
+}
+
+.custom-alert.danger {
+    border-color: #ca1727;
+}
+
+.alert-title {
+    font-size: 16px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.alert-body {
+    font-size: 14px;
+}
+
+.alert-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 14px;
+}
+
+.occupations li {
+    cursor: pointer;
+}
+
+.dropdown-menu.occupations > li > a {
+    padding: 10px 20px;
+}
+
+.expertise-tag {
+    margin: 10px 0px;
+}
+
+.selected-occ {
+    background-color: #eee;
+    padding: 10px 40px 10px 10px;
+    position: relative;
+    margin: 4px 4px 0px 0px;
+    float: left;
+    text-align: left;
+}
+
+.selected-occ-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
 }
