@@ -1679,16 +1679,18 @@ function joinMainUnjoinTeam(e) {
     runAjax("/Team/InsertTeamMember", Data, true, $("body"), "full", setMeInTeam, $me);
 }
 function setMeInTeam(data, e) {
-    console.time()
+    //console.time()
     var $me = $(e);
     if (data.Table.length > 0) {
         if (data.Table[0].IsMeExists > 0) {
             $me.text("Unjoin");
+            var $teamID = $me.closest(".panel").data("team-id");
+            window.location.href = "/Team/Profile/" + $teamID;
         } else {
             $me.text("Join team");
         }
     }
-    console.timeEnd()
+    //console.timeEnd()
 }
 
 function setUserHoverDetails() {

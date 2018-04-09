@@ -402,11 +402,19 @@ namespace GeneralCSR.Controllers
             CFSession CFSess = (CFSession)Session["CFSess"];
             string Fasih = HttpUtility.UrlEncode(FCommon.Encrypt("ToID:" + ((CFSession)Session["CFSess"]).ID + "~ToEmail:" + Email + "~FName:" + FName + "~LName:" + LName + "~Desc:" + Desc));
 
-            string link = "http://175.107.202.227:8080/Account/Register?q=" + Fasih;
+            string link = "http://175.107.202.227:8080/Account/Login?q=" + Fasih;
             Content = Content.Replace("@Link", link);
             Content = Content.Replace("@MyName", CFSess.FirstName + " " + CFSess.LastName);
             Content = Content.Replace("@UserName", FName + " " + LName);
             Content = Content.Replace("@Note", Desc);
+            if (Desc != "")
+            {
+                Content = Content.Replace("@DisplayNote", "block");
+            }
+            else
+            {
+                Content = Content.Replace("@DisplayNote", "none");
+            }
 
             if (FCommon.SendEmail("fasih01111@gmail.com", Email, "Invitation", Content))
             {
@@ -482,6 +490,13 @@ namespace GeneralCSR.Controllers
             movies.Add(new { Title = "Star Wars", Genre = "Science Fiction", Year = 1977 });
 
             return Json(movies, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [AuthorizeSession]
+        public string GetUserForTeam(string ID)
+        {
+            return JsonConvert.SerializeObject(BALUser.GetUsers("", "", ""));
         }
 
     }

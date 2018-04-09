@@ -66,13 +66,13 @@
                                 	
                                     <!--End Para2-->
                                     
-									<p style="margin-top: 30px; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; font-weight: normal; font-size: 14px; line-height: 21px; font-family: Helvetica, Arial, sans-serif; color: #777777; font-style: italic; background-color: #F3F3F3;">
+									<p style="margin-top: 30px; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; font-weight: normal; font-size: 14px; line-height: 21px; font-family: Helvetica, Arial, sans-serif; color: #777777; font-style: italic; background-color: #F3F3F3; display: @DisplayNote">
 									<strong>@MyName</strong> also added the note, <br/ >
 									"@Note"
 									</p>
 									
 									<div style="text-align: center">
-									<a target="_blank" href="@Link" style="border-radius: 2px; font-weight: bold; font-size: 14px; line-height: 20px; font-family: Helvetica, Arial, sans-serif; text-decoration: none; display: inline-block; padding: 6px 18px; border: 1px solid #203049; background-color: #203049; color: #ffffff; cursor:pointer;">Join Rikyas</a>
+									<a target="_blank" href="@Link" style="margin-top: 10px; border-radius: 2px; font-weight: bold; font-size: 14px; line-height: 20px; font-family: Helvetica, Arial, sans-serif; text-decoration: none; display: inline-block; padding: 6px 18px; border: 1px solid #203049; background-color: #203049; color: #ffffff; cursor:pointer;">Join Rikyas</a>
 									</div>
                                     <!--saprator-->
                                     <p style="margin:0;padding:0;text-align:center;">

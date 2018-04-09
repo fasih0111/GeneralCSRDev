@@ -1490,7 +1490,7 @@ a.comment-author {
     overflow: visible;
 }
 
-.comments .dropdown a .material-icons {
+.comments .dropdown a .material-icons, .media-right .dropdown a .material-icons {
     font-size: 18px;
     font-weight: 500;
     color: #000;
@@ -3139,8 +3139,8 @@ ul.comments li {
 
 .badge-icon {
     position: absolute;
-    top: -5px;
-    left: -5px;
+    top: -2px;
+    left: -2px;
 }
 
 .profile-image {
@@ -3150,6 +3150,7 @@ ul.comments li {
 
 .custom-alert-wrapper {
     position: fixed;
+    z-index: 1111;
 }
 
 .custom-alert {

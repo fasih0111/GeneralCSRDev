@@ -28,8 +28,14 @@
             <label for="title">Description</label>
             <textarea class="form-control" rows="4" id="description" placeholder="Write a short description of your Team and its goals."></textarea>
         </div>
-        <div class="form-group">
-            <label for="title">Invite Experts and users</label><input type="text" class="form-control" placeholder="This gives you initial thrust. You can add more later">
+        <div class="form-group dropdown">
+            <label for="title">Invite Experts and users</label><input type="text" id="team-user-search" class="form-control" onkeyup="searchUsersForTeam(this);" placeholder="This gives you initial thrust. You can add more later">
+            <ul class="dropdown-menu team-users" style="width: 100%"></ul>
+
+            <div class="row ">
+
+                <div class="col-md-12 users-tag"></div>
+            </div>
         </div>
 
         <div class="form-group">
@@ -55,6 +61,49 @@
         $(".avatar img").click(function () {
             $(this).closest(".avatar").find("img").removeClass("selected");
             $(this).addClass("selected");
+
         });
+
+        getUsersForTeam();
+
+
     });
+    function getUsersForTeam() {
+        var Data = { "ID": "" };
+        runAjax("/Home/GetUserForTeam", Data, false, "", "full", setUserForTeam);
+    }
+
+    function setUserForTeam(data, e) {
+        var $liElem = '';
+        for (var i = 0; i < data.length; i++) {
+            $liElem += '<li class="hidden" onclick="selectUserForTeam(this);"><a>' + data[i]["FirstName"] + " " + data[i]["LastName"] + '</a></li>';
+        }
+        $(".team-users").append($liElem);
+    }
+    function searchUsersForTeam(e) {
+        var $me = $(e);
+        if ($me.val().trim() != "") {
+            if (!($me.closest(".dropdown").hasClass("open"))) $me.closest(".dropdown").addClass("open");
+            $(".team-users li").addClass("hidden");
+            $(".team-users li:containsNC('" + $me.val() + "')").removeClass("hidden");
+        } else {
+            $me.closest(".dropdown").removeClass("open");
+            $(".team-users li").addClass("hidden");
+        }
+    }
+    function selectUserForTeam(e) {
+
+        var $me = $(e);
+        var $elem = '' +
+            '<div class="selected-occ">' + $me.find("a").text() + '' +
+                '<div class="selected-occ-close" onclick="removeOccItem(this)">✖</div>' +
+            '</div>';
+        $(".users-tag").append($elem);
+
+        $(".team-users li").addClass("hidden");
+        $(".team-users").closest(".dropdown").removeClass("open");
+        $("#team-user-search").val("");
+        $("#team-user-search").focus();
+
+    }
 </script>

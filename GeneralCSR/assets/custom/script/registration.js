@@ -249,11 +249,14 @@ function searchOccupation(e) {
 
 function selectOccupation(e) {
     var $me = $(e);
-    var $elem = '' +
-        '<div class="selected-occ">' + $me.find("a").text() + '' +
-            '<div class="selected-occ-close" onclick="removeOccItem(this)">✖</div>' +
-        '</div>';
-    $(".expertise-tag").append($elem);
+
+    if ($(".expertise-tag .selected-occ").length < 3) {
+        var $elem = '' +
+            '<div class="selected-occ">' + $me.find("a").text() + '' +
+                '<div class="selected-occ-close" onclick="removeOccItem(this)">✖</div>' +
+            '</div>';
+        $(".expertise-tag").append($elem);
+    } else showCustomAlert("Warning", "You cannot select more than 3 expertise", "danger", "bottom-left");
 
     $(".occupations li").addClass("hidden");
     $(".occupations").closest(".dropdown").removeClass("open");

@@ -55,9 +55,13 @@
 
                 var $rightElem = '' +
                '<div class="panel" data-team-id="' + data[0].TeamID + '" style="background: transparent;box-shadow: none;">' +
+               (data[0].MyDesignation == 1 ?
+                        '<button type="button" class="btn btn-default pull-right" style="margin-left: 6px;" id="setting-icon" onclick="todo(this);"><i class="material-icons">settings</i></button>' : "") +
+
                    (data[0].IsMeExist == 0 ?
-                           '<button type="button" class="btn btn-primary pull-right" onclick="joinUnjoinTeam(this)">Join team</button>' :
-                           '<button type="button" class="btn btn-default pull-right" onclick="joinUnjoinTeam(this)">Exit team</button>') +
+                        '<button type="button" class="btn btn-primary pull-right" onclick="joinUnjoinTeam(this)">Join team</button>' :
+                        '<button type="button" class="btn btn-default pull-right" onclick="joinUnjoinTeam(this)">Exit team</button>') +
+
                     '<h3 class="margin-top-none">' + data[0].TeamName + '</h3>' +
                    //data[0].Description +
                     '<div>Karachi, Sindh, Pakistan</div>' +
@@ -91,7 +95,8 @@
                     $elem +=
                     '<div class="col-md-4 team-member-box">' +
                         '<div class="media-left">' +
-                            '<a href="#">' +
+                            '<a href="/Profile/Index/' + data[i].ID + '">' +
+                                (data[i].Designation == "Leader" ? '<img class="badge-icon" src="../../assets/images/badge.png" title="Expert user">' : "") +
                                 '<img src="/assets/images/people/' + data[i].ImgUrl + '" class="img-60 img-circle">' +
                             '</a>' +
                         '</div>' +
@@ -101,6 +106,11 @@
                             '<div class="team-member-rl"><span class="icon-location"></span>Karachi, Sindh, Pakistan</div>' +
                         '</div>' +
 
+                        ($("#setting-icon").length > 0 ?
+                            '<div class="media-right">' +
+                                '<div class="dropdown" data-show-hover="li"><a href="#" data-toggle="dropdown" class="toggle-button"><i class="material-icons">more_vert</i></a><ul class="dropdown-menu pull-right" role="menu"><li><a href="javascript:void(0)" onclick="removeUserFromTeam(this);"><i class="material-icons">report</i> Remove this user</a></li></ul></div>' +
+                            '</div>'
+                        : "") +
                     '</div>';
                 }
                 $(".team-member-div").append($elem);
@@ -126,5 +136,16 @@
                 }
             }
         }
+
+        function removeUserFromTeam(e) {
+            var $me = $(e);
+
+            $me.closest(".team-member-box").fadeOut(function () {
+                $(this).remove();
+            });
+            showCustomAlert("Success", "User remove successfully", "success", "bottom-left");
+
+        }
     </script>
 }
+

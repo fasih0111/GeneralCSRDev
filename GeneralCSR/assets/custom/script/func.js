@@ -184,14 +184,15 @@ function getObjects(obj, key, val) {
     return objects;
 }
 function showCustomAlert(title, body, type, location) {
+    var howMuchAlerts = $(".custom-alert-wrapper .custom-alert").length;
     var $elem = '' +
-    '<div class="custom-alert ' + type + '">' +
+    '<div class="custom-alert ' + type + ' ' + (howMuchAlerts + 1) + '">' +
         '<div class="alert-title">' + title + '</div>' +
         '<div class="alert-body">' + body + '</div>' +
-        '<div class="alert-close">✖</div>' +
+        //'<div class="alert-close">✖</div>' +
     '</div>';
-
     $(".custom-alert-wrapper." + location).append($elem);
+    setTimeout(function () { $(".custom-alert-wrapper").find(".custom-alert." + (howMuchAlerts + 1)).fadeOut("fast", function () { $(this).remove(); }); }, 5000);
 }
 
 function filterValuePart(arr, part) {

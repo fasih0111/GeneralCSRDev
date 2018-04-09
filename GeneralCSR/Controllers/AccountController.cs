@@ -69,11 +69,24 @@ namespace GeneralCSR.Controllers
         {
             return View();
         }
-        public ActionResult Login()
+        public ActionResult Login(string q)
         {
             if (Session["CFSess"] == null)
             {
-                return View();
+                if (q != null && q != "")
+                {
+                    var Url = FCommon.Decrypt(HttpUtility.UrlDecode(q));
+
+                    string[] sUrl = Url.Split('~');
+                    BALUser.FirstName = sUrl[2].Split(':')[1];
+                    BALUser.LastName = sUrl[3].Split(':')[1];
+                    BALUser.Email = sUrl[1].Split(':')[1];
+                    return View(BALUser);
+                }
+                else
+                { 
+                    return View();
+                }
             }
             else
             {

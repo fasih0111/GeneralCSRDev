@@ -92,6 +92,9 @@ namespace GeneralCSR.Controllers
                 BAL.StatusID = 1;
                 BAL.IsActive = true;
                 DataRow dr = BAL.InsertTeams(BAL);
+
+                BAL.InsertTeamMember(Convert.ToInt32(dr["TeamID"]), Convert.ToInt32(CFSess.ID), 1, DateTime.Now);
+
                 return JsonConvert.SerializeObject(dr);
             }
             else
