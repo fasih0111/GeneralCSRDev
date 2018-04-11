@@ -55,8 +55,15 @@
 
                 var $rightElem = '' +
                '<div class="panel" data-team-id="' + data[0].TeamID + '" style="background: transparent;box-shadow: none;">' +
-               (data[0].MyDesignation == 1 ?
-                        '<button type="button" class="btn btn-default pull-right" style="margin-left: 6px;" id="setting-icon" onclick="todo(this);"><i class="material-icons">settings</i></button>' : "") +
+               //(data[0].MyDesignation == 1 ?
+                    '<div class="dropdown pull-right">' +
+                        '<button type="button" class="btn btn-default pull-right" style="margin-left: 6px;" id="setting-icon" data-toggle="dropdown"><i class="material-icons">settings</i></button>' +
+                        '<ul class="dropdown-menu">' +
+                            '<li><a>Exit team</a><li>' +
+                        '</ul>' +
+                    '</div>' +
+                 //       : "") +
+
 
                    (data[0].IsMeExist == 0 ?
                         '<button type="button" class="btn btn-primary pull-right" onclick="joinUnjoinTeam(this)">Join team</button>' :

@@ -8,7 +8,6 @@ var userDetails = {
     "UserTypeID": ""
 };
 
-
 var catDetails = [
     {
         "ID": 1,
@@ -400,2898 +399,2918 @@ var countries = [
 ];
 
 var occupations = [
-   { id: 1, name: "accountant" }, {
+   { id: 1, name: "Accountant" }, {
        id: 1, name:
-        "actor"
+        "Actor"
    }, {
        id: 1, name:
-       "actuary"
+       "Actuary"
    }, {
        id: 1, name:
-       "adhesive bonding machine tender"
+       "Adhesive bonding machine tender"
    }, {
        id: 1, name:
-       "adjudicator"
+       "Adjudicator"
    }, {
        id: 1, name:
-       "administrative assistant"
+       "Administrative assistant"
    }, {
        id: 1, name:
-       "administrative services manager"
+       "Administrative services manager"
    }, {
        id: 1, name:
-       "adult education teacher"
+       "Adult education teacher"
    }, {
        id: 1, name:
-       "advertising manager"
+       "Advertising manager"
    }, {
        id: 1, name:
-       "advertising sales agent"
+       "Advertising sales agent"
    }, {
        id: 1, name:
-       "aerobics instructor"
+       "Aerobics instructor"
    }, {
        id: 1, name:
-       "aerospace engineer"
+       "Aerospace engineer"
    }, {
        id: 1, name:
-       "aerospace engineering technician"
+       "Aerospace engineering technician"
    }, {
        id: 1, name:
-       "agent"
+       "Agent"
    }, {
        id: 1, name:
-       "agricultural engineer"
+       "Agricultural engineer"
    }, {
        id: 1, name:
-       "agricultural equipment operator"
+       "Agricultural equipment operator"
    }, {
        id: 1, name:
-       "agricultural grader"
+       "Agricultural grader"
    }, {
        id: 1, name:
-       "agricultural inspector"
+       "Agricultural inspector"
    }, {
        id: 1, name:
-       "agricultural manager"
+       "Agricultural manager"
    }, {
        id: 1, name:
-       "agricultural sciences teacher"
+       "Agricultural sciences teacher"
    }, {
        id: 1, name:
-       "agricultural sorter"
+       "Agricultural sorter"
    }, {
        id: 1, name:
-       "agricultural technician"
+       "Agricultural technician"
    }, {
        id: 1, name:
-       "agricultural worker"
+       "Agricultural worker"
    }, {
        id: 1, name:
-       "air conditioning installer"
+       "Air conditioning installer"
    }, {
        id: 1, name:
-       "air conditioning mechanic"
+       "Air conditioning mechanic"
    }, {
        id: 1, name:
-       "air traffic controller"
+       "Air traffic controller"
    }, {
        id: 1, name:
-       "aircraft cargo handling supervisor"
+       "Aircraft cargo handling supervisor"
    }, {
        id: 1, name:
-       "aircraft mechanic"
+       "Aircraft mechanic"
    }, {
        id: 1, name:
-       "aircraft service technician"
+       "Aircraft service technician"
    }, {
        id: 1, name:
-       "airline copilot"
+       "Airline copilot"
    }, {
        id: 1, name:
-       "airline pilot"
+       "Airline pilot"
    }, {
        id: 1, name:
-       "ambulance dispatcher"
+       "Ambulance dispatcher"
    }, {
        id: 1, name:
-       "ambulance driver"
+       "Ambulance driver"
    }, {
        id: 1, name:
-       "amusement machine servicer"
+       "Amusement machine servicer"
    }, {
        id: 1, name:
-       "anesthesiologist"
+       "Anesthesiologist"
    }, {
        id: 1, name:
-       "animal breeder"
+       "Animal breeder"
    }, {
        id: 1, name:
-       "animal control worker"
+       "Animal control worker"
    }, {
        id: 1, name:
-       "animal scientist"
+       "Animal scientist"
    }, {
        id: 1, name:
-       "animal trainer"
+       "Animal trainer"
    }, {
        id: 1, name:
-       "animator"
+       "Animator"
    }, {
        id: 1, name:
-       "answering service operator"
+       "Answering service operator"
    }, {
        id: 1, name:
-       "anthropologist"
+       "Anthropologist"
    }, {
        id: 1, name:
-       "apparel patternmaker"
+       "Apparel patternmaker"
    }, {
        id: 1, name:
-       "apparel worker"
+       "Apparel worker"
    }, {
        id: 1, name:
-       "arbitrator"
+       "Arbitrator"
    }, {
        id: 1, name:
-       "archeologist"
+       "Archeologist"
    }, {
        id: 1, name:
-       "architect"
+       "Architect"
    }, {
        id: 1, name:
-       "architectural drafter"
+       "Architectural drafter"
    }, {
        id: 1, name:
-       "architectural manager"
+       "Architectural manager"
    }, {
        id: 1, name:
-       "archivist"
+       "Archivist"
    }, {
        id: 1, name:
-       "art director"
+       "Art director"
    }, {
        id: 1, name:
-       "art teacher"
+       "Art teacher"
    }, {
        id: 1, name:
-       "artist"
+       "Artist"
    }, {
        id: 1, name:
-       "assembler"
+       "Assembler"
    }, {
        id: 1, name:
-       "astronomer"
+       "Astronomer"
    }, {
        id: 1, name:
-       "athlete"
+       "Athlete"
    }, {
        id: 1, name:
-       "athletic trainer"
+       "Athletic trainer"
    }, {
        id: 1, name:
        "ATM machine repairer"
    }, {
        id: 1, name:
-       "atmospheric scientist"
+       "Atmospheric scientist"
    }, {
        id: 1, name:
-       "attendant"
+       "Attendant"
    }, {
        id: 1, name:
-       "audio and video equipment technician"
+       "Audio and video equipment technician"
    }, {
        id: 1, name:
-       "audio-visual and multimedia collections specialist"
+       "Audio-visual and multimedia collections specialist"
    }, {
        id: 1, name:
-       "audiologist"
+       "Audiologist"
    }, {
        id: 1, name:
-       "auditor"
+       "Auditor"
    }, {
        id: 1, name:
-       "author"
+       "Author"
    }, {
        id: 1, name:
-       "auto damage insurance appraiser"
+       "Auto damage insurance appraiser"
    }, {
        id: 1, name:
-       "automotive and watercraft service attendant"
+       "Automotive and watercraft service attendant"
    }, {
        id: 1, name:
-       "automotive glass installer"
+       "Automotive glass installer"
    }, {
        id: 1, name:
-       "automotive mechanic"
+       "Automotive mechanic"
    }, {
        id: 1, name:
-       "avionics technician"
+       "Avionics technician"
    }, {
        id: 1, name:
-       "baggage porter"
+       "Baggage porter"
    }, {
        id: 1, name:
-       "bailiff"
+       "Bailiff"
    }, {
        id: 1, name:
-       "baker"
+       "Baker"
    }, {
        id: 1, name:
-       "barback"
+       "Barback"
    }, {
        id: 1, name:
-       "barber"
+       "Barber"
    }, {
        id: 1, name:
-       "bartender"
+       "Bartender"
    }, {
        id: 1, name:
-       "basic education teacher"
-   }, {
+       "Basic education teacher"
+   },
+   {
        id: 1, name:
-       "behavioral disorder counselor"
-   }, {
+       "Bseautician"
+   },
+   {
        id: 1, name:
-       "bellhop"
+       "Behavioral disorder counselor"
    }, {
        id: 1, name:
-       "bench carpenter"
+       "Bellhop"
    }, {
        id: 1, name:
-       "bicycle repairer"
+       "Bench carpenter"
    }, {
        id: 1, name:
-       "bill and account collector"
+       "Bicycle repairer"
    }, {
        id: 1, name:
-       "billing and posting clerk"
+       "Bill and account collector"
    }, {
        id: 1, name:
-       "biochemist"
+       "Billing and posting clerk"
    }, {
        id: 1, name:
-       "biological technician"
+       "Biochemist"
    }, {
        id: 1, name:
-       "biomedical engineer"
+       "Biological technician"
    }, {
        id: 1, name:
-       "biophysicist"
+       "Biomedical engineer"
    }, {
        id: 1, name:
-       "blaster"
+       "Biophysicist"
    }, {
        id: 1, name:
-       "blending machine operator"
+       "Blaster"
    }, {
        id: 1, name:
-       "blockmason"
+       "Blending machine operator"
    }, {
        id: 1, name:
-       "boiler operator"
+       "Blockmason"
    }, {
        id: 1, name:
-       "boilermaker"
+       "Boiler operator"
    }, {
        id: 1, name:
-       "bookkeeper"
+       "Boilermaker"
    }, {
        id: 1, name:
-       "boring machine tool tender"
+       "Bookkeeper"
    }, {
        id: 1, name:
-       "brazer"
+       "Boring machine tool tender"
    }, {
        id: 1, name:
-       "brickmason"
+       "Brazer"
    }, {
        id: 1, name:
-       "bridge and lock tender"
+       "Brickmason"
    }, {
        id: 1, name:
-       "broadcast news analyst"
+       "Bridge and lock tender"
    }, {
        id: 1, name:
-       "broadcast technician"
+       "Broadcast news analyst"
    }, {
        id: 1, name:
-       "brokerage clerk"
+       "Broadcast technician"
    }, {
        id: 1, name:
-       "budget analyst"
+       "Brokerage clerk"
    }, {
        id: 1, name:
-       "building inspector"
+       "Budget analyst"
    }, {
        id: 1, name:
-       "bus mechanic"
+       "Building inspector"
    }, {
        id: 1, name:
-       "butcher"
+       "Bus mechanic"
    }, {
        id: 1, name:
-       "buyer"
+       "Butcher"
    }, {
        id: 1, name:
-       "cabinetmaker"
+       "Buyer"
    }, {
        id: 1, name:
-       "cafeteria attendant"
+       "Cabinetmaker"
    }, {
        id: 1, name:
-       "cafeteria cook"
+       "Cafeteria attendant"
    }, {
        id: 1, name:
-       "camera operator"
+       "Cafeteria cook"
    }, {
        id: 1, name:
-       "camera repairer"
+       "Camera operator"
    }, {
        id: 1, name:
-       "cardiovascular technician"
+       "Camera repairer"
    }, {
        id: 1, name:
-       "cargo agent"
+       "Cardiovascular technician"
    }, {
        id: 1, name:
-       "carpenter"
+       "Cargo agent"
    }, {
        id: 1, name:
-       "carpet installer"
+       "Carpenter"
    }, {
        id: 1, name:
-       "cartographer"
+       "Carpet installer"
    }, {
        id: 1, name:
-       "cashier"
+       "Cartographer"
    }, {
        id: 1, name:
-       "caster"
+       "Cashier"
    }, {
        id: 1, name:
-       "ceiling tile installer"
+       "Caster"
    }, {
        id: 1, name:
-       "cellular equipment installer"
+       "Ceiling tile installer"
    }, {
        id: 1, name:
-       "cement mason"
+       "Cellular equipment installer"
    }, {
        id: 1, name:
-       "channeling machine operator"
+       "Cement mason"
    }, {
        id: 1, name:
-       "chauffeur"
+       "Channeling machine operator"
    }, {
        id: 1, name:
-       "checker"
+       "Chauffeur"
    }, {
        id: 1, name:
-       "chef"
+       "Checker"
    }, {
        id: 1, name:
-       "chemical engineer"
+       "Chef"
    }, {
        id: 1, name:
-       "chemical plant operator"
+       "Chemical engineer"
    }, {
        id: 1, name:
-       "chemist"
+       "Chemical plant operator"
    }, {
        id: 1, name:
-       "chemistry teacher"
+       "Chemist"
    }, {
        id: 1, name:
-       "chief executive"
+       "Chemistry teacher"
    }, {
        id: 1, name:
-       "child social worker"
+       "Chief executive"
    }, {
        id: 1, name:
-       "childcare worker"
+       "Child social worker"
    }, {
        id: 1, name:
-       "chiropractor"
+       "Childcare worker"
    }, {
        id: 1, name:
-       "choreographer"
+       "Chiropractor"
    }, {
        id: 1, name:
-       "civil drafter"
+       "Choreographer"
    }, {
        id: 1, name:
-       "civil engineer"
+       "Civil drafter"
    }, {
        id: 1, name:
-       "civil engineering technician"
+       "Civil engineer"
    }, {
        id: 1, name:
-       "claims adjuster"
+       "Civil engineering technician"
    }, {
        id: 1, name:
-       "claims examiner"
+       "Claims adjuster"
    }, {
        id: 1, name:
-       "claims investigator"
+       "Claims examiner"
    }, {
        id: 1, name:
-       "cleaner"
+       "Claims investigator"
    }, {
        id: 1, name:
-       "clinical laboratory technician"
+       "Cleaner"
    }, {
        id: 1, name:
-       "clinical laboratory technologist"
+       "Clinical laboratory technician"
    }, {
        id: 1, name:
-       "clinical psychologist"
+       "Clinical laboratory technologist"
    }, {
        id: 1, name:
-       "coating worker"
+       "Clinical psychologist"
    }, {
        id: 1, name:
-       "coatroom attendant"
+       "Coating worker"
    }, {
        id: 1, name:
-       "coil finisher"
+       "Coatroom attendant"
    }, {
        id: 1, name:
-       "coil taper"
+       "Coil finisher"
    }, {
        id: 1, name:
-       "coil winder"
+       "Coil taper"
    }, {
        id: 1, name:
-       "coin machine servicer"
+       "Coil winder"
    }, {
        id: 1, name:
-       "commercial diver"
+       "Coin machine servicer"
    }, {
        id: 1, name:
-       "commercial pilot"
+       "Commercial diver"
    }, {
        id: 1, name:
-       "commodities sales agent"
+       "Commercial pilot"
    }, {
        id: 1, name:
-       "communications equipment operator"
+       "Commodities sales agent"
    }, {
        id: 1, name:
-       "communications teacher"
+       "Communications equipment operator"
    }, {
        id: 1, name:
-       "community association manager"
+       "Communications teacher"
    }, {
        id: 1, name:
-       "community service manager"
+       "Community association manager"
    }, {
        id: 1, name:
-       "compensation and benefits manager"
+       "Community service manager"
    }, {
        id: 1, name:
-       "compliance officer"
+       "Compensation and benefits manager"
    }, {
        id: 1, name:
-       "composer"
+       "Compliance officer"
    }, {
        id: 1, name:
-       "computer hardware engineer"
+       "Composer"
    }, {
        id: 1, name:
-       "computer network architect"
+       "Computer hardware engineer"
    }, {
        id: 1, name:
-       "computer operator"
+       "Computer network architect"
    }, {
        id: 1, name:
-       "computer programmer"
+       "Computer operator"
    }, {
        id: 1, name:
-       "computer science teacher"
+       "Computer programmer"
    }, {
        id: 1, name:
-       "computer support specialist"
+       "Computer science teacher"
    }, {
        id: 1, name:
-       "computer systems administrator"
+       "Computer support specialist"
    }, {
        id: 1, name:
-       "computer systems analyst"
+       "Computer systems administrator"
    }, {
        id: 1, name:
-       "concierge"
+       "Computer systems analyst"
    }, {
        id: 1, name:
-       "conciliator"
+       "Concierge"
    }, {
        id: 1, name:
-       "concrete finisher"
+       "Conciliator"
    }, {
        id: 1, name:
-       "conservation science teacher"
+       "Concrete finisher"
    }, {
        id: 1, name:
-       "conservation scientist"
+       "Conservation science teacher"
    }, {
        id: 1, name:
-       "conservation worker"
+       "Conservation scientist"
    }, {
        id: 1, name:
-       "conservator"
+       "Conservation worker"
    }, {
        id: 1, name:
-       "construction inspector"
+       "Conservator"
    }, {
        id: 1, name:
-       "construction manager"
+       "Construction inspector"
    }, {
        id: 1, name:
-       "construction painter"
+       "Construction manager"
    }, {
        id: 1, name:
-       "construction worker"
+       "Construction painter"
    }, {
        id: 1, name:
-       "continuous mining machine operator"
+       "Construction worker"
    }, {
        id: 1, name:
-       "convention planner"
+       "Continuous mining machine operator"
    }, {
        id: 1, name:
-       "conveyor operator"
+       "Convention planner"
    }, {
        id: 1, name:
-       "cook"
-   }, {
+       "Conveyor operator"
+   },
+   {
        id: 1, name:
-       "cooling equipment operator"
-   }, {
+       "Content writer"
+   },
+   {
        id: 1, name:
-       "copy marker"
+       "Cook"
    }, {
        id: 1, name:
-       "correctional officer"
+       "Cooling equipment operator"
    }, {
        id: 1, name:
-       "correctional treatment specialist"
+       "Copy marker"
    }, {
        id: 1, name:
-       "correspondence clerk"
+       "Correctional officer"
    }, {
        id: 1, name:
-       "correspondent"
+       "Correctional treatment specialist"
    }, {
        id: 1, name:
-       "cosmetologist"
+       "Correspondence clerk"
    }, {
        id: 1, name:
-       "cost estimator"
+       "Correspondent"
    }, {
        id: 1, name:
-       "costume attendant"
+       "Cosmetologist"
    }, {
        id: 1, name:
-       "counseling psychologist"
+       "Cost estimator"
    }, {
        id: 1, name:
-       "counselor"
+       "Costume attendant"
    }, {
        id: 1, name:
-       "courier"
+       "Counseling psychologist"
    }, {
        id: 1, name:
-       "court reporter"
+       "Counselor"
    }, {
        id: 1, name:
-       "craft artist"
+       "Courier"
    }, {
        id: 1, name:
-       "crane operator"
+       "Court reporter"
    }, {
        id: 1, name:
-       "credit analyst"
+       "Craft artist"
    }, {
        id: 1, name:
-       "credit checker"
+       "Crane operator"
    }, {
        id: 1, name:
-       "credit counselor"
+       "Credit analyst"
    }, {
        id: 1, name:
-       "criminal investigator"
+       "Credit checker"
    }, {
        id: 1, name:
-       "criminal justice teacher"
+       "Credit counselor"
    }, {
        id: 1, name:
-       "crossing guard"
+       "Criminal investigator"
    }, {
        id: 1, name:
-       "curator"
+       "Criminal justice teacher"
    }, {
        id: 1, name:
-       "custom sewer"
+       "Crossing guard"
    }, {
        id: 1, name:
-       "customer service representative"
+       "Curator"
    }, {
        id: 1, name:
-       "cutter"
+       "Custom sewer"
    }, {
        id: 1, name:
-       "cutting machine operator"
+       "Customer service representative"
    }, {
        id: 1, name:
-       "dancer"
+       "Cutter"
    }, {
        id: 1, name:
-       "data entry keyer"
+       "Cutting machine operator"
    }, {
        id: 1, name:
-       "database administrator"
+       "Dancer"
    }, {
        id: 1, name:
-       "decorating worker"
+       "Data entry keyer"
    }, {
        id: 1, name:
-       "delivery services driver"
+       "Database administrator"
    }, {
        id: 1, name:
-       "demonstrator"
+       "Decorating worker"
    }, {
        id: 1, name:
-       "dental assistant"
+       "Delivery services driver"
    }, {
        id: 1, name:
-       "dental hygienist"
+       "Demonstrator"
    }, {
        id: 1, name:
-       "dental laboratory technician"
+       "Dental assistant"
    }, {
        id: 1, name:
-       "dentist"
+       "Dental hygienist"
    }, {
        id: 1, name:
-       "derrick operator"
+       "Dental laboratory technician"
    }, {
        id: 1, name:
-       "designer"
+       "Dentist"
    }, {
        id: 1, name:
-       "desktop publisher"
+       "Derrick operator"
    }, {
        id: 1, name:
-       "detective"
+       "Designer"
    }, {
        id: 1, name:
-       "diagnostic medical sonographer"
+       "Desktop publisher"
    }, {
        id: 1, name:
-       "die maker"
+       "Detective"
    }, {
        id: 1, name:
-       "diesel engine specialist"
+       "Diagnostic medical sonographer"
    }, {
        id: 1, name:
-       "dietetic technician"
+       "Die maker"
    }, {
        id: 1, name:
-       "dietitian"
+       "Diesel engine specialist"
    }, {
        id: 1, name:
-       "dinkey operator"
+       "Dietetic technician"
    }, {
        id: 1, name:
-       "director"
+       "Dietitian"
    }, {
        id: 1, name:
-       "dishwasher"
+       "Dinkey operator"
    }, {
        id: 1, name:
-       "dispatcher"
+       "Director"
    }, {
        id: 1, name:
-       "door-to-door sales worker"
+       "Dishwasher"
    }, {
+       id: 1, name:
+       "Dispatcher"
+   },
+   {
        id: 1, name:
-       "drafter"
+       "Doctor"
+   },
+   {
+       id: 1, name:
+       "Door-to-door sales worker"
    }, {
        id: 1, name:
-       "dragline operator"
+       "Drafter"
    }, {
        id: 1, name:
-       "drama teacher"
+       "Dragline operator"
    }, {
        id: 1, name:
-       "dredge operator"
+       "Drama teacher"
    }, {
        id: 1, name:
-       "dressing room attendant"
+       "Dredge operator"
    }, {
        id: 1, name:
-       "dressmaker"
+       "Dressing room attendant"
    }, {
        id: 1, name:
-       "drier operator"
+       "Dressmaker"
    }, {
        id: 1, name:
-       "drilling machine tool operator"
+       "Drier operator"
    }, {
        id: 1, name:
-       "dry-cleaning worker"
+       "Drilling machine tool operator"
    }, {
        id: 1, name:
-       "drywall installer"
+       "Dry-cleaning worker"
    }, {
        id: 1, name:
-       "dyeing machine operator"
+       "Drywall installer"
    }, {
        id: 1, name:
-       "earth driller"
+       "Dyeing machine operator"
    }, {
        id: 1, name:
-       "economics teacher"
+       "Earth driller"
    }, {
        id: 1, name:
-       "economist"
+       "Economics teacher"
    }, {
        id: 1, name:
-       "editor"
+       "Economist"
    }, {
        id: 1, name:
-       "education administrator"
+       "Editor"
    }, {
        id: 1, name:
-       "electric motor repairer"
+       "Education administrator"
    }, {
        id: 1, name:
-       "electrical electronics drafter"
+       "Electric motor repairer"
    }, {
        id: 1, name:
-       "electrical engineer"
+       "Electrical electronics drafter"
    }, {
        id: 1, name:
-       "electrical equipment assembler"
+       "Electrical engineer"
    }, {
        id: 1, name:
-       "electrical installer"
+       "Electrical equipment assembler"
    }, {
        id: 1, name:
-       "electrical power-line installer"
+       "Electrical installer"
    }, {
        id: 1, name:
-       "electrician"
+       "Electrical power-line installer"
    }, {
        id: 1, name:
-       "electro-mechanical technician"
+       "Electrician"
    }, {
        id: 1, name:
-       "elementary school teacher"
+       "Electro-mechanical technician"
    }, {
        id: 1, name:
-       "elevator installer"
+       "Elementary school teacher"
    }, {
        id: 1, name:
-       "elevator repairer"
+       "Elevator installer"
    }, {
        id: 1, name:
-       "embalmer"
+       "Elevator repairer"
    }, {
        id: 1, name:
-       "emergency management director"
+       "Embalmer"
    }, {
        id: 1, name:
-       "emergency medical technician"
+       "Emergency management director"
    }, {
        id: 1, name:
-       "engine assembler"
+       "Emergency medical technician"
    }, {
        id: 1, name:
-       "engineer"
+       "Engine assembler"
    }, {
        id: 1, name:
-       "engineering manager"
+       "Engineer"
    }, {
        id: 1, name:
-       "engineering teacher"
+       "Engineering manager"
    }, {
        id: 1, name:
-       "english language teacher"
+       "Engineering teacher"
    }, {
        id: 1, name:
-       "engraver"
+       "English language teacher"
    }, {
        id: 1, name:
-       "entertainment attendant"
+       "Engraver"
    }, {
        id: 1, name:
-       "environmental engineer"
+       "Entertainment attendant"
    }, {
        id: 1, name:
-       "environmental science teacher"
+       "Environmental engineer"
    }, {
        id: 1, name:
-       "environmental scientist"
+       "Environmental science teacher"
    }, {
        id: 1, name:
-       "epidemiologist"
+       "Environmental scientist"
    }, {
        id: 1, name:
-       "escort"
+       "Epidemiologist"
    }, {
        id: 1, name:
-       "etcher"
+       "Escort"
    }, {
        id: 1, name:
-       "event planner"
+       "Etcher"
    }, {
        id: 1, name:
-       "excavating operator"
+       "Event planner"
    }, {
        id: 1, name:
-       "executive administrative assistant"
+       "Excavating operator"
    }, {
        id: 1, name:
-       "executive secretary"
+       "Executive administrative assistant"
    }, {
        id: 1, name:
-       "exhibit designer"
+       "Executive secretary"
    }, {
        id: 1, name:
-       "expediting clerk"
+       "Exhibit designer"
    }, {
        id: 1, name:
-       "explosives worker"
+       "Expediting clerk"
    }, {
        id: 1, name:
-       "extraction worker"
+       "Explosives worker"
    }, {
        id: 1, name:
-       "fabric mender"
+       "Extraction worker"
    }, {
        id: 1, name:
-       "fabric patternmaker"
+       "Fabric mender"
    }, {
        id: 1, name:
-       "fabricator"
+       "Fabric patternmaker"
    }, {
        id: 1, name:
-       "faller"
+       "Fabricator"
    }, {
        id: 1, name:
-       "family practitioner"
+       "Faller"
    }, {
        id: 1, name:
-       "family social worker"
+       "Family practitioner"
    }, {
        id: 1, name:
-       "family therapist"
+       "Family social worker"
    }, {
        id: 1, name:
-       "farm advisor"
+       "Family therapist"
    }, {
        id: 1, name:
-       "farm equipment mechanic"
+       "Farm advisor"
    }, {
        id: 1, name:
-       "farm labor contractor"
+       "Farm equipment mechanic"
    }, {
        id: 1, name:
-       "farmer"
+       "Farm labor contractor"
    }, {
        id: 1, name:
-       "farmworker"
+       "Farmer"
    }, {
        id: 1, name:
-       "fashion designer"
+       "Farmworker"
    }, {
        id: 1, name:
-       "fast food cook"
+       "Fashion designer"
    }, {
        id: 1, name:
-       "fence erector"
+       "Fast food cook"
    }, {
        id: 1, name:
-       "fiberglass fabricator"
+       "Fence erector"
    }, {
        id: 1, name:
-       "fiberglass laminator"
+       "Fiberglass fabricator"
    }, {
        id: 1, name:
-       "file clerk"
+       "Fiberglass laminator"
    }, {
        id: 1, name:
-       "filling machine operator"
+       "File clerk"
    }, {
        id: 1, name:
-       "film and video editor"
+       "Filling machine operator"
    }, {
        id: 1, name:
-       "financial analyst"
+       "Film and video editor"
    }, {
        id: 1, name:
-       "financial examiner"
+       "Financial analyst"
    }, {
        id: 1, name:
-       "financial manager"
+       "Financial examiner"
    }, {
        id: 1, name:
-       "financial services sales agent"
+       "Financial manager"
    }, {
        id: 1, name:
-       "fine artist"
+       "Financial services sales agent"
    }, {
        id: 1, name:
-       "fire alarm system installer"
+       "Fine artist"
    }, {
        id: 1, name:
-       "fire dispatcher"
+       "Fire alarm system installer"
    }, {
        id: 1, name:
-       "fire inspector"
+       "Fire dispatcher"
    }, {
        id: 1, name:
-       "fire investigator"
+       "Fire inspector"
    }, {
        id: 1, name:
-       "firefighter"
+       "Fire investigator"
    }, {
        id: 1, name:
-       "fish and game warden"
+       "Firefighter"
    }, {
        id: 1, name:
-       "fish cutter"
+       "Fish and game warden"
    }, {
        id: 1, name:
-       "fish trimmer"
+       "Fish cutter"
    }, {
        id: 1, name:
-       "fisher"
+       "Fish trimmer"
    }, {
        id: 1, name:
-       "fitness studies teacher"
+       "Fisher"
    }, {
        id: 1, name:
-       "fitness trainer"
+       "Fitness studies teacher"
    }, {
        id: 1, name:
-       "flight attendant"
+       "Fitness trainer"
    }, {
        id: 1, name:
-       "floor finisher"
+       "Flight attendant"
    }, {
        id: 1, name:
-       "floor layer"
+       "Floor finisher"
    }, {
        id: 1, name:
-       "floor sander"
+       "Floor layer"
    }, {
        id: 1, name:
-       "floral designer"
+       "Floor sander"
    }, {
        id: 1, name:
-       "food batchmaker"
+       "Floral designer"
    }, {
        id: 1, name:
-       "food cooking machine operator"
+       "Food batchmaker"
    }, {
        id: 1, name:
-       "food preparation worker"
+       "Food cooking machine operator"
    }, {
        id: 1, name:
-       "food science technician"
+       "Food preparation worker"
    }, {
        id: 1, name:
-       "food scientist"
+       "Food science technician"
    }, {
        id: 1, name:
-       "food server"
+       "Food scientist"
    }, {
        id: 1, name:
-       "food service manager"
+       "Food server"
    }, {
        id: 1, name:
-       "food technologist"
+       "Food service manager"
    }, {
        id: 1, name:
-       "foreign language teacher"
+       "Food technologist"
    }, {
        id: 1, name:
-       "foreign literature teacher"
+       "Foreign language teacher"
    }, {
        id: 1, name:
-       "forensic science technician"
+       "Foreign literature teacher"
    }, {
        id: 1, name:
-       "forest fire inspector"
+       "Forensic science technician"
    }, {
        id: 1, name:
-       "forest fire prevention specialist"
+       "Forest fire inspector"
    }, {
        id: 1, name:
-       "forest worker"
+       "Forest fire prevention specialist"
    }, {
        id: 1, name:
-       "forester"
+       "Forest worker"
    }, {
        id: 1, name:
-       "forestry teacher"
+       "Forester"
    }, {
        id: 1, name:
-       "forging machine setter"
+       "Forestry teacher"
    }, {
        id: 1, name:
-       "foundry coremaker"
+       "Forging machine setter"
    }, {
        id: 1, name:
-       "freight agent"
+       "Foundry coremaker"
    }, {
        id: 1, name:
-       "freight mover"
+       "Freight agent"
    }, {
        id: 1, name:
-       "fundraising manager"
+       "Freight mover"
    }, {
        id: 1, name:
-       "funeral attendant"
+       "Fundraising manager"
    }, {
        id: 1, name:
-       "funeral director"
+       "Funeral attendant"
    }, {
        id: 1, name:
-       "funeral service manager"
+       "Funeral director"
    }, {
        id: 1, name:
-       "furnace operator"
+       "Funeral service manager"
    }, {
        id: 1, name:
-       "furnishings worker"
+       "Furnace operator"
    }, {
        id: 1, name:
-       "furniture finisher"
+       "Furnishings worker"
    }, {
        id: 1, name:
-       "gaming booth cashier"
+       "Furniture finisher"
    }, {
        id: 1, name:
-       "gaming cage worker"
+       "Gaming booth cashier"
    }, {
        id: 1, name:
-       "gaming change person"
+       "Gaming cage worker"
    }, {
        id: 1, name:
-       "gaming dealer"
+       "Gaming change person"
    }, {
        id: 1, name:
-       "gaming investigator"
+       "Gaming dealer"
    }, {
        id: 1, name:
-       "gaming manager"
+       "Gaming investigator"
    }, {
        id: 1, name:
-       "gaming surveillance officer"
+       "Gaming manager"
    }, {
        id: 1, name:
-       "garment mender"
+       "Gaming surveillance officer"
    }, {
        id: 1, name:
-       "garment presser"
+       "Garment mender"
    }, {
        id: 1, name:
-       "gas compressor"
+       "Garment presser"
    }, {
        id: 1, name:
-       "gas plant operator"
+       "Gas compressor"
    }, {
        id: 1, name:
-       "gas pumping station operator"
+       "Gas plant operator"
    }, {
        id: 1, name:
-       "general manager"
+       "Gas pumping station operator"
    }, {
        id: 1, name:
-       "general practitioner"
+       "General manager"
    }, {
        id: 1, name:
-       "geographer"
+       "General practitioner"
    }, {
        id: 1, name:
-       "geography teacher"
+       "Geographer"
    }, {
        id: 1, name:
-       "geological engineer"
+       "Geography teacher"
    }, {
        id: 1, name:
-       "geological technician"
+       "Geological engineer"
    }, {
        id: 1, name:
-       "geoscientist"
+       "Geological technician"
    }, {
        id: 1, name:
-       "glazier"
+       "Geoscientist"
    }, {
        id: 1, name:
-       "government program eligibility interviewer"
+       "Glazier"
    }, {
        id: 1, name:
-       "graduate teaching assistant"
+       "Government program eligibility interviewer"
    }, {
        id: 1, name:
-       "graphic designer"
+       "Graduate teaching assistant"
    }, {
        id: 1, name:
-       "groundskeeper"
+       "Graphic designer"
    }, {
        id: 1, name:
-       "groundskeeping worker"
+       "Groundskeeper"
    }, {
        id: 1, name:
-       "gynecologist"
+       "Groundskeeping worker"
    }, {
        id: 1, name:
-       "hairdresser"
+       "Gynecologist"
    }, {
        id: 1, name:
-       "hairstylist"
+       "Hairdresser"
    }, {
        id: 1, name:
-       "hand grinding worker"
+       "Hairstylist"
    }, {
        id: 1, name:
-       "hand laborer"
+       "Hand grinding worker"
    }, {
        id: 1, name:
-       "hand packager"
+       "Hand laborer"
    }, {
        id: 1, name:
-       "hand packer"
+       "Hand packager"
    }, {
        id: 1, name:
-       "hand polishing worker"
+       "Hand packer"
    }, {
        id: 1, name:
-       "hand sewer"
+       "Hand polishing worker"
    }, {
        id: 1, name:
-       "hazardous materials removal worker"
+       "Hand sewer"
    }, {
        id: 1, name:
-       "head cook"
+       "Hazardous materials removal worker"
    }, {
        id: 1, name:
-       "health and safety engineer"
+       "Head cook"
    }, {
        id: 1, name:
-       "health educator"
+       "Health and safety engineer"
    }, {
        id: 1, name:
-       "health information technician"
+       "Health educator"
    }, {
        id: 1, name:
-       "health services manager"
+       "Health information technician"
    }, {
        id: 1, name:
-       "health specialties teacher"
+       "Health services manager"
    }, {
        id: 1, name:
-       "healthcare social worker"
+       "Health specialties teacher"
    }, {
        id: 1, name:
-       "hearing officer"
+       "Healthcare social worker"
    }, {
        id: 1, name:
-       "heat treating equipment setter"
+       "Hearing officer"
    }, {
        id: 1, name:
-       "heating installer"
+       "Heat treating equipment setter"
    }, {
        id: 1, name:
-       "heating mechanic"
+       "Heating installer"
    }, {
        id: 1, name:
-       "heavy truck driver"
+       "Heating mechanic"
    }, {
        id: 1, name:
-       "highway maintenance worker"
+       "Heavy truck driver"
    }, {
        id: 1, name:
-       "historian"
+       "Highway maintenance worker"
    }, {
        id: 1, name:
-       "history teacher"
+       "Historian"
    }, {
        id: 1, name:
-       "hoist and winch operator"
+       "History teacher"
    }, {
        id: 1, name:
-       "home appliance repairer"
+       "Hoist and winch operator"
    }, {
        id: 1, name:
-       "home economics teacher"
+       "Home appliance repairer"
    }, {
        id: 1, name:
-       "home entertainment installer"
+       "Home economics teacher"
    }, {
        id: 1, name:
-       "home health aide"
+       "Home entertainment installer"
    }, {
        id: 1, name:
-       "home management advisor"
+       "Home health aide"
    }, {
        id: 1, name:
-       "host"
+       "Home management advisor"
    }, {
        id: 1, name:
-       "hostess"
+       "Host"
    }, {
        id: 1, name:
-       "hostler"
+       "Hostess"
    }, {
        id: 1, name:
-       "hotel desk clerk"
+       "Hostler"
    }, {
        id: 1, name:
-       "housekeeping cleaner"
+       "Hotel desk clerk"
    }, {
        id: 1, name:
-       "human resources assistant"
+       "Housekeeping cleaner"
    }, {
        id: 1, name:
-       "human resources manager"
+       "Human resources assistant"
    }, {
        id: 1, name:
-       "human service assistant"
+       "Human resources manager"
    }, {
        id: 1, name:
-       "hunter"
+       "Human service assistant"
    }, {
        id: 1, name:
-       "hydrologist"
+       "Hunter"
    }, {
        id: 1, name:
-       "illustrator"
+       "Hydrologist"
    }, {
        id: 1, name:
-       "industrial designer"
+       "Illustrator"
    }, {
        id: 1, name:
-       "industrial engineer"
+       "Industrial designer"
    }, {
        id: 1, name:
-       "industrial engineering technician"
+       "Industrial engineer"
    }, {
        id: 1, name:
-       "industrial machinery mechanic"
+       "Industrial engineering technician"
    }, {
        id: 1, name:
-       "industrial production manager"
+       "Industrial machinery mechanic"
    }, {
        id: 1, name:
-       "industrial truck operator"
+       "Industrial production manager"
    }, {
        id: 1, name:
-       "industrial-organizational psychologist"
+       "Industrial truck operator"
    }, {
        id: 1, name:
-       "information clerk"
+       "Industrial-organizational psychologist"
    }, {
        id: 1, name:
-       "information research scientist"
+       "Information clerk"
    }, {
        id: 1, name:
-       "information security analyst"
+       "Information research scientist"
    }, {
        id: 1, name:
-       "information systems manager"
+       "Information security analyst"
    }, {
        id: 1, name:
-       "inspector"
+       "Information systems manager"
    }, {
        id: 1, name:
-       "instructional coordinator"
+       "Inspector"
    }, {
        id: 1, name:
-       "instructor"
+       "Instructional coordinator"
    }, {
        id: 1, name:
-       "insulation worker"
+       "Instructor"
    }, {
        id: 1, name:
-       "insurance claims clerk"
+       "Insulation worker"
    }, {
        id: 1, name:
-       "insurance sales agent"
+       "Insurance claims clerk"
    }, {
        id: 1, name:
-       "insurance underwriter"
+       "Insurance sales agent"
    }, {
        id: 1, name:
-       "intercity bus driver"
+       "Insurance underwriter"
    }, {
        id: 1, name:
-       "interior designer"
+       "Intercity bus driver"
    }, {
        id: 1, name:
-       "internist"
+       "Interior designer"
    }, {
        id: 1, name:
-       "interpreter"
+       "Internist"
    }, {
        id: 1, name:
-       "interviewer"
+       "Interpreter"
    }, {
        id: 1, name:
-       "investigator"
+       "Interviewer"
    }, {
        id: 1, name:
-       "jailer"
+       "Investigator"
    }, {
        id: 1, name:
-       "janitor"
+       "Jailer"
    }, {
        id: 1, name:
-       "jeweler"
+       "Janitor"
    }, {
+       id: 1, name:
+       "Jeweler"
+   },
+    {
+        id: 1, name:
+        "Journalist"
+    },
+   {
        id: 1, name:
-       "judge"
+       "Judge"
    }, {
        id: 1, name:
-       "judicial law clerk"
+       "Judicial law clerk"
    }, {
        id: 1, name:
-       "kettle operator"
+       "Kettle operator"
    }, {
        id: 1, name:
-       "kiln operator"
+       "Kiln operator"
    }, {
        id: 1, name:
-       "kindergarten teacher"
+       "Kindergarten teacher"
    }, {
        id: 1, name:
-       "laboratory animal caretaker"
+       "Laboratory animal caretaker"
    }, {
        id: 1, name:
-       "landscape architect"
+       "Landscape architect"
    }, {
        id: 1, name:
-       "landscaping worker"
+       "Landscaping worker"
    }, {
        id: 1, name:
-       "lathe setter"
+       "Lathe setter"
    }, {
        id: 1, name:
-       "laundry worker"
+       "Laundry worker"
    }, {
        id: 1, name:
-       "law enforcement teacher"
+       "Law enforcement teacher"
    }, {
        id: 1, name:
-       "law teacher"
+       "Law teacher"
    }, {
        id: 1, name:
-       "lawyer"
+       "Lawyer"
    }, {
        id: 1, name:
-       "layout worker"
+       "Layout worker"
    }, {
        id: 1, name:
-       "leather worker"
+       "Leather worker"
    }, {
        id: 1, name:
-       "legal assistant"
+       "Legal assistant"
    }, {
        id: 1, name:
-       "legal secretary"
+       "Legal secretary"
    }, {
        id: 1, name:
-       "legislator"
+       "Legislator"
    }, {
        id: 1, name:
-       "librarian"
+       "Librarian"
    }, {
        id: 1, name:
-       "library assistant"
+       "Library assistant"
    }, {
        id: 1, name:
-       "library science teacher"
+       "Library science teacher"
    }, {
        id: 1, name:
-       "library technician"
+       "Library technician"
    }, {
        id: 1, name:
-       "licensed practical nurse"
+       "Licensed practical nurse"
    }, {
        id: 1, name:
-       "licensed vocational nurse"
+       "Licensed vocational nurse"
    }, {
        id: 1, name:
-       "life scientist"
+       "Life scientist"
    }, {
        id: 1, name:
-       "lifeguard"
+       "Lifeguard"
    }, {
        id: 1, name:
-       "light truck driver"
+       "Light truck driver"
    }, {
        id: 1, name:
-       "line installer"
+       "Line installer"
    }, {
        id: 1, name:
-       "literacy teacher"
+       "Literacy teacher"
    }, {
        id: 1, name:
-       "literature teacher"
+       "Literature teacher"
    }, {
        id: 1, name:
-       "loading machine operator"
+       "Loading machine operator"
    }, {
        id: 1, name:
-       "loan clerk"
+       "Loan clerk"
    }, {
        id: 1, name:
-       "loan interviewer"
+       "Loan interviewer"
    }, {
        id: 1, name:
-       "loan officer"
+       "Loan officer"
    }, {
        id: 1, name:
-       "lobby attendant"
+       "Lobby attendant"
    }, {
        id: 1, name:
-       "locker room attendant"
+       "Locker room attendant"
    }, {
        id: 1, name:
-       "locksmith"
+       "Locksmith"
    }, {
        id: 1, name:
-       "locomotive engineer"
+       "Locomotive engineer"
    }, {
        id: 1, name:
-       "locomotive firer"
+       "Locomotive firer"
    }, {
        id: 1, name:
-       "lodging manager"
+       "Lodging manager"
    }, {
        id: 1, name:
-       "log grader"
+       "Log grader"
    }, {
        id: 1, name:
-       "logging equipment operator"
+       "Logging equipment operator"
    }, {
        id: 1, name:
-       "logistician"
+       "Logistician"
    }, {
        id: 1, name:
-       "machine feeder"
+       "Machine feeder"
    }, {
        id: 1, name:
-       "machinist"
+       "Machinist"
    }, {
        id: 1, name:
-       "magistrate judge"
+       "Magistrate judge"
    }, {
        id: 1, name:
-       "magistrate"
+       "Magistrate"
    }, {
        id: 1, name:
-       "maid"
+       "Maid"
    }, {
        id: 1, name:
-       "mail clerk"
+       "Mail clerk"
    }, {
        id: 1, name:
-       "mail machine operator"
+       "Mail machine operator"
    }, {
        id: 1, name:
-       "mail superintendent"
+       "Mail superintendent"
    }, {
        id: 1, name:
-       "maintenance painter"
+       "Maintenance painter"
    }, {
        id: 1, name:
-       "maintenance worker"
+       "Maintenance worker"
    }, {
        id: 1, name:
-       "makeup artist"
+       "Makeup artist"
    }, {
        id: 1, name:
-       "management analyst"
+       "Management analyst"
    }, {
        id: 1, name:
-       "manicurist"
+       "Manicurist"
    }, {
        id: 1, name:
-       "manufactured building installer"
+       "Manufactured building installer"
    }, {
        id: 1, name:
-       "mapping technician"
+       "Mapping technician"
    }, {
        id: 1, name:
-       "marble setter"
+       "Marble setter"
    }, {
        id: 1, name:
-       "marine engineer"
+       "Marine engineer"
    }, {
        id: 1, name:
-       "marine oiler"
+       "Marine oiler"
    }, {
        id: 1, name:
-       "market research analyst"
+       "Market research analyst"
    }, {
        id: 1, name:
-       "marketing manager"
+       "Marketing manager"
    }, {
        id: 1, name:
-       "marketing specialist"
+       "Marketing specialist"
    }, {
        id: 1, name:
-       "marriage therapist"
+       "Marriage therapist"
    }, {
        id: 1, name:
-       "massage therapist"
+       "Massage therapist"
    }, {
        id: 1, name:
-       "material mover"
+       "Material mover"
    }, {
        id: 1, name:
-       "materials engineer"
+       "Materials engineer"
    }, {
        id: 1, name:
-       "materials scientist"
+       "Materials scientist"
    }, {
        id: 1, name:
-       "mathematical science teacher"
+       "Mathematical science teacher"
    }, {
        id: 1, name:
-       "mathematical technician"
+       "Mathematical technician"
    }, {
        id: 1, name:
-       "mathematician"
+       "Mathematician"
    }, {
        id: 1, name:
-       "maxillofacial surgeon"
+       "Maxillofacial surgeon"
    }, {
        id: 1, name:
-       "measurer"
+       "Measurer"
    }, {
        id: 1, name:
-       "meat cutter"
+       "Meat cutter"
    }, {
        id: 1, name:
-       "meat packer"
+       "Meat packer"
    }, {
        id: 1, name:
-       "meat trimmer"
+       "Meat trimmer"
    }, {
        id: 1, name:
-       "mechanical door repairer"
+       "Mechanical door repairer"
    }, {
        id: 1, name:
-       "mechanical drafter"
+       "Mechanical drafter"
    }, {
        id: 1, name:
-       "mechanical engineer"
+       "Mechanical engineer"
    }, {
        id: 1, name:
-       "mechanical engineering technician"
+       "Mechanical engineering technician"
    }, {
        id: 1, name:
-       "mediator"
+       "Mediator"
    }, {
        id: 1, name:
-       "medical appliance technician"
+       "Medical appliance technician"
    }, {
        id: 1, name:
-       "medical assistant"
+       "Medical assistant"
    }, {
        id: 1, name:
-       "medical equipment preparer"
+       "Medical equipment preparer"
    }, {
        id: 1, name:
-       "medical equipment repairer"
+       "Medical equipment repairer"
    }, {
        id: 1, name:
-       "medical laboratory technician"
+       "Medical laboratory technician"
    }, {
        id: 1, name:
-       "medical laboratory technologist"
+       "Medical laboratory technologist"
    }, {
        id: 1, name:
-       "medical records technician"
+       "Medical records technician"
    }, {
        id: 1, name:
-       "medical scientist"
+       "Medical scientist"
    }, {
        id: 1, name:
-       "medical secretary"
+       "Medical secretary"
    }, {
        id: 1, name:
-       "medical services manager"
+       "Medical services manager"
    }, {
        id: 1, name:
-       "medical transcriptionist"
+       "Medical transcriptionist"
    }, {
        id: 1, name:
-       "meeting planner"
+       "Meeting planner"
    }, {
        id: 1, name:
-       "mental health counselor"
+       "Mental health counselor"
    }, {
        id: 1, name:
-       "mental health social worker"
+       "Mental health social worker"
    }, {
        id: 1, name:
-       "merchandise displayer"
+       "Merchandise displayer"
    }, {
        id: 1, name:
-       "messenger"
+       "Messenger"
    }, {
        id: 1, name:
-       "metal caster"
+       "Metal caster"
    }, {
        id: 1, name:
-       "metal patternmaker"
+       "Metal patternmaker"
    }, {
        id: 1, name:
-       "metal pickling operator"
+       "Metal pickling operator"
    }, {
        id: 1, name:
-       "metal pourer"
+       "Metal pourer"
    }, {
        id: 1, name:
-       "metal worker"
+       "Metal worker"
    }, {
        id: 1, name:
-       "metal-refining furnace operator"
+       "Metal-refining furnace operator"
    }, {
        id: 1, name:
-       "metal-refining furnace tender"
+       "Metal-refining furnace tender"
    }, {
        id: 1, name:
-       "meter reader"
+       "Meter reader"
    }, {
        id: 1, name:
-       "microbiologist"
+       "Microbiologist"
    }, {
        id: 1, name:
-       "middle school teacher"
+       "Middle school teacher"
    }, {
        id: 1, name:
-       "milling machine setter"
+       "Milling machine setter"
    }, {
        id: 1, name:
-       "millwright"
+       "Millwright"
    }, {
        id: 1, name:
-       "mine cutting machine operator"
+       "Mine cutting machine operator"
    }, {
        id: 1, name:
-       "mine shuttle car operator"
+       "Mine shuttle car operator"
    }, {
        id: 1, name:
-       "mining engineer"
+       "Mining engineer"
    }, {
        id: 1, name:
-       "mining safety engineer"
+       "Mining safety engineer"
    }, {
        id: 1, name:
-       "mining safety inspector"
+       "Mining safety inspector"
    }, {
        id: 1, name:
-       "mining service unit operator"
+       "Mining service unit operator"
    }, {
        id: 1, name:
-       "mixing machine setter"
+       "Mixing machine setter"
    }, {
        id: 1, name:
-       "mobile heavy equipment mechanic"
+       "Mobile heavy equipment mechanic"
    }, {
        id: 1, name:
-       "mobile home installer"
+       "Mobile home installer"
    }, {
        id: 1, name:
-       "model maker"
+       "Model maker"
    }, {
        id: 1, name:
-       "model"
+       "Model"
    }, {
        id: 1, name:
-       "molder"
+       "Molder"
    }, {
        id: 1, name:
-       "mortician"
+       "Mortician"
    }, {
        id: 1, name:
-       "motel desk clerk"
+       "Motel desk clerk"
    }, {
        id: 1, name:
-       "motion picture projectionist"
+       "Motion picture projectionist"
    }, {
        id: 1, name:
-       "motorboat mechanic"
+       "Motorboat mechanic"
    }, {
        id: 1, name:
-       "motorboat operator"
+       "Motorboat operator"
    }, {
        id: 1, name:
-       "motorboat service technician"
+       "Motorboat service technician"
    }, {
        id: 1, name:
-       "motorcycle mechanic"
+       "Motorcycle mechanic"
    }, {
        id: 1, name:
-       "multimedia artist"
+       "Multimedia artist"
    }, {
        id: 1, name:
-       "museum technician"
+       "Museum technician"
    }, {
        id: 1, name:
-       "music director"
+       "Music director"
    }, {
        id: 1, name:
-       "music teacher"
+       "Music teacher"
    }, {
        id: 1, name:
-       "musical instrument repairer"
+       "Musical instrument repairer"
    }, {
        id: 1, name:
-       "musician"
+       "Musician"
    }, {
        id: 1, name:
-       "natural sciences manager"
+       "Natural sciences manager"
    }, {
        id: 1, name:
-       "naval architect"
+       "Naval architect"
    }, {
        id: 1, name:
-       "network systems administrator"
+       "Network systems administrator"
    }, {
        id: 1, name:
-       "new accounts clerk"
+       "New accounts clerk"
    }, {
        id: 1, name:
-       "news vendor"
+       "News vendor"
    }, {
        id: 1, name:
-       "nonfarm animal caretaker"
+       "Nonfarm animal caretaker"
    }, {
        id: 1, name:
-       "nuclear engineer"
+       "Nuclear engineer"
    }, {
        id: 1, name:
-       "nuclear medicine technologist"
+       "Nuclear medicine technologist"
    }, {
        id: 1, name:
-       "nuclear power reactor operator"
+       "Nuclear power reactor operator"
    }, {
        id: 1, name:
-       "nuclear technician"
+       "Nuclear technician"
    }, {
        id: 1, name:
-       "nursing aide"
+       "Nursing aide"
    }, {
        id: 1, name:
-       "nursing instructor"
+       "Nursing instructor"
    }, {
        id: 1, name:
-       "nursing teacher"
+       "Nursing teacher"
    }, {
        id: 1, name:
-       "nutritionist"
+       "Nutritionist"
    }, {
        id: 1, name:
-       "obstetrician"
+       "Obstetrician"
    }, {
        id: 1, name:
-       "occupational health and safety specialist"
+       "Occupational health and safety specialist"
    }, {
        id: 1, name:
-       "occupational health and safety technician"
+       "Occupational health and safety technician"
    }, {
        id: 1, name:
-       "occupational therapist"
+       "Occupational therapist"
    }, {
        id: 1, name:
-       "occupational therapy aide"
+       "Occupational therapy aide"
    }, {
        id: 1, name:
-       "occupational therapy assistant"
+       "Occupational therapy assistant"
    }, {
        id: 1, name:
-       "offbearer"
+       "Offbearer"
    }, {
        id: 1, name:
-       "office clerk"
+       "Office clerk"
    }, {
        id: 1, name:
-       "office machine operator"
+       "Office machine operator"
    }, {
        id: 1, name:
-       "operating engineer"
+       "Operating engineer"
    }, {
        id: 1, name:
-       "operations manager"
+       "Operations manager"
    }, {
        id: 1, name:
-       "operations research analyst"
+       "Operations research analyst"
    }, {
        id: 1, name:
-       "ophthalmic laboratory technician"
+       "Ophthalmic laboratory technician"
    }, {
        id: 1, name:
-       "optician"
+       "Optician"
    }, {
        id: 1, name:
-       "optometrist"
+       "Optometrist"
    }, {
        id: 1, name:
-       "oral surgeon"
+       "Oral surgeon"
    }, {
        id: 1, name:
-       "order clerk"
+       "Order clerk"
    }, {
        id: 1, name:
-       "order filler"
+       "Order filler"
    }, {
        id: 1, name:
-       "orderly"
+       "Orderly"
    }, {
        id: 1, name:
-       "ordnance handling expert"
+       "Ordnance handling expert"
    }, {
        id: 1, name:
-       "orthodontist"
+       "Orthodontist"
    }, {
        id: 1, name:
-       "orthotist"
+       "Orthotist"
    }, {
        id: 1, name:
-       "outdoor power equipment mechanic"
+       "Outdoor power equipment mechanic"
    }, {
        id: 1, name:
-       "oven operator"
+       "Oven operator"
    }, {
        id: 1, name:
-       "packaging machine operator"
+       "Packaging machine operator"
    }, {
        id: 1, name:
-       "painter "
+       "Painter "
    }, {
        id: 1, name:
-       "painting worker"
+       "Painting worker"
    }, {
        id: 1, name:
-       "paper goods machine setter"
+       "Paper goods machine setter"
    }, {
        id: 1, name:
-       "paperhanger"
+       "Paperhanger"
    }, {
        id: 1, name:
-       "paralegal"
+       "Paralegal"
    }, {
        id: 1, name:
-       "paramedic"
+       "Paramedic"
    }, {
        id: 1, name:
-       "parking enforcement worker"
+       "Parking enforcement worker"
    }, {
        id: 1, name:
-       "parking lot attendant"
+       "Parking lot attendant"
    }, {
        id: 1, name:
-       "parts salesperson"
+       "Parts salesperson"
    }, {
        id: 1, name:
-       "paving equipment operator"
+       "Paving equipment operator"
    }, {
        id: 1, name:
-       "payroll clerk"
+       "Payroll clerk"
    }, {
        id: 1, name:
-       "pediatrician"
+       "Pediatrician"
    }, {
        id: 1, name:
-       "pedicurist"
+       "Pedicurist"
    }, {
        id: 1, name:
-       "personal care aide"
+       "Personal care aide"
    }, {
        id: 1, name:
-       "personal chef"
+       "Personal chef"
    }, {
        id: 1, name:
-       "personal financial advisor"
+       "Personal financial advisor"
    }, {
        id: 1, name:
-       "pest control worker"
+       "Pest control worker"
    }, {
        id: 1, name:
-       "pesticide applicator"
+       "Pesticide applicator"
    }, {
        id: 1, name:
-       "pesticide handler"
+       "Pesticide handler"
    }, {
        id: 1, name:
-       "pesticide sprayer"
+       "Pesticide sprayer"
    }, {
        id: 1, name:
-       "petroleum engineer"
+       "Petroleum engineer"
    }, {
        id: 1, name:
-       "petroleum gauger"
+       "Petroleum gauger"
    }, {
        id: 1, name:
-       "petroleum pump system operator"
+       "Petroleum pump system operator"
    }, {
        id: 1, name:
-       "petroleum refinery operator"
+       "Petroleum refinery operator"
    }, {
        id: 1, name:
-       "petroleum technician"
+       "Petroleum technician"
    }, {
        id: 1, name:
-       "pharmacist"
+       "Pharmacist"
    }, {
        id: 1, name:
-       "pharmacy aide"
+       "Pharmacy aide"
    }, {
        id: 1, name:
-       "pharmacy technician"
+       "Pharmacy technician"
    }, {
        id: 1, name:
-       "philosophy teacher"
+       "Philosophy teacher"
    }, {
        id: 1, name:
-       "photogrammetrist"
+       "Photogrammetrist"
    }, {
        id: 1, name:
-       "photographer"
+       "Photographer"
    }, {
        id: 1, name:
-       "photographic process worker"
+       "Photographic process worker"
    }, {
        id: 1, name:
-       "photographic processing machine operator"
+       "Photographic processing machine operator"
    }, {
        id: 1, name:
-       "physical therapist aide"
+       "Physical therapist aide"
    }, {
        id: 1, name:
-       "physical therapist assistant"
+       "Physical therapist assistant"
    }, {
        id: 1, name:
-       "physical therapist"
+       "Physical therapist"
    }, {
        id: 1, name:
-       "physician assistant"
+       "Physician assistant"
    }, {
        id: 1, name:
-       "physician"
+       "Physician"
    }, {
        id: 1, name:
-       "physicist"
+       "Physicist"
    }, {
        id: 1, name:
-       "physics teacher"
+       "Physics teacher"
    }, {
        id: 1, name:
-       "pile-driver operator"
+       "Pile-driver operator"
    }, {
        id: 1, name:
-       "pipefitter"
+       "Pipefitter"
    }, {
        id: 1, name:
-       "pipelayer"
+       "Pipelayer"
    }, {
        id: 1, name:
-       "planing machine operator"
+       "Planing machine operator"
    }, {
        id: 1, name:
-       "planning clerk"
+       "Planning clerk"
    }, {
        id: 1, name:
-       "plant operator"
+       "Plant operator"
    }, {
        id: 1, name:
-       "plant scientist"
+       "Plant scientist"
    }, {
        id: 1, name:
-       "plasterer"
+       "Plasterer"
    }, {
        id: 1, name:
-       "plastic patternmaker"
+       "Plastic patternmaker"
    }, {
        id: 1, name:
-       "plastic worker"
+       "Plastic worker"
    }, {
        id: 1, name:
-       "plumber"
+       "Plumber"
    }, {
        id: 1, name:
-       "podiatrist"
+       "Podiatrist"
    }, {
        id: 1, name:
-       "police dispatcher"
+       "Police dispatcher"
    }, {
        id: 1, name:
-       "police officer"
+       "Police officer"
    }, {
        id: 1, name:
-       "policy processing clerk"
+       "Policy processing clerk"
    }, {
        id: 1, name:
-       "political science teacher"
+       "Political science teacher"
    }, {
        id: 1, name:
-       "political scientist"
+       "Political scientist"
    }, {
        id: 1, name:
-       "postal service clerk"
+       "Postal service clerk"
    }, {
        id: 1, name:
-       "postal service mail carrier"
+       "Postal service mail carrier"
    }, {
        id: 1, name:
-       "postal service mail processing machine operator"
+       "Postal service mail processing machine operator"
    }, {
        id: 1, name:
-       "postal service mail processor"
+       "Postal service mail processor"
    }, {
        id: 1, name:
-       "postal service mail sorter"
+       "Postal service mail sorter"
    }, {
        id: 1, name:
-       "postmaster"
+       "Postmaster"
    }, {
        id: 1, name:
-       "postsecondary teacher"
+       "Postsecondary teacher"
    }, {
        id: 1, name:
-       "poultry cutter"
+       "Poultry cutter"
    }, {
        id: 1, name:
-       "poultry trimmer"
+       "Poultry trimmer"
    }, {
        id: 1, name:
-       "power dispatcher"
+       "Power dispatcher"
    }, {
        id: 1, name:
-       "power distributor"
+       "Power distributor"
    }, {
        id: 1, name:
-       "power plant operator"
+       "Power plant operator"
    }, {
        id: 1, name:
-       "power tool repairer"
+       "Power tool repairer"
    }, {
        id: 1, name:
-       "precious stone worker"
+       "Precious stone worker"
    }, {
        id: 1, name:
-       "precision instrument repairer"
+       "Precision instrument repairer"
    }, {
        id: 1, name:
-       "prepress technician"
+       "Prepress technician"
    }, {
        id: 1, name:
-       "preschool teacher"
+       "Preschool teacher"
    }, {
        id: 1, name:
-       "priest"
+       "Priest"
    }, {
        id: 1, name:
-       "print binding worker"
+       "Print binding worker"
    }, {
        id: 1, name:
-       "printing press operator"
+       "Printing press operator"
    }, {
        id: 1, name:
-       "private detective"
+       "Private detective"
    }, {
        id: 1, name:
-       "probation officer"
+       "Probation officer"
    }, {
        id: 1, name:
-       "procurement clerk"
+       "Procurement clerk"
    }, {
        id: 1, name:
-       "producer"
+       "Producer"
    }, {
        id: 1, name:
-       "product promoter"
+       "Product promoter"
    }, {
        id: 1, name:
-       "production clerk"
+       "Production clerk"
    }, {
        id: 1, name:
-       "production occupation"
+       "Production occupation"
    }, {
        id: 1, name:
-       "proofreader"
+       "Proofreader"
    }, {
        id: 1, name:
-       "property manager"
+       "Property manager"
    }, {
        id: 1, name:
-       "prosthetist"
+       "Prosthetist"
    }, {
        id: 1, name:
-       "prosthodontist"
+       "Prosthodontist"
    }, {
        id: 1, name:
-       "psychiatric aide"
+       "Psychiatric aide"
    }, {
        id: 1, name:
-       "psychiatric technician"
+       "Psychiatric technician"
    }, {
        id: 1, name:
-       "psychiatrist"
+       "Psychiatrist"
    }, {
        id: 1, name:
-       "psychologist"
+       "Psychologist"
    }, {
        id: 1, name:
-       "psychology teacher"
+       "Psychology teacher"
    }, {
        id: 1, name:
-       "public relations manager"
+       "Public relations manager"
    }, {
        id: 1, name:
-       "public relations specialist"
+       "Public relations specialist"
    }, {
        id: 1, name:
-       "pump operator"
+       "Pump operator"
    }, {
        id: 1, name:
-       "purchasing agent"
+       "Purchasing agent"
    }, {
        id: 1, name:
-       "purchasing manager"
+       "Purchasing manager"
    }, {
        id: 1, name:
-       "radiation therapist"
+       "Radiation therapist"
    }, {
        id: 1, name:
-       "radio announcer"
+       "Radio announcer"
    }, {
        id: 1, name:
-       "radio equipment installer"
+       "Radio equipment installer"
    }, {
        id: 1, name:
-       "radio operator"
+       "Radio operator"
    }, {
        id: 1, name:
-       "radiologic technician"
+       "Radiologic technician"
    }, {
        id: 1, name:
-       "radiologic technologist"
+       "Radiologic technologist"
    }, {
        id: 1, name:
-       "rail car repairer"
+       "Rail car repairer"
    }, {
        id: 1, name:
-       "rail transportation worker"
+       "Rail transportation worker"
    }, {
        id: 1, name:
-       "rail yard engineer"
+       "Rail yard engineer"
    }, {
        id: 1, name:
-       "rail-track laying equipment operator"
+       "Rail-track laying equipment operator"
    }, {
        id: 1, name:
-       "railroad brake operator"
+       "Railroad brake operator"
    }, {
        id: 1, name:
-       "railroad conductor"
+       "Railroad conductor"
    }, {
        id: 1, name:
-       "railroad police"
+       "Railroad police"
    }, {
        id: 1, name:
-       "rancher"
+       "Rancher"
    }, {
        id: 1, name:
-       "real estate appraiser"
+       "Real estate appraiser"
    }, {
        id: 1, name:
-       "real estate broker"
+       "Real estate broker"
    }, {
        id: 1, name:
-       "real estate manager"
+       "Real estate manager"
    }, {
        id: 1, name:
-       "real estate sales agent"
+       "Real estate sales agent"
    }, {
        id: 1, name:
-       "receiving clerk"
+       "Receiving clerk"
    }, {
        id: 1, name:
-       "receptionist"
+       "Receptionist"
    }, {
        id: 1, name:
-       "record clerk"
+       "Record clerk"
    }, {
        id: 1, name:
-       "recreation teacher"
+       "Recreation teacher"
    }, {
        id: 1, name:
-       "recreation worker"
+       "Recreation worker"
    }, {
        id: 1, name:
-       "recreational therapist"
+       "Recreational therapist"
    }, {
        id: 1, name:
-       "recreational vehicle service technician"
+       "Recreational vehicle service technician"
    }, {
        id: 1, name:
-       "recyclable material collector"
+       "Recyclable material collector"
    }, {
        id: 1, name:
-       "referee"
+       "Referee"
    }, {
        id: 1, name:
-       "refractory materials repairer"
+       "Refractory materials repairer"
    }, {
        id: 1, name:
-       "refrigeration installer"
+       "Refrigeration installer"
    }, {
        id: 1, name:
-       "refrigeration mechanic"
+       "Refrigeration mechanic"
    }, {
        id: 1, name:
-       "refuse collector"
+       "Refuse collector"
    }, {
        id: 1, name:
-       "regional planner"
+       "Regional planner"
    }, {
        id: 1, name:
-       "registered nurse"
+       "Registered nurse"
    }, {
        id: 1, name:
-       "rehabilitation counselor"
+       "Rehabilitation counselor"
    }, {
        id: 1, name:
-       "reinforcing iron worker"
+       "Reinforcing iron worker"
    }, {
        id: 1, name:
-       "reinforcing rebar worker"
+       "Reinforcing rebar worker"
    }, {
        id: 1, name:
-       "religion teacher"
+       "Religion teacher"
    }, {
        id: 1, name:
-       "religious activities director"
+       "Religious activities director"
    }, {
        id: 1, name:
-       "religious worker"
+       "Religious worker"
    }, {
        id: 1, name:
-       "rental clerk"
+       "Rental clerk"
    }, {
        id: 1, name:
-       "repair worker"
+       "Repair worker"
    }, {
        id: 1, name:
-       "reporter"
+       "Reporter"
    }, {
        id: 1, name:
-       "residential advisor"
+       "Residential advisor"
    }, {
        id: 1, name:
-       "resort desk clerk"
+       "Resort desk clerk"
    }, {
        id: 1, name:
-       "respiratory therapist"
+       "Respiratory therapist"
    }, {
        id: 1, name:
-       "respiratory therapy technician"
+       "Respiratory therapy technician"
    }, {
        id: 1, name:
-       "retail buyer"
+       "Retail buyer"
    }, {
        id: 1, name:
-       "retail salesperson"
+       "Retail salesperson"
    }, {
        id: 1, name:
-       "revenue agent"
+       "Revenue agent"
    }, {
        id: 1, name:
-       "rigger"
+       "Rigger"
    }, {
        id: 1, name:
-       "rock splitter"
+       "Rock splitter"
    }, {
        id: 1, name:
-       "rolling machine tender"
+       "Rolling machine tender"
    }, {
        id: 1, name:
-       "roof bolter"
+       "Roof bolter"
    }, {
        id: 1, name:
-       "roofer"
+       "Roofer"
    }, {
        id: 1, name:
-       "rotary drill operator"
+       "Rotary drill operator"
    }, {
        id: 1, name:
-       "roustabout"
+       "Roustabout"
    }, {
        id: 1, name:
-       "safe repairer"
+       "Safe repairer"
    }, {
        id: 1, name:
-       "sailor"
+       "Sailor"
    }, {
        id: 1, name:
-       "sales engineer"
+       "Sales engineer"
    }, {
        id: 1, name:
-       "sales manager"
+       "Sales manager"
    }, {
        id: 1, name:
-       "sales representative"
+       "Sales representative"
    }, {
        id: 1, name:
-       "sampler"
+       "Sampler"
    }, {
        id: 1, name:
-       "sawing machine operator"
+       "Sawing machine operator"
    }, {
        id: 1, name:
-       "scaler"
+       "Scaler"
    }, {
        id: 1, name:
-       "school bus driver"
+       "School bus driver"
    }, {
        id: 1, name:
-       "school psychologist"
+       "School psychologist"
    }, {
        id: 1, name:
-       "school social worker"
+       "School social worker"
    }, {
        id: 1, name:
-       "scout leader"
+       "Scout leader"
    }, {
        id: 1, name:
-       "sculptor"
+       "Sculptor"
    }, {
        id: 1, name:
-       "secondary education teacher"
+       "Secondary education teacher"
    }, {
        id: 1, name:
-       "secondary school teacher"
+       "Secondary school teacher"
    }, {
        id: 1, name:
-       "secretary"
+       "Secretary"
    }, {
        id: 1, name:
-       "securities sales agent"
+       "Securities sales agent"
    }, {
        id: 1, name:
-       "security guard"
+       "Security guard"
    }, {
        id: 1, name:
-       "security system installer"
+       "Security system installer"
    }, {
        id: 1, name:
-       "segmental paver"
+       "Segmental paver"
    }, {
        id: 1, name:
-       "self-enrichment education teacher"
+       "Self-enrichment education teacher"
    }, {
        id: 1, name:
-       "semiconductor processor"
+       "Semiconductor processor"
    }, {
        id: 1, name:
-       "septic tank servicer"
+       "Septic tank servicer"
    }, {
        id: 1, name:
-       "set designer"
+       "Set designer"
    }, {
        id: 1, name:
-       "sewer pipe cleaner"
+       "Sewer pipe cleaner"
    }, {
        id: 1, name:
-       "sewing machine operator"
+       "Sewing machine operator"
    }, {
        id: 1, name:
-       "shampooer"
+       "Shampooer"
    }, {
        id: 1, name:
-       "shaper"
+       "Shaper"
    }, {
        id: 1, name:
-       "sheet metal worker"
+       "Sheet metal worker"
    }, {
        id: 1, name:
-       "sheriff's patrol officer"
+       "Sheriff's patrol officer"
    }, {
        id: 1, name:
-       "ship captain"
+       "Ship captain"
    }, {
        id: 1, name:
-       "ship engineer" 
+       "Ship engineer"
    }, {
        id: 1, name:
-       "ship loader"
+       "Ship loader"
    }, {
        id: 1, name:
-       "shipmate"
+       "Shipmate"
    }, {
        id: 1, name:
-       "shipping clerk"
+       "Shipping clerk"
    }, {
        id: 1, name:
-       "shoe machine operator"
+       "Shoe machine operator"
    }, {
        id: 1, name:
-       "shoe worker"
+       "Shoe worker"
    }, {
        id: 1, name:
-       "short order cook"
+       "Short order cook"
    }, {
        id: 1, name:
-       "signal operator"
+       "Signal operator"
    }, {
        id: 1, name:
-       "signal repairer"
+       "Signal repairer"
    }, {
        id: 1, name:
-       "singer"
+       "Singer"
    }, {
        id: 1, name:
-       "ski patrol"
+       "Ski patrol"
    }, {
        id: 1, name:
-       "skincare specialist"
+       "Skincare specialist"
    }, {
        id: 1, name:
-       "slaughterer"
+       "Slaughterer"
    }, {
        id: 1, name:
-       "slicing machine tender"
+       "Slicing machine tender"
    }, {
        id: 1, name:
-       "slot supervisor"
+       "Slot supervisor"
    }, {
        id: 1, name:
-       "social science research assistant"
+       "Social science research assistant"
    }, {
        id: 1, name:
-       "social sciences teacher"
+       "Social sciences teacher"
    }, {
        id: 1, name:
-       "social scientist"
+       "Social scientist"
    }, {
        id: 1, name:
-       "social service assistant"
+       "Social service assistant"
    }, {
        id: 1, name:
-       "social service manager"
+       "Social service manager"
    }, {
        id: 1, name:
-       "social work teacher"
+       "Social work teacher"
    }, {
        id: 1, name:
-       "social worker"
+       "Social worker"
    }, {
        id: 1, name:
-       "sociologist"
+       "Sociologist"
    }, {
        id: 1, name:
-       "sociology teacher"
+       "Sociology teacher"
    }, {
        id: 1, name:
-       "software developer"
+       "Software developer"
    }, {
        id: 1, name:
-       "software engineer"
+       "Software engineer"
    }, {
        id: 1, name:
-       "soil scientist"
+       "Soil scientist"
    }, {
        id: 1, name:
-       "solderer"
+       "Solderer"
    }, {
        id: 1, name:
-       "sorter"
+       "Sorter"
    }, {
        id: 1, name:
-       "sound engineering technician"
+       "Sound engineering technician"
    }, {
        id: 1, name:
-       "space scientist"
+       "Space scientist"
    }, {
        id: 1, name:
-       "special education teacher"
+       "Special education teacher"
    }, {
        id: 1, name:
-       "speech-language pathologist"
+       "Speech-language pathologist"
    }, {
        id: 1, name:
-       "sports book runner"
+       "Sports book runner"
    }, {
        id: 1, name:
-       "sports entertainer"
+       "Sports entertainer"
    }, {
        id: 1, name:
-       "sports performer"
+       "Sports performer"
    }, {
        id: 1, name:
-       "stationary engineer"
+       "Stationary engineer"
    }, {
        id: 1, name:
-       "statistical assistant"
+       "Statistical assistant"
    }, {
        id: 1, name:
-       "statistician"
+       "Statistician"
    }, {
        id: 1, name:
-       "steamfitter"
+       "Steamfitter"
    }, {
        id: 1, name:
-       "stock clerk"
+       "Stock clerk"
    }, {
        id: 1, name:
-       "stock mover"
+       "Stock mover"
    }, {
        id: 1, name:
-       "stonemason"
+       "Stonemason"
    }, {
        id: 1, name:
-       "street vendor"
+       "Street vendor"
    }, {
        id: 1, name:
-       "streetcar operator"
+       "Streetcar operator"
    }, {
        id: 1, name:
-       "structural iron worker"
+       "Structural iron worker"
    }, {
        id: 1, name:
-       "structural metal fabricator"
+       "Structural metal fabricator"
    }, {
        id: 1, name:
-       "structural metal fitter"
+       "Structural metal fitter"
    }, {
        id: 1, name:
-       "structural steel worker"
+       "Structural steel worker"
    }, {
        id: 1, name:
-       "stucco mason"
+       "Stucco mason"
    }, {
        id: 1, name:
-       "substance abuse counselor"
+       "Substance abuse counselor"
    }, {
        id: 1, name:
-       "substance abuse social worker"
+       "Substance abuse social worker"
    }, {
        id: 1, name:
-       "subway operator"
+       "Subway operator"
    }, {
        id: 1, name:
-       "surfacing equipment operator"
+       "Surfacing equipment operator"
    }, {
        id: 1, name:
-       "surgeon"
+       "Surgeon"
    }, {
        id: 1, name:
-       "surgical technologist"
+       "Surgical technologist"
    }, {
        id: 1, name:
-       "survey researcher"
+       "Survey researcher"
    }, {
        id: 1, name:
-       "surveying technician"
+       "Surveying technician"
    }, {
        id: 1, name:
-       "surveyor"
+       "Surveyor"
    }, {
        id: 1, name:
-       "switch operator"
+       "Switch operator"
    }, {
        id: 1, name:
-       "switchboard operator"
+       "Switchboard operator"
    }, {
        id: 1, name:
-       "tailor"
+       "Tailor"
    }, {
        id: 1, name:
-       "tamping equipment operator"
+       "Tamping equipment operator"
    }, {
        id: 1, name:
-       "tank car loader"
+       "Tank car loader"
    }, {
        id: 1, name:
-       "taper"
+       "Taper"
    }, {
        id: 1, name:
-       "tax collector"
+       "Tax collector"
    }, {
        id: 1, name:
-       "tax examiner"
+       "Tax examiner"
    }, {
        id: 1, name:
-       "tax preparer"
+       "Tax preparer"
    }, {
        id: 1, name:
-       "taxi driver"
+       "Taxi driver"
    }, {
        id: 1, name:
-       "teacher assistant"
+       "Teacher assistant"
    }, {
        id: 1, name:
-       "teacher"
+       "Teacher"
    }, {
        id: 1, name:
-       "team assembler"
+       "Team assembler"
    }, {
        id: 1, name:
-       "technical writer"
+       "Technical writer"
    }, {
        id: 1, name:
-       "telecommunications equipment installer"
+       "Telecommunications equipment installer"
    }, {
        id: 1, name:
-       "telemarketer"
+       "Telemarketer"
    }, {
        id: 1, name:
-       "telephone operator"
+       "Telephone operator"
    }, {
        id: 1, name:
-       "television announcer"
+       "Television announcer"
    }, {
        id: 1, name:
-       "teller"
+       "Teller"
    }, {
        id: 1, name:
-       "terrazzo finisher"
+       "Terrazzo finisher"
    }, {
        id: 1, name:
-       "terrazzo worker"
+       "Terrazzo worker"
    }, {
        id: 1, name:
-       "tester"
+       "Tester"
    }, {
        id: 1, name:
-       "textile bleaching operator"
+       "Textile bleaching operator"
    }, {
        id: 1, name:
-       "textile cutting machine setter"
+       "Textile cutting machine setter"
    }, {
        id: 1, name:
-       "textile knitting machine setter"
+       "Textile knitting machine setter"
    }, {
        id: 1, name:
-       "textile presser"
+       "Textile presser"
    }, {
        id: 1, name:
-       "textile worker"
+       "Textile worker"
    }, {
        id: 1, name:
-       "therapist"
+       "Therapist"
    }, {
        id: 1, name:
-       "ticket agent"
+       "Ticket agent"
    }, {
        id: 1, name:
-       "ticket taker"
+       "Ticket taker"
    }, {
        id: 1, name:
-       "tile setter"
+       "Tile setter"
    }, {
        id: 1, name:
-       "timekeeping clerk"
+       "Timekeeping clerk"
    }, {
        id: 1, name:
-       "timing device assembler"
+       "Timing device assembler"
    }, {
        id: 1, name:
-       "tire builder"
+       "Tire builder"
    }, {
        id: 1, name:
-       "tire changer"
+       "Tire changer"
    }, {
        id: 1, name:
-       "tire repairer"
+       "Tire repairer"
    }, {
        id: 1, name:
-       "title abstractor"
+       "Title abstractor"
    }, {
        id: 1, name:
-       "title examiner"
+       "Title examiner"
    }, {
        id: 1, name:
-       "title searcher"
+       "Title searcher"
    }, {
        id: 1, name:
-       "tobacco roasting machine operator"
+       "Tobacco roasting machine operator"
    }, {
        id: 1, name:
-       "tool filer"
+       "Tool filer"
    }, {
        id: 1, name:
-       "tool grinder"
+       "Tool grinder"
    }, {
        id: 1, name:
-       "tool maker"
+       "Tool maker"
    }, {
        id: 1, name:
-       "tool sharpener"
+       "Tool sharpener"
    }, {
        id: 1, name:
-       "tour guide"
+       "Tour guide"
    }, {
        id: 1, name:
-       "tower equipment installer"
+       "Tower equipment installer"
    }, {
        id: 1, name:
-       "tower operator"
+       "Tower operator"
    }, {
        id: 1, name:
-       "track switch repairer"
+       "Track switch repairer"
    }, {
        id: 1, name:
-       "tractor operator"
+       "Tractor operator"
    }, {
        id: 1, name:
-       "tractor-trailer truck driver"
+       "Tractor-trailer truck driver"
    }, {
        id: 1, name:
-       "traffic clerk"
+       "Traffic clerk"
    }, {
        id: 1, name:
-       "traffic technician"
+       "Traffic technician"
    }, {
        id: 1, name:
-       "training and development manager"
+       "Training and development manager"
    }, {
        id: 1, name:
-       "training and development specialist"
+       "Training and development specialist"
    }, {
        id: 1, name:
-       "transit police"
+       "Transit police"
    }, {
        id: 1, name:
-       "translator"
+       "Translator"
    }, {
        id: 1, name:
-       "transportation equipment painter"
+       "Transportation equipment painter"
    }, {
        id: 1, name:
-       "transportation inspector"
+       "Transportation inspector"
    }, {
        id: 1, name:
-       "transportation security screener"
+       "Transportation security screener"
    }, {
        id: 1, name:
-       "transportation worker"
+       "Transportation worker"
    }, {
        id: 1, name:
-       "trapper"
+       "Trapper"
    }, {
        id: 1, name:
-       "travel agent"
+       "Travel agent"
    }, {
        id: 1, name:
-       "travel clerk"
+       "Travel clerk"
    }, {
        id: 1, name:
-       "travel guide"
+       "Travel guide"
    }, {
        id: 1, name:
-       "tree pruner"
+       "Tree pruner"
    }, {
        id: 1, name:
-       "tree trimmer"
+       "Tree trimmer"
    }, {
        id: 1, name:
-       "trimmer"
+       "Trimmer"
    }, {
        id: 1, name:
-       "truck loader"
+       "Truck loader"
    }, {
        id: 1, name:
-       "truck mechanic"
+       "Truck mechanic"
    }, {
        id: 1, name:
-       "tuner"
+       "Tuner"
    }, {
        id: 1, name:
-       "turning machine tool operator"
+       "Turning machine tool operator"
    }, {
        id: 1, name:
-       "typist"
+       "Typist"
    }, {
        id: 1, name:
-       "umpire"
+       "Umpire"
    }, {
        id: 1, name:
-       "undertaker"
+       "Undertaker"
    }, {
        id: 1, name:
-       "upholsterer"
+       "Upholsterer"
    }, {
        id: 1, name:
-       "urban planner"
+       "Urban planner"
    }, {
        id: 1, name:
-       "usher"
+       "Usher"
    }, {
        id: 1, name:
-       "valve installer"
+       "Valve installer"
    }, {
        id: 1, name:
-       "vending machine servicer"
+       "Vending machine servicer"
    }, {
        id: 1, name:
-       "veterinarian"
+       "Veterinarian"
    }, {
        id: 1, name:
-       "veterinary assistant"
+       "Veterinary assistant"
    }, {
        id: 1, name:
-       "veterinary technician"
+       "Veterinary technician"
    }, {
        id: 1, name:
-       "vocational counselor"
+       "Vocational counselor"
    }, {
        id: 1, name:
-       "vocational education teacher"
+       "Vocational education teacher"
    }, {
        id: 1, name:
-       "waiter"
+       "Waiter"
    }, {
        id: 1, name:
-       "waitress"
+       "Waitress"
    }, {
        id: 1, name:
-       "watch repairer"
+       "Watch repairer"
    }, {
        id: 1, name:
-       "water treatment plant operator"
+       "Water treatment plant operator"
    }, {
        id: 1, name:
-       "weaving machine setter"
+       "Weaving machine setter"
    }, {
        id: 1, name:
-       "web developer"
+       "Web developer"
    }, {
        id: 1, name:
-       "weigher"
+       "Weigher"
    }, {
        id: 1, name:
-       "welder"
+       "Welder"
    }, {
        id: 1, name:
-       "wellhead pumper"
+       "Wellhead pumper"
    }, {
        id: 1, name:
-       "wholesale buyer"
+       "Wholesale buyer"
    }, {
        id: 1, name:
-       "wildlife biologist"
+       "Wildlife biologist"
    }, {
        id: 1, name:
-       "window trimmer"
+       "Window trimmer"
    }, {
        id: 1, name:
-       "wood patternmaker"
+       "Wood patternmaker"
    }, {
        id: 1, name:
-       "woodworker"
+       "Woodworker"
    }, {
        id: 1, name:
-       "word processor"
+       "Word processor"
    }, {
        id: 1, name:
-       "writer"
+       "Writer"
    }, {
        id: 1, name:
-       "yardmaster"
+       "Yardmaster"
    }, {
        id: 1, name:
-       "zoologist"
+       "Zoologist"
    }
 ];
 
@@ -3528,6 +3547,7 @@ var
 		"Director",
 		"Dishwasher",
 		"Dispatcher",
+        "Doctor",
 		"Door-to-door sales worker",
 		"Drafter",
 		"Dragline operator",
@@ -3744,6 +3764,7 @@ var
 		"Jeweler",
 		"Judge",
 		"Judicial law clerk",
+        "Jounalist",
 		"Kettle operator",
 		"Kiln operator",
 		"Kindergarten teacher",

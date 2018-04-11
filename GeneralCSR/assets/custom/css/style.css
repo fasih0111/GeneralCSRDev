@@ -2373,7 +2373,7 @@ ul.links {
 
 .action-title {
     margin-top: 8px;
-    font-size: 12px;
+    font-size: 11px;
     color: rgba(0,0,0,.85);
 }
 
@@ -2534,6 +2534,25 @@ span.email {
     right: 20px;
 }
 
+.cat-title {
+    background-color: #000;
+    padding: 4px;
+    color: #fff;
+    text-align: left;
+    line-height: 1;
+    position: relative;
+    height: 50px;
+}
+
+    .cat-title p {
+        position: absolute;
+        top: 50%;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        transform: translate(0%, -50%);
+    }
+
 .cat-info:hover .check-wrapper {
     opacity: .9;
 }
@@ -2554,7 +2573,7 @@ span.email {
 .check-wrapper {
     position: absolute;
     right: 6px;
-    bottom: 6px;
+    top: 6px;
     /*padding: 7px 6px 6px;*/
     background: #fff;
     border: 2px solid #999;
