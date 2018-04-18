@@ -52,6 +52,13 @@ namespace GeneralCSR.Controllers
             return JsonConvert.SerializeObject(BAL.GetTeams(0, Convert.ToInt32(CFSess.ID)));
         }
 
+        [HttpPost]
+        public string GetTeamDiscussion(string ID)
+        {
+            CFSession CFSess = (CFSession)Session["CFSess"];
+            return JsonConvert.SerializeObject(BAL.GetTeamComment(Convert.ToInt32(ID)));
+        }
+
 
         [HttpPost]
         public string GetTeamMembers(string id)
@@ -79,28 +86,41 @@ namespace GeneralCSR.Controllers
             //    (ImgUrl != "" & ImgUrl != null)
             //    )
 
-            if (FCommon.CheckEmptyStrings(TeamName, Description, ImgUrl) && FCommon.CheckEmptyInt(IssueID))
+
+            DataTable dtTeamName = BAL.GetIssueTitle(IssueID);
+            if (dtTeamName.Rows.Count > 0)
             {
-                CFSession CFSess = (CFSession)Session["CFSess"];
-                BAL.TeamID = 0;
-                BAL.TeamName = TeamName;
-                BAL.Description = Description;
-                BAL.CreatedBy = Convert.ToInt32(CFSess.ID);
-                BAL.CreatedDate = DateTime.Now;
-                BAL.ImgUrl = ImgUrl;
-                BAL.IssueID = IssueID;
-                BAL.StatusID = 1;
-                BAL.IsActive = true;
-                DataRow dr = BAL.InsertTeams(BAL);
-
-                BAL.InsertTeamMember(Convert.ToInt32(dr["TeamID"]), Convert.ToInt32(CFSess.ID), 1, DateTime.Now);
-
-                return JsonConvert.SerializeObject(dr);
+                if (FCommon.CheckEmptyStrings(TeamName, Description, ImgUrl) && FCommon.CheckEmptyInt(IssueID))
+                {
+                    CFSession CFSess = (CFSession)Session["CFSess"];
+                    BAL.TeamID = 0;
+                    BAL.TeamName = dtTeamName.Rows[0]["Title"].ToString();
+                    BAL.Description = Description;
+                    BAL.CreatedBy = Convert.ToInt32(CFSess.ID);
+                    BAL.CreatedDate = DateTime.Now;
+                    BAL.ImgUrl = ImgUrl;
+                    BAL.IssueID = IssueID;
+                    BAL.StatusID = 1;
+                    BAL.IsActive = true;
+                    DataRow dr = BAL.InsertTeams(BAL);
+                    BAL.InsertTeamMember(Convert.ToInt32(dr["TeamID"]), Convert.ToInt32(CFSess.ID), 1, DateTime.Now);
+                    return JsonConvert.SerializeObject(dr);
+                }
+                else
+                {
+                    return JsonConvert.SerializeObject(FCommon.ConvertReturn("Wrong"));
+                }
             }
             else
             {
                 return JsonConvert.SerializeObject(FCommon.ConvertReturn("Wrong"));
             }
+        }
+
+        [HttpPost]
+        public string GetNotTeamUsers(int TeamID)
+        {
+            return JsonConvert.SerializeObject(BAL.GetNotTeamUser(TeamID));
         }
     }
 }

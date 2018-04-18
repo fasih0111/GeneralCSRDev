@@ -4,6 +4,7 @@
 
 
     $(elem).tooltipster({
+        animation: 'fade',
         content: $loadElem,
         delay: [1000, 2000],
         side: ['bottom', 'top'],

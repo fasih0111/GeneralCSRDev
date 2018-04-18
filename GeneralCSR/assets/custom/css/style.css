@@ -2454,7 +2454,9 @@ span.email {
 
 .modal-body {
     max-height: 500px;
+    min-height: 300px;
     overflow-wrap: break-word;
+    overflow-x: auto;
     /*overflow-y: auto;*/
 }
 
@@ -2536,7 +2538,7 @@ span.email {
 
 .cat-title {
     background-color: #000;
-    padding: 4px;
+    padding: 6px 0px;
     color: #fff;
     text-align: left;
     line-height: 1;
@@ -2548,9 +2550,9 @@ span.email {
         position: absolute;
         top: 50%;
         margin: 0;
-        position: absolute;
-        top: 50%;
         transform: translate(0%, -50%);
+        width: 100%;
+        text-align: center;
     }
 
 .cat-info:hover .check-wrapper {
@@ -2706,7 +2708,7 @@ span.email {
 }
 /*Wizard Form*/
 .stepform {
-    padding: 0px;
+    padding: 4px;
     /*background: #fafbfc;
   border: 1px solid #cfd6e7;*/
 }
@@ -2720,6 +2722,11 @@ span.email {
     width: 100%;
 }
 /*.sf-step.sf-active { margin: 10px 0; }*/
+#msform .sf-step {
+    max-height: 300px;
+    overflow: auto;
+}
+
 .sf-step {
     float: left;
 }
@@ -2771,7 +2778,7 @@ span.email {
 }
 
 .cat-info img {
-    margin: 0px !important;
+    margin: 0px auto !important;
 }
 
 /*.attach {
@@ -2844,7 +2851,7 @@ span.email {
 	margin: 50px auto;*/
     text-align: center;
     position: relative;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
     #msform fieldset {
@@ -2882,7 +2889,7 @@ span.email {
         border: 0 none;
         cursor: pointer;
         padding: 10px 5px;
-        margin: 10px 5px;
+        margin: 20px 5px 5px 5px;
     }
 
         #msform .action-button:hover, #msform .action-button:focus {
@@ -2893,7 +2900,7 @@ span.email {
     font-size: 15px;
     text-transform: uppercase;
     color: #2C3E50;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-weight: 600;
 }
 
@@ -3158,8 +3165,8 @@ ul.comments li {
 
 .badge-icon {
     position: absolute;
-    top: -2px;
-    left: -2px;
+    top: 0px;
+    left: 0px;
 }
 
 .profile-image {
@@ -3257,4 +3264,50 @@ ul.comments li {
     right: 10px;
     top: 10px;
     cursor: pointer;
+}
+
+.sign-up-text {
+    font-size: 14px;
+    display: inline;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 20px 20px;
+    clear: right;
+    padding: 5px 0 5px 30px;
+}
+
+    .sign-up-text.google {
+        background-image: url(../../images/social/new-google-favicon-512.png);
+    }
+
+    .sign-up-text.facebook {
+        background-image: url(../../images/social/Facebook.png);
+    }
+
+.expert-border {
+    border: 3px solid #fcca1c;
+}
+
+
+.custom-top-bar-alert {
+    width: 100%;
+    height: 40px;
+    padding: 6px;
+    text-align: center;
+    color: #fff;
+}
+    .custom-top-bar-alert.success {
+        background-color: #3c763d;
+    }
+    .custom-top-bar-alert.danger {
+         background-color:#ca1727;
+    }
+
+.btn-respond {
+}
+.btn-respond:hover {
+    background-color: #e0e0e0;
+    
+    color: #fff;
+    /*box-shadow: 0 0 2px #000;*/
 }

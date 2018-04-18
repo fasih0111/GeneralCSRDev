@@ -34,7 +34,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="email">Invite as an expert:</label>
+                            <label for="email">Invite as an expert: <i class="material-icons" title="Experts are people who are authorities in one or more areas. They are a great help in endorsing an idea or mentoring a team. ">info</i></label>
                             <p>
                                 <input type="checkbox" id="chk-isexpert" />
                             </p>
@@ -48,8 +48,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="email">Personal mesaage (Optional)</label>
-                            <textarea type="text" id="txt-desc" class="form-control" rows="5" placeholder="Hi,
-Join me on Rikyas, a great community for international people, where you can network, meet at regular events and get information and tips on living abroad."></textarea>
+                            <textarea type="text" id="txt-desc" class="form-control" rows="5" placeholder="I’d like you to invite you to join Rikyas. Rikyas is where people raise common issues and everyone tries to solve it through multiple tools and means."></textarea>
                         </div>
                     </div>
                 </div>
@@ -74,7 +73,7 @@ Join me on Rikyas, a great community for international people, where you can net
 
         if ($email != "") {
             var Data = { "FName": $fName, "LName": $lName, "Email": $email, "Desc": $desc };
-            runAjax("/Home/SendInvitaion", Data, true, $(e), "button", afterSendInvitation, e);
+            runAjax("/Home/SendInvitaion", Data, true, $(e).closest(".panel"), "full", afterSendInvitation, e);
         } else {
             showAlert("d", "Please fill required fields!", $(e).closest(".panel").find(".panel-body"), true);
         }

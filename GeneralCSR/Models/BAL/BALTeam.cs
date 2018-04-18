@@ -39,5 +39,20 @@ namespace Models
         //@IssueID INT,
         //@StatusID INT,
         //@IsActive BIT
+
+        public override DataTable GetTeamComment(int TeamID)
+        {
+            return base.GetTeamComment(TeamID);
+        }
+        public override DataTable GetIssueTitle(int IssueID)
+        {
+            return base.GetIssueTitle(IssueID);
+        }
+        public override DataTable GetNotTeamUser(int TeamID)
+        {
+            return base.GetNotTeamUser(TeamID);
+        }
     }
+
+
 }

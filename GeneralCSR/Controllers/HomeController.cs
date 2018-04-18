@@ -173,6 +173,19 @@ namespace GeneralCSR.Controllers
             return JsonConvert.SerializeObject(BALPost.GetPosts(CFSess.ID, ID, UID, Offset, Next));
         }
 
+
+        [HttpPost]
+        public string GetNGO(string ID )
+        {
+            return JsonConvert.SerializeObject(BALUser.GetNgo());
+        }
+
+        [HttpPost]
+        public string GetCSR(string ID)
+        {
+            return JsonConvert.SerializeObject(BALUser.GetCsr());
+        }
+
         [HttpPost]
         public string GetPostsIFollow(string ID, string UserID)
         {

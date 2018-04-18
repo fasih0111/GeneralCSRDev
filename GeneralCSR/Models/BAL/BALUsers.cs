@@ -77,7 +77,14 @@ namespace Models
         {
             return base.IsFirstLogin(UserID);
         }
-
+        public override DataTable GetNgo()
+        {
+            return base.GetNgo();
+        }
+        public override DataTable GetCsr()
+        {
+            return base.GetCsr();
+        }
 
     }
 }

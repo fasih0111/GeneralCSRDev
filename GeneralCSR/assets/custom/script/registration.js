@@ -1,7 +1,7 @@
 ﻿function createWizardForm() {
     var $elem = '' +
     '<div style="position:fixed; width: 100%; height: 100%; top: 0px; left: 0px; background-color: rgba(0,0,0,0.85); z-index: 1030;" >' +
-        '<form id="msform" class="col-md-8 col-md-offset-2">' +
+        '<form id="msform" class="col-md-10 col-md-offset-1">' +
             '<ul id="progressbar">' +
                 '<li class="active">Expertise</li>' +
                 '<li>Profile Description</li>' +
@@ -25,11 +25,11 @@
             //'</fieldset>' +
 
             '<fieldset class="user-expertise">' +
-                '<h2 class="fs-title">Broadly speaking, What are your areas of expertise.</h2>' +
-    '<h3 class="fs-subtitle">This enables us to send more relevant content to you especially if your expertise is required. </h3>' +
+                '<h2 class="fs-title">Broadly speaking, what are your areas of expertise? Or your profession.</h2>' +
+    '<h3 class="fs-subtitle">This enables us to show more relevant content to you especially if your expertise is required to address an issue.</h3>' +
 
 
-    //'<h3 class="fs-subtitle">Select upto 3</h3>' +
+    '<h3 class="fs-subtitle">Please choose up to 3.</h3>' +
 
                 '<div class="dropdown">' +
                     '<input type="text" style="margin-bottom: 0px" class="expertise" placeholder="Search here" onclick="searchOccupation(this);" onkeyup="searchOccupation(this);"/>' +
@@ -43,7 +43,7 @@
             '</fieldset>' +
             '<fieldset class="user-description">' +
                 '<h2 class="fs-title">Write a brief sentence about yourself, interests or expertise.</h2>' +
-                '<h3 class="fs-subtitle">Profile description. This will be whats others see.</h3>' +
+                '<h3 class="fs-subtitle">This will be what others see when viewing your profile.</h3>' +
                 '<textarea rows="4" placeholder="Eg. Teach mathematics, Love astronomy, Technology enthusiast, Blogger, Passionate about cooking, Young mother of 2, Living in saddar"></textarea>' +
                 '<input type="button" name="previous" class="previous action-button" value="Previous" />' +
                 '<input type="button" name="next" class="next action-button" value="Next" />' +
@@ -53,96 +53,97 @@
                 //'<h3 class="fs-subtitle">We will never sell it</h3>' +
                 '<div class="sf-step" id="category" >' +
                     '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="1">' +
-                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/01.jpg">' +
-                        '<div class="cat-title"><p>No Poverty</p></div>'+
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I01.jpg">' +
+                        '<div class="cat-title"><p>No Poverty</p></div>' +
                         '<div class="check-wrapper"><div class="check"></div></div>' +
                     '</div>' +
                     '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="2">' +
-                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/02.jpg">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I02.jpg">' +
                         '<div class="cat-title"><p>Zero Hunger</p></div>' +
                         '<div class="check-wrapper"><div class="check"></div></div>' +
                     '</div>' +
                     '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="3">' +
-                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/03.jpg">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I03.jpg">' +
                         '<div class="cat-title"><p>Good Health & Well-Being</p></div>' +
                         '<div class="check-wrapper"><div class="check"></div></div>' +
                     '</div>' +
                     '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="4">' +
-                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/04.jpg">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I04.jpg">' +
                         '<div class="cat-title"><p>Quality Education</p></div>' +
                         '<div class="check-wrapper"><div class="check"></div></div>' +
                     '</div>' +
                     '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="5">' +
-                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/05.jpg">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I05.jpg">' +
                         '<div class="cat-title"><p>Gender Equality</p></div>' +
                         '<div class="check-wrapper"><div class="check"></div></div>' +
                     '</div>' +
                     '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="6">' +
-                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/06.jpg">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I06.jpg">' +
                         '<div class="cat-title"><p>Clean Water & Sanitation</p></div>' +
                         '<div class="check-wrapper"><div class="check"></div></div>' +
                     '</div>' +
                     '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="7">' +
-                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/07.jpg">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I07.jpg">' +
                         '<div class="cat-title"><p>Affordable & Clean Energy</p></div>' +
                         '<div class="check-wrapper"><div class="check"></div></div>' +
                     '</div>' +
                     '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="8">' +
-                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/08.jpg">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I08.jpg">' +
                         '<div class="cat-title"><p>Decent Work & Economic Growth</p></div>' +
                         '<div class="check-wrapper"><div class="check"></div></div>' +
                     '</div>' +
                     '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="9">' +
-                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/09.jpg">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I09.jpg">' +
                         '<div class="cat-title"><p>Industry, Innovation & Infrastructure</p></div>' +
                         '<div class="check-wrapper"><div class="check"></div></div>' +
                     '</div>' +
                     '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="10">' +
-                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/10.jpg">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I10.jpg">' +
                         '<div class="cat-title"><p>Reduce Inequilities</p></div>' +
                         '<div class="check-wrapper"><div class="check"></div></div>' +
                     '</div>' +
                     '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="11">' +
-                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/11.jpg">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I11.jpg">' +
                         '<div class="cat-title"><p>Sustainable Cities & Communities</p></div>' +
                         '<div class="check-wrapper"><div class="check"></div></div>' +
                     '</div>' +
                     '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="12">' +
-                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/12.jpg">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I12.jpg">' +
                         '<div class="cat-title"><p>Responsible Consumption & Production</p></div>' +
                         '<div class="check-wrapper"><div class="check"></div></div>' +
                     '</div>' +
                     '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="13">' +
-                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/13.jpg">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I13.jpg">' +
                         '<div class="cat-title"><p>Climate Action</p></div>' +
                         '<div class="check-wrapper"><div class="check"></div></div>' +
                     '</div>' +
                     '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="14">' +
-                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/14.jpg">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I14.jpg">' +
                         '<div class="cat-title"><p>Life Below Water</p></div>' +
                         '<div class="check-wrapper"><div class="check"></div></div>' +
                     '</div>' +
                     '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="15">' +
-                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/15.jpg">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I15.jpg">' +
                         '<div class="cat-title"><p>Life On Land</p></div>' +
                         '<div class="check-wrapper"><div class="check"></div></div>' +
                     '</div>' +
                     '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="16">' +
-                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/16.jpg">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I16.jpg">' +
                         '<div class="cat-title"><p>Peace, Justise & Strong Institution</p></div>' +
                         '<div class="check-wrapper"><div class="check"></div></div>' +
                     '</div>' +
                     '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="17">' +
-                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/17.jpg">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I17.jpg">' +
                         '<div class="cat-title"><p>Partnership For The Goals</p></div>' +
                         '<div class="check-wrapper"><div class="check"></div></div>' +
                     '</div>' +
                 '</div>' +
 '<input type="button" name="previous" class="previous action-button" value="Previous" />' +
+'<input type="button" name="submit" class="submit action-button" value="Submit" onclick="updateUserDescription(this) "/>'
     //'<input type="button" name="next" class="next action-button" value="Next" />' +
-'<input type="button" name="submit" class="submit action-button" value="Submit" onclick="updateUserDescription(this)"/>' +
+    //'<input type="button" name="submit" class="submit action-button" value="Submit" onclick="updateUserDescription(this)"/>' +
     //'<a onclick="todo(this);">Connect with social network</a>' +
-'</fieldset>' +
+    '</fieldset>' +
     // '<fieldset class="is-expert">' +
     //    '<h2 class="fs-title">Please tick this box if you think you are a better fit as an "Expert"</h2>' +
     //    '<h3 class="fs-subtitle">An expert\'s role is to respond constructively with the perspective to provide solutions on issue\'s posted.</h3>' +
@@ -170,8 +171,8 @@
     //    '<input type="button" name="submit" class="submit action-button" value="Submit" onclick="updateUserDescription(this)"/>' +
     //    //'<input type="button" name="submit" class="submit action-button" value="Submit" onclick="closeThisModal(this)"/>' +
     //'</fieldset>' +
-'</form>' +
-'</div>';
+    '</form>' +
+    '</div>';
 
     return $elem;
 
@@ -291,13 +292,15 @@ function updateUserDescription(e) {
 
 function afterUpdateUserDescription(data, e) {
     var $me = $(e);
-    $me.closest("div").fadeOut("fast", function () {
-        $(this).remove();
-    });
-
-
+    $me.closest("div").fadeOut("fast", function () { $(this).remove(); });
+    var $bodyElem = '<h5 style="margin-bottom: 30px;">This helps in generating more visibility and participation.</h5>' +
+        '<div class="row">' +
+            '<div class="col-md-6"><button class="btn btn-default mb-14" style="width: 100%" type="button" onclick="todo(this);"> <span class="sign-up-text google">Connect with Google</span></button></div>' +
+            '<div class="col-md-6"><button class="btn btn-default mb-14" style="width: 100%" type="button" onclick="todo(this);"> <span class="sign-up-text facebook">Connect with Facebook</span></button></div>' +
+        '</div>';
+    var $footerElem = '<button class="btn btn-default" href="javascript:void(0)" onclick="closeModal(this);">Skip</button>';
+    showModal("", true, true, false, "Please connect with a social network.", $bodyElem, $footerElem);
     //getPosts("0", "0");
-
 }
 
 function closeThisModal(e) {

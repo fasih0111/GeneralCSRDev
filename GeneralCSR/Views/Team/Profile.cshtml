@@ -28,7 +28,7 @@
                 var d = new Date(data[0].CreatedDate);
 
                 var $leftElem = '' +
-                '<div class="" data-team-id="' + data[0].TeamID + '">' +
+                '<div class="panel" data-team-id="' + data[0].TeamID + '" style="background: transparent;box-shadow: none;">' +
                     '<div class="panel-body no-padding">' +
                         '<div class="team-box">' +
                             //'<img src="/assets/images/teams/' + data[0].ImgUrl + '" class="team-img" />' +
@@ -41,13 +41,20 @@
                         //'</div>' +
                          '<div class="panel-body">' +
                             '<h4 class="profile-card-full-name">' + data[0].TeamName + '</h4>' +
+                             (data[0].IsMeExist == 0 ?
+                                '<button type="button" class="btn btn-primary form-control" onclick="joinUnjoinTeam(this)">Join team</button>' :
+                                '<button type="button" class="btn btn-default form-control mb-10">Joined</button>') +
+
+                            '<button type="button" class="btn btn-default form-control mb-10" onclick="showInviteTeam(this);">Invite people to join your group</button>' +
+                            '<button type="button" class="btn btn-primary form-control mb-10" onclick="todo(this);">Take an action</button>' +
+
                             '<ul class="links">' +
                                 '<li><a href="#">' + data[0].CategoryName + '</a></li>' +
                                 '<li><a href="#">Members: ' + data[0].MembersCount + '</a></li>' +
                                 '<li><a href="#">Experts: 0</a></li>' +
                                 '<li><a href="#">Status: ' + data[0].Status + '</a></li>' +
                                 '<li><a href="#">No action perform yet!</a></li>' +
-                                '<li><a href="#">Start Date: ' + d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear() + '</a></li>' +
+                                '<li><a href="#">Start Date: ' + (d.getMonth() + 1) + "-" + d.getDate() + "-" + d.getFullYear() + '</a></li>' +
                             '</ul>' +
                         '</div>' +
                     '</div>' +
@@ -55,22 +62,22 @@
 
                 var $rightElem = '' +
                '<div class="panel" data-team-id="' + data[0].TeamID + '" style="background: transparent;box-shadow: none;">' +
-               //(data[0].MyDesignation == 1 ?
+    //(data[0].MyDesignation == 1 ?
                     '<div class="dropdown pull-right">' +
                         '<button type="button" class="btn btn-default pull-right" style="margin-left: 6px;" id="setting-icon" data-toggle="dropdown"><i class="material-icons">settings</i></button>' +
                         '<ul class="dropdown-menu">' +
                             '<li><a>Exit team</a><li>' +
                         '</ul>' +
                     '</div>' +
-                 //       : "") +
+    //       : "") +
 
 
-                   (data[0].IsMeExist == 0 ?
-                        '<button type="button" class="btn btn-primary pull-right" onclick="joinUnjoinTeam(this)">Join team</button>' :
-                        '<button type="button" class="btn btn-default pull-right" onclick="joinUnjoinTeam(this)">Exit team</button>') +
+    //(data[0].IsMeExist == 0 ?
+    //     '<button type="button" class="btn btn-primary pull-right" onclick="joinUnjoinTeam(this)">Join team</button>' :
+    //     '<button type="button" class="btn btn-default pull-right" onclick="joinUnjoinTeam(this)">Exit team</button>') +
 
                     '<h3 class="margin-top-none">' + data[0].TeamName + '</h3>' +
-                   //data[0].Description +
+    //data[0].Description +
                     '<div>Karachi, Sindh, Pakistan</div>' +
                     '<div>' + data[0].MembersCount + ' Members</div>' +
                     '<hr>' +
@@ -78,14 +85,17 @@
                     '<p>' + data[0].Description + '</p>' +
                     '<hr>' +
                     '<h4>Team Members</h4>' +
-                    '<div class="row team-member-div">' +
-                    '</div>' +
+                    '<div class="row team-member-div"></div>' +
+                    '<hr>' +
+                    '<h4>Team Discussion</h4>' +
+                    '<div class="row team-discussion-div"></div>' +
                '</div>';
 
                 $(".team-left").append($leftElem);
                 $(".team-right").append($rightElem);
 
                 getTeamMembers(getURLParameter());
+                getTeamDiscussion(getURLParameter());
             }
         }
 
@@ -152,6 +162,99 @@
             });
             showCustomAlert("Success", "User remove successfully", "success", "bottom-left");
 
+        }
+
+        function getTeamDiscussion(id) {
+            var Data = { "ID": id };
+            runAjax("/Team/GetTeamDiscussion", Data, true, $("body"), "full", setTeamDiscussion);
+        }
+
+        function setTeamDiscussion(data, e) {
+            if (data.length > 0) {
+
+                var $elem = '';
+                for (var i = 0; i < data.length; i++) {
+                    $elem +=
+                    '<div class="col-md-9 team-discussion-box">' +
+                        '<div class="jumbotron">' +
+
+                            '<h5><strong>' + data[i].FirstName + ' ' + data[i].LastName + ' wrote: </strong></h5>' +
+                            '<div class="">' +
+                                '<div>' + data[i].CommentBody + '</div>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>';
+                }
+                $(".team-discussion-div").append($elem);
+            }
+        }
+
+        function showInviteTeam(e) {
+            var $me = $(e);
+            
+            var Data = { "TeamID": $me.closest(".panel").data("team-id") };
+            runAjax("/Team/GetNotTeamUsers", Data, true, $("body"), "full", afterShowInviteTeam, $me);
+        }
+
+        function afterShowInviteTeam(data, e) {
+            var $me = $(e);
+
+            if (data.length > 0) {
+                var $bodyElem = '';
+                $bodyElem += '<div class="form-group dropdown">';
+                $bodyElem += '<input type="text" id="team-user-search" class="form-control" onkeyup="searchUsersForTeam(this);" placeholder="Search Here">';
+                $bodyElem += '<ul class="dropdown-menu team-users" style="width: 100%"></ul>';
+                $bodyElem += '<div class="row ">';
+                $bodyElem += '<div class="col-md-12 users-tag"></div>';
+                $bodyElem += '</div>';
+                $bodyElem += '</div>';
+
+
+                var $footerElem = '<button type="button" class="btn btn-primary" onclick="sendTeamInvite(this);">Send Invite</button>';
+
+                showModal("", true, true, true, "Invite", $bodyElem, $footerElem);
+
+                
+                var $liElem = '';
+                for (var i = 0; i < data.length; i++) {
+                    $liElem += '<li class="hidden" onclick="selectUserForTeam(this);"><a>' + data[i]["FirstName"] + " " + data[i]["LastName"] + '</a></li>';
+                }
+                $(".team-users").append($liElem);
+
+                
+            } else
+                console.log("No Followers");
+        }
+
+        function searchUsersForTeam(e) {
+            var $me = $(e);
+            if ($me.val().trim() != "") {
+                if (!($me.closest(".dropdown").hasClass("open"))) $me.closest(".dropdown").addClass("open");
+                $(".team-users li").addClass("hidden");
+                $(".team-users li:containsNC('" + $me.val() + "')").removeClass("hidden");
+            } else {
+                $me.closest(".dropdown").removeClass("open");
+                $(".team-users li").addClass("hidden");
+            }
+        }
+        function selectUserForTeam(e) {
+
+            var $me = $(e);
+            var $elem = '' +
+                '<div class="selected-occ">' + $me.find("a").text() + '' +
+                    '<div class="selected-occ-close" onclick="removeOccItem(this)">✖</div>' +
+                '</div>';
+            $(".users-tag").append($elem);
+
+            $(".team-users li").addClass("hidden");
+            $(".team-users").closest(".dropdown").removeClass("open");
+            $("#team-user-search").val("");
+            $("#team-user-search").focus();
+        }
+
+        function sendTeamInvite(e) {
+            closeModal(e);
+            showCustomAlert("Success", "Invitation sent successfully", "success", "bottom-left");
         }
     </script>
 }

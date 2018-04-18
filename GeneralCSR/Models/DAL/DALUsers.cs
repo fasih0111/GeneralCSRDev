@@ -133,7 +133,7 @@ namespace Models
             return SqlHelper.ExecuteDataTable(FCommon.ConStr, CommandType.StoredProcedure, "spChangePassword", param).Rows[0];
         }
 
-        public virtual DataRow UpdateUserDescriptions(int UserID, int DescribeID, string UserBrief, 
+        public virtual DataRow UpdateUserDescriptions(int UserID, int DescribeID, string UserBrief,
             bool IsExpert, string Address, DateTime DOB, bool Gender, string Expertise)
         {
             SqlParameter[] param = {
@@ -155,6 +155,17 @@ namespace Models
                                    new SqlParameter("@UserID", UserID)
                                };
             return SqlHelper.ExecuteDataTable(FCommon.ConStr, CommandType.StoredProcedure, "IsFirstLogin", param).Rows[0];
+        }
+
+        public virtual DataTable GetNgo()
+        {
+
+            return SqlHelper.ExecuteDataTable(FCommon.ConStr, CommandType.StoredProcedure, "GetNgo");
+        }
+
+        public virtual DataTable GetCsr()
+        {
+            return SqlHelper.ExecuteDataTable(FCommon.ConStr, CommandType.StoredProcedure, "GetCsr");
         }
 
 

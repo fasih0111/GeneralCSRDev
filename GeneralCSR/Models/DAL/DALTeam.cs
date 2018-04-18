@@ -57,5 +57,31 @@ namespace Models
             return SqlHelper.ExecuteDataTable(FCommon.ConStr, CommandType.StoredProcedure, "spGetTeamMembers", param);
         }
 
+        public virtual DataTable GetTeamComment(int TeamID)
+        {
+            SqlParameter[] param = {
+                                       new SqlParameter("@TeamID", TeamID)
+                               };
+            return SqlHelper.ExecuteDataTable(FCommon.ConStr, CommandType.StoredProcedure, "GetTeamComment", param);
+        }
+
+        public virtual DataTable GetIssueTitle(int IssueID)
+        {
+            SqlParameter[] param = {
+                                       new SqlParameter("@IssueID", IssueID)
+                               };
+            return SqlHelper.ExecuteDataTable(FCommon.ConStr, CommandType.StoredProcedure, "GetIssueTitle", param);
+        }
+
+        public virtual DataTable GetNotTeamUser(int TeamID)
+        {
+            SqlParameter[] param = {
+                                       new SqlParameter("@TeamID", TeamID)
+                               };
+            return SqlHelper.ExecuteDataTable(FCommon.ConStr, CommandType.StoredProcedure, "GetNotTeamUser", param);
+        }
+
+
+
     }
 }

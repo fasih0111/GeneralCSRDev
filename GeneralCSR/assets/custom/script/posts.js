@@ -133,7 +133,7 @@ function submitPost(e) {
             },
             success: function (response) {
                 if (response != "") {
-                    $me.closest(".panel").find(".box-file").remove();
+                    $me.closest(".modal").find(".box-file").remove();
                     var Data = { "Title": $("#title").val(), "Category": $me.closest(".modal").find(".cat-info.following").data("id"), "Body": $("#body").val(), "FileName": response.split("|")[0], "FileGeneratedName": response.split("|")[1] };
                     runAjax("/Home/InsertPost", Data, true, $(e).closest(".panel"), "full", afterCreatePost, $(e));
                 }
@@ -269,30 +269,35 @@ function getPostElem(data) {
     $elem += '<div class="panel-heading">';
     $elem += '<div class="media">';
     $elem += '<div class="media-left profile-image">';
-    $elem += '<a href="/Profile/Index/' + data["UserID"] + '" class="img-50 ">';
+    $elem += '<a href="/Profile/Index/' + data["UserID"] + '" class="img-50 user-hover-details" data-user-id="' + data["UserID"] + '">';
     //$elem += '<img src="/assets/images/people/' + data["ImgUrl"] + '" class="media-object">';
+
+    //var $expertClass = "";
+    //if (data["UserType"] == 2) { $expertClass = "expert-border"; }
+    //$elem += '<div style="background-image: url(../../assets/images/people/' + data["ImgUrl"] + ')" class="responsive-image img-circle ' + $expertClass + '"></div>';
     $elem += '<div style="background-image: url(../../assets/images/people/' + data["ImgUrl"] + ')" class="responsive-image img-circle"></div>';
     $elem += '</a>';
     if (data["UserType"] == 2) {
-        $elem += '<img class="badge-icon" src="../../assets/images/badge.png" title="Expert user"/>';
+        $elem += '<img class="badge-icon" src="../../assets/images/star.png" title="Expert user" width="20"/>';
     }
     $elem += '</div>';
     $elem += '<div class="media-body">';
-
 
     $elem += '<div class="dropdown">';
     $elem += '<a href="javascript:void(0)" class="pull-right text-muted" data-toggle="dropdown" class="toggle-button"><i class="material-icons" style=" font-size: 20px; ">keyboard_arrow_down</i></a>';
     if (data["UserID"] == userDetails.UserID) {
         $elem += getPostMenuElem();
     } else {
-        $elem += '<ul class="dropdown-menu pull-right" role="menu"><li><a href="#" onclick="showCommentReport(this);"><i class="material-icons">report</i> Report this post</a></li>';
+        $elem += '<ul class="dropdown-menu pull-right" role="menu">';
+        $elem += '<li><a href="#" onclick="showCommentReport(this);">';
+        $elem += '<i class="material-icons">report</i> Report this post</a>';
+        $elem += '</li>';
+        $elem += '<li><a href="#" onclick="showTagModal(this)">';
+        $elem += '<i class="material-icons">local_offer</i> Tag someone</a>';
+        $elem += '</li>';
         $elem += '</ul>';
     }
     $elem += '</div>';
-
-
-
-
 
     $elem += '<a class="color-hover user-hover-details" data-user-id="' + data["UserID"] + '" title="testings" href="/Profile/Index/' + data["UserID"] + '">' + data["FullName"] + '</a><br />';
     $elem += '<div class="samp">' + new Date(data["Date"]).toString("hh:mm tt dd/MMM/yyyy") + '</div>';
@@ -564,7 +569,7 @@ function showHideComments(e) {
     var $elem = '' +
     '<ul class="comments animated fadeIn">' +
         '<li class="comment-form">' +
-            '<button class="btn btn-default form-control" onclick="showCommentBox(this)">Would you like to respond?</button>' +
+            '<button class="btn btn-primary form-control" onclick="showCommentBox(this)">Would you like to respond?</button>' +
     //'<div class="fa fa-paperclip fileinput-button comment-attachment">' +
     //    '<input onchange="checkCommentFile(this);" multiple="multiple" type="file" placeholder="Write your response">' +
     //'</div>' +
@@ -862,9 +867,15 @@ function getCommentsElem(data) {
 
     $elem += '<li class="media" data-id="' + data["CommentID"] + '" onmouseover="showSettingIcon(this)" onmouseout="hideSettingIcon(this)">';
     $elem += '<div class="media-left">';
-    $elem += '<a href="/Profile/Index/' + data["UserID"] + '">';
+    $elem += '<a href="/Profile/Index/' + data["UserID"] + '" class="user-hover-details" data-user-id="' + data["UserID"] + '">';
+    //var $expertClass = '';
+    //if (data["TypeID"] == 2) { $expertClass = "expert-border"; }
+    //$elem += '<img src="/assets/images/people/' + data["ImgUrl"] + '" class="media-object ' + $expertClass + '">';
     $elem += '<img src="/assets/images/people/' + data["ImgUrl"] + '" class="media-object">';
     $elem += '</a>';
+    if (data["TypeID"] == 2) {
+        $elem += '<img class="badge-icon" src="../../assets/images/star.png" title="Expert user" width="20"/>';
+    }
     $elem += '</div>';
     $elem += '<div class="media-body">';
 
@@ -1722,10 +1733,8 @@ function showCommentReport(e) {
     var $bodyElem = '' +
         '<ul class="links">' +
             '<li><input type="radio" name="cReport" /> Harassment: Disparaging or adversarial towards a person or group</li>' +
-            '<li><input type="radio" name="cReport" /> Spam: Undisclosed promotion for a link or product</li>' +
-            '<li><input type="radio" name="cReport" /> Doesn\'t Answer the Question: Does not address question that was asked</li>' +
+            '<li><input type="radio" name="cReport" /> Spam: Promotional, abusive, provoking or irrelevant material</li>' +
             '<li><input type="radio" name="cReport" /> Plagiarism: Reusing content without attribution (link and blockquotes)</li>' +
-            '<li><input type="radio" name="cReport" /> Joke Answer: Not a sincere answer</li>' +
             '<li><input type="radio" name="cReport" /> Out of Date: Is no longer relevant or accurate</li>' +
             '<li><input type="radio" name="cReport" /> Bad Image: Content contains image that violates policy</li>' +
         '</ul>';
@@ -1741,4 +1750,71 @@ function reportComment(e) {
     closeModal($me);
     var $footerElem = '<a class="btn btn-link" href="javascript:void(0)" onclick="closeModal(this);">Close</a>';
     showModal("", true, true, false, "Confirmation", "<h5>Report submitted successfully</h5>", $footerElem);
+}
+
+function showTagModal(e) {
+    var $me = $(e);
+    var Data = { "ID": "" };
+    runAjax("/Home/GetUserForTeam", Data, false, "", "full", afterShowTagModal, $me);
+}
+
+function afterShowTagModal(data, e) {
+    var $me = $(e);
+
+    if (data.length > 0) {
+        var $bodyElem = '';
+        $bodyElem += '<div class="form-group dropdown">';
+        $bodyElem += '<input type="text" id="team-user-search" class="form-control" onkeyup="searchUsersForTag(this);" placeholder="Search Here">';
+        $bodyElem += '<ul class="dropdown-menu team-users" style="width: 100%"></ul>';
+        $bodyElem += '<div class="row ">';
+        $bodyElem += '<div class="col-md-12 users-tag"></div>';
+        $bodyElem += '</div>';
+        $bodyElem += '</div>';
+
+
+        var $footerElem = '<button type="button" class="btn btn-primary" onclick="sendTag(this);">Tag Selected</button>';
+
+        showModal("", true, true, true, "Tag Someone", $bodyElem, $footerElem);
+
+
+        var $liElem = '';
+        for (var i = 0; i < data.length; i++) {
+            $liElem += '<li class="hidden" onclick="selectUserForTag(this);"><a>' + data[i]["FirstName"] + " " + data[i]["LastName"] + '</a></li>';
+        }
+        $(".team-users").append($liElem);
+
+
+    } else
+        console.log("No Followers");
+}
+
+function searchUsersForTag(e) {
+    var $me = $(e);
+    if ($me.val().trim() != "") {
+        if (!($me.closest(".dropdown").hasClass("open"))) $me.closest(".dropdown").addClass("open");
+        $(".team-users li").addClass("hidden");
+        $(".team-users li:containsNC('" + $me.val() + "')").removeClass("hidden");
+    } else {
+        $me.closest(".dropdown").removeClass("open");
+        $(".team-users li").addClass("hidden");
+    }
+}
+function selectUserForTag(e) {
+
+    var $me = $(e);
+    var $elem = '' +
+        '<div class="selected-occ">' + $me.find("a").text() + '' +
+            '<div class="selected-occ-close" onclick="removeOccItem(this)">✖</div>' +
+        '</div>';
+    $(".users-tag").append($elem);
+
+    $(".team-users li").addClass("hidden");
+    $(".team-users").closest(".dropdown").removeClass("open");
+    $("#team-user-search").val("");
+    $("#team-user-search").focus();
+}
+
+function sendTag(e) {
+    closeModal(e);
+    showCustomAlert("Success", "Tag successfully", "success", "bottom-left");
 }

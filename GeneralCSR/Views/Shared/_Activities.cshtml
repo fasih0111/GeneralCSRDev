@@ -4,10 +4,10 @@
         <span class="color-hover" onclick="window.location.href = '/Team/Index'">Find Teams</span>
     </div>
     <div class="panel-heading panel-heading-gray title">
-        <span class="color-hover">NGO's Directory</span>
+        <span class="color-hover" onclick="showNgo(this)">NGO's Directory</span>
     </div>
     <div class="panel-heading panel-heading-gray title">
-        <span class="color-hover">CSR's Listing</span>
+        <span class="color-hover" onclick="showCsr(this)">CSR's Listing</span>
     </div>
     
 
@@ -75,3 +75,58 @@
         </ul>
     </div>
 </div>*@
+
+
+<script>
+    function showNgo(e) {
+        var $me = $(e);
+        var Data = { "ID": "" };
+        runAjax("/Home/GetNGO", Data, false, "", "full", afterShowNgo, $me);
+    }
+    function afterShowNgo(data, e) {
+        var $me = $(e);
+
+        if (data.length > 0) {
+            var $bodyElem = '';
+            $bodyElem += '<ul class="modal-group-list">';
+            for (var i = 0; i < data.length; i++) {
+                $bodyElem += '<li>';
+                $bodyElem += '<div class="media-left"><a href="#"></div>';
+                $bodyElem += '<div class="media-body">';
+                $bodyElem += '<a class="user-name" href="#">' + data[i]["NgoName"] +'</a>';
+                // $bodyElem += '<div class="user-details">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</div>';
+                $bodyElem += '</div>';
+                $bodyElem += '</li>';
+            }
+            $bodyElem += '</ul>';
+            showModal("", true, true, true, "NGO's Directory", $bodyElem, "");
+        } else
+            showModal("", true, true, true, "NGO's Directory", "<h2 class='text-center'>No Ngo In Directory</h2>", "");
+    }
+
+    function showCsr(e) {
+        var $me = $(e);
+        var Data = { "ID": "" };
+        runAjax("/Home/GetCSR", Data, false, "", "full", afterShowCsr, $me);
+    }
+    function afterShowCsr(data, e) {
+        var $me = $(e);
+
+        if (data.length > 0) {
+            var $bodyElem = '';
+            $bodyElem += '<ul class="modal-group-list">';
+            for (var i = 0; i < data.length; i++) {
+                $bodyElem += '<li>';
+                $bodyElem += '<div class="media-left"><a href="#"></div>';
+                $bodyElem += '<div class="media-body">';
+                $bodyElem += '<a class="user-name" href="#">' + data[i]["CsrName"] + '</a>';
+                // $bodyElem += '<div class="user-details">Lorem ipsum dolor sit amet, consectetur adipiscing elit,</div>';
+                $bodyElem += '</div>';
+                $bodyElem += '</li>';
+            }
+            $bodyElem += '</ul>';
+            showModal("", true, true, true, "CSR's Directory", $bodyElem, "");
+        } else
+            showModal("", true, true, true, "CSR's Directory", "<h2 class='text-center'>No CSR In Directory</h2>", "");
+    }
+</script>

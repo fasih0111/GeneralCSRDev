@@ -399,7 +399,9 @@ var countries = [
 ];
 
 var occupations = [
-   { id: 1, name: "Accountant" }, {
+   { id: 1, name: "Accountant" },
+   { id: 1, name: "Activism" },
+   {
        id: 1, name:
         "Actor"
    }, {
@@ -423,7 +425,12 @@ var occupations = [
    }, {
        id: 1, name:
        "Advertising manager"
-   }, {
+   },
+   {
+       id: 1, name:
+       "Advocacy"
+   },
+   {
        id: 1, name:
        "Advertising sales agent"
    }, {
@@ -498,139 +505,154 @@ var occupations = [
    }, {
        id: 1, name:
        "Amusement machine servicer"
-   }, {
+   },
+{
+    id: 1, name:
+"Analyst"
+},
+{
+    id: 1, name:
+    "Anesthesiologist"
+}, {
+    id: 1, name:
+    "Animal breeder"
+}, {
+    id: 1, name:
+    "Animal control worker"
+}, {
+    id: 1, name:
+    "Animal scientist"
+}, {
+    id: 1, name:
+    "Animal trainer"
+}, {
+    id: 1, name:
+    "Animator"
+}, {
+    id: 1, name:
+    "Answering service operator"
+}, {
+    id: 1, name:
+    "Anthropologist"
+}, {
+    id: 1, name:
+    "Apparel patternmaker"
+}, {
+    id: 1, name:
+    "Apparel worker"
+}, {
+    id: 1, name:
+    "Arbitrator"
+}, {
+    id: 1, name:
+    "Archeologist"
+}, {
+    id: 1, name:
+    "Architect"
+}, {
+    id: 1, name:
+    "Architectural drafter"
+}, {
+    id: 1, name:
+    "Architectural manager"
+}, {
+    id: 1, name:
+    "Archivist"
+}, {
+    id: 1, name:
+    "Art director"
+}, {
+    id: 1, name:
+    "Art teacher"
+}, {
+    id: 1, name:
+    "Artist"
+}, {
+    id: 1, name:
+    "Assembler"
+}, {
+    id: 1, name:
+    "Astronomer"
+}, {
+    id: 1, name:
+    "Athlete"
+}, {
+    id: 1, name:
+    "Athletic trainer"
+}, {
+    id: 1, name:
+    "ATM machine repairer"
+}, {
+    id: 1, name:
+    "Atmospheric scientist"
+}, {
+    id: 1, name:
+    "Attendant"
+}, {
+    id: 1, name:
+    "Audio and video equipment technician"
+}, {
+    id: 1, name:
+    "Audio-visual and multimedia collections specialist"
+}, {
+    id: 1, name:
+    "Audiologist"
+}, {
+    id: 1, name:
+    "Auditor"
+}, {
+    id: 1, name:
+    "Author"
+}, {
+    id: 1, name:
+    "Auto damage insurance appraiser"
+}, {
+    id: 1, name:
+    "Automotive and watercraft service attendant"
+}, {
+    id: 1, name:
+    "Automotive glass installer"
+}, {
+    id: 1, name:
+    "Automotive mechanic"
+}, {
+    id: 1, name:
+    "Avionics technician"
+},
+
+{
+    id: 1, name:
+"Babysitter"
+},
+{
+    id: 1, name:
+    "Baggage porter"
+}, {
+    id: 1, name:
+    "Bailiff"
+}, {
+    id: 1, name:
+    "Baker"
+}, {
+    id: 1, name:
+    "Barback"
+}, {
+    id: 1, name:
+    "Barber"
+}, {
+    id: 1, name:
+    "Bartender"
+}, {
+    id: 1, name:
+    "Basic education teacher"
+},
+   {
        id: 1, name:
-       "Anesthesiologist"
-   }, {
-       id: 1, name:
-       "Animal breeder"
-   }, {
-       id: 1, name:
-       "Animal control worker"
-   }, {
-       id: 1, name:
-       "Animal scientist"
-   }, {
-       id: 1, name:
-       "Animal trainer"
-   }, {
-       id: 1, name:
-       "Animator"
-   }, {
-       id: 1, name:
-       "Answering service operator"
-   }, {
-       id: 1, name:
-       "Anthropologist"
-   }, {
-       id: 1, name:
-       "Apparel patternmaker"
-   }, {
-       id: 1, name:
-       "Apparel worker"
-   }, {
-       id: 1, name:
-       "Arbitrator"
-   }, {
-       id: 1, name:
-       "Archeologist"
-   }, {
-       id: 1, name:
-       "Architect"
-   }, {
-       id: 1, name:
-       "Architectural drafter"
-   }, {
-       id: 1, name:
-       "Architectural manager"
-   }, {
-       id: 1, name:
-       "Archivist"
-   }, {
-       id: 1, name:
-       "Art director"
-   }, {
-       id: 1, name:
-       "Art teacher"
-   }, {
-       id: 1, name:
-       "Artist"
-   }, {
-       id: 1, name:
-       "Assembler"
-   }, {
-       id: 1, name:
-       "Astronomer"
-   }, {
-       id: 1, name:
-       "Athlete"
-   }, {
-       id: 1, name:
-       "Athletic trainer"
-   }, {
-       id: 1, name:
-       "ATM machine repairer"
-   }, {
-       id: 1, name:
-       "Atmospheric scientist"
-   }, {
-       id: 1, name:
-       "Attendant"
-   }, {
-       id: 1, name:
-       "Audio and video equipment technician"
-   }, {
-       id: 1, name:
-       "Audio-visual and multimedia collections specialist"
-   }, {
-       id: 1, name:
-       "Audiologist"
-   }, {
-       id: 1, name:
-       "Auditor"
-   }, {
-       id: 1, name:
-       "Author"
-   }, {
-       id: 1, name:
-       "Auto damage insurance appraiser"
-   }, {
-       id: 1, name:
-       "Automotive and watercraft service attendant"
-   }, {
-       id: 1, name:
-       "Automotive glass installer"
-   }, {
-       id: 1, name:
-       "Automotive mechanic"
-   }, {
-       id: 1, name:
-       "Avionics technician"
-   }, {
-       id: 1, name:
-       "Baggage porter"
-   }, {
-       id: 1, name:
-       "Bailiff"
-   }, {
-       id: 1, name:
-       "Baker"
-   }, {
-       id: 1, name:
-       "Barback"
-   }, {
-       id: 1, name:
-       "Barber"
-   }, {
-       id: 1, name:
-       "Bartender"
-   }, {
-       id: 1, name:
-       "Basic education teacher"
+       "Banker"
    },
    {
        id: 1, name:
-       "Bseautician"
+       "Beautician"
    },
    {
        id: 1, name:
@@ -710,7 +732,12 @@ var occupations = [
    }, {
        id: 1, name:
        "Bus mechanic"
-   }, {
+   },
+    {
+        id: 1, name:
+        "Business"
+    },
+   {
        id: 1, name:
        "Butcher"
    }, {
@@ -1039,7 +1066,12 @@ var occupations = [
    }, {
        id: 1, name:
        "Database administrator"
-   }, {
+   },
+   {
+       id: 1, name:
+       "Dealer - financial markets"
+   },
+   {
        id: 1, name:
        "Decorating worker"
    }, {
@@ -1218,7 +1250,12 @@ var occupations = [
    }, {
        id: 1, name:
        "Entertainment attendant"
-   }, {
+   },
+   {
+       id: 1, name:
+       "Entrepreneur"
+   },
+   {
        id: 1, name:
        "Environmental engineer"
    }, {
@@ -1257,7 +1294,12 @@ var occupations = [
    }, {
        id: 1, name:
        "Explosives worker"
-   }, {
+   },
+   {
+       id: 1, name:
+       "Exporter"
+   },
+   {
        id: 1, name:
        "Extraction worker"
    }, {
@@ -1437,7 +1479,12 @@ var occupations = [
    }, {
        id: 1, name:
        "Foundry coremaker"
-   }, {
+   },
+   {
+       id: 1, name:
+       "Freelancing"
+   },
+   {
        id: 1, name:
        "Freight agent"
    }, {
@@ -1632,7 +1679,12 @@ var occupations = [
    }, {
        id: 1, name:
        "Home management advisor"
-   }, {
+   },
+   {
+       id: 1, name:
+       "Home maker"
+   },
+   {
        id: 1, name:
        "Host"
    }, {
@@ -1647,7 +1699,12 @@ var occupations = [
    }, {
        id: 1, name:
        "Housekeeping cleaner"
-   }, {
+   },
+   {
+       id: 1, name:
+       "House wife"
+   },
+   {
        id: 1, name:
        "Human resources assistant"
    }, {
@@ -1665,7 +1722,13 @@ var occupations = [
    }, {
        id: 1, name:
        "Illustrator"
-   }, {
+   },
+   {
+       id: 1, name:
+       "Importer"
+   },
+
+   {
        id: 1, name:
        "Industrial designer"
    }, {
@@ -2882,7 +2945,13 @@ var occupations = [
    }, {
        id: 1, name:
        "Social scientist"
-   }, {
+   },
+   {
+       id: 1, name:
+       "Social service"
+   },
+
+   {
        id: 1, name:
        "Social service assistant"
    }, {
@@ -2957,7 +3026,12 @@ var occupations = [
    }, {
        id: 1, name:
        "Stonemason"
-   }, {
+   },
+   {
+       id: 1, name:
+       "Student"
+   },
+   {
        id: 1, name:
        "Street vendor"
    }, {
@@ -3146,7 +3220,12 @@ var occupations = [
    }, {
        id: 1, name:
        "Tower operator"
-   }, {
+   },
+    {
+        id: 1, name:
+        "Tuitions"
+    },
+   {
        id: 1, name:
        "Track switch repairer"
    }, {
@@ -3155,7 +3234,12 @@ var occupations = [
    }, {
        id: 1, name:
        "Tractor-trailer truck driver"
-   }, {
+   },
+   {
+       id: 1, name:
+       "Trader"
+   },
+   {
        id: 1, name:
        "Traffic clerk"
    }, {
@@ -3257,7 +3341,12 @@ var occupations = [
    }, {
        id: 1, name:
        "Vocational education teacher"
-   }, {
+   },
+   {
+       id: 1, name:
+       "Volunteering"
+   },
+   {
        id: 1, name:
        "Waiter"
    }, {

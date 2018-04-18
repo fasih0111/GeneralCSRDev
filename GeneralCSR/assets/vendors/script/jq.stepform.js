@@ -27,7 +27,7 @@
             navtext: {
                 next: "NEXT<i class='material-icons'>keyboard_arrow_right</i>",
                 prev: "<i class='material-icons'>keyboard_arrow_left</i>PREV",
-                submit: "<i class='material-icons'>done</i> Submit",
+                submit: "<i class='material-icons'>done</i> Post issue now",
                 close: "<i class='material-icons'>close</i> Close"
             },
             validate: true,
@@ -53,8 +53,10 @@
             function buildNavigation(count) {
                 $this.nav.append("<button class='btn btn-default nav-close pull-left' onclick='closeModal(this)'>" + options.navtext.close + "</button>");
                 $this.nav.append("<a class='btn btn-default col-md-2 nav-next' data-nav='1'>" + options.navtext.next + "</a>");
-                $this.nav.append("<button class='btn btn-primary col-md-2 nav-submit' onclick='submitPost(this);'>" + options.navtext.submit + "</button>");
+                //$this.nav.append("<button class='btn btn-primary col-md-2 nav-submit' onclick='submitPost(this);'>" + options.navtext.submit + "</button>");
                 $this.nav.append("<a class='btn btn-default col-md-2 nav-prev' data-nav='-1'>" + options.navtext.prev + "</a>");
+
+                $this.closest(".modal-dialog").append("<button class='btn btn-primary nav-submit form-control' style='margin-top: 10px;' onclick='submitPost(this);'>" + options.navtext.submit + "</button>");
 
                 // $this.nav.append("<input type='submit' value='Submit' class='btn btn-outline btn-danger pull-right nav-submit' />");
                 var $elem = '<div class="">';
@@ -84,7 +86,7 @@
                 //$this.nav.find('.nav-prev').toggle(index == 0 ? false : true);
                 $this.nav.find('.nav-prev').toggleClass("disabled", index == 0 ? true : false);
                 $this.nav.find('.nav-next').toggle(index == stepsCount - 1 ? false : true);
-                $this.nav.find('.nav-submit').toggle(index == stepsCount - 1 ? true : false);
+                $this.closest(".modal-dialog").find('.nav-submit').toggle(index == stepsCount - 1 ? true : false);
                 // $this.nav.find('.nav-submit').toggle(index==stepsCount-1?true:false);
 
                 $this.container.stop().animate({
