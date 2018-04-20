@@ -298,7 +298,7 @@ function afterUpdateUserDescription(data, e) {
             '<div class="col-md-6"><button class="btn btn-default mb-14" style="width: 100%" type="button" onclick="todo(this);"> <span class="sign-up-text google">Connect with Google</span></button></div>' +
             '<div class="col-md-6"><button class="btn btn-default mb-14" style="width: 100%" type="button" onclick="todo(this);"> <span class="sign-up-text facebook">Connect with Facebook</span></button></div>' +
         '</div>';
-    var $footerElem = '<button class="btn btn-default" href="javascript:void(0)" onclick="closeModal(this);">Skip</button>';
+    var $footerElem = '<button class="btn btn-default" href="javascript:void(0)" onclick="skipSocialConnect(this);">Skip</button>';
     showModal("", true, true, false, "Please connect with a social network.", $bodyElem, $footerElem);
     //getPosts("0", "0");
 }
@@ -364,3 +364,12 @@ function removeOccItem(e) {
     });
 }
 
+function skipSocialConnect(e) {
+    var $me = $(e);
+
+    closeModal($me);
+
+    $(".navbar-main").append('<div class="custom-top-bar-alert alert-success">You can join network from profile later. </div>');
+    setTimeout(function () { $(".custom-top-bar-alert").fadeOut("fast", function () { $(this).remove(); }); }, 5000);
+
+}

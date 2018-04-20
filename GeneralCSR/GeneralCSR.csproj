@@ -197,6 +197,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="assetsForIndex\all.min.css" />
+    <Content Include="assetsForIndex\Facebook.png" />
+    <Content Include="assetsForIndex\jquery-3.1.1.min.js" />
+    <Content Include="assetsForIndex\Mail.png" />
+    <Content Include="assetsForIndex\new-google-favicon-512.png" />
     <Content Include="assets\custom\css\style.css" />
     <Content Include="assets\custom\script\Actions.js" />
     <Content Include="assets\custom\script\arrays.js" />
@@ -408,6 +413,7 @@
     <Content Include="assets\vendors\fonts\fontawesome-webfont.woff" />
     <Content Include="assets\vendors\fonts\fontawesome-webfont.woff2" />
     <Content Include="assets\vendors\fonts\FontAwesome.otf" />
+    <Content Include="index.html" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
     <Content Include="Scripts\jquery.signalR-2.2.1.js" />
     <Content Include="Scripts\jquery.signalR-2.2.1.min.js" />

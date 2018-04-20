@@ -1698,6 +1698,7 @@ xmp {
     margin: 5px 0 0 0px;
     line-height: 1.4rem;
     font-size: 12px;
+    float: left;
 }
 
 .actions span:hover {
@@ -2375,7 +2376,18 @@ ul.links {
     margin-top: 8px;
     font-size: 11px;
     color: rgba(0,0,0,.85);
+    height: 30px;
+    position: relative;
 }
+
+    .action-title p {
+        position: absolute;
+        top: 50%;
+        margin: 0;
+        transform: translate(0%, -50%);
+        width: 100%;
+        text-align: center;
+    }
 
 .overlay-full {
     position: absolute;
@@ -3291,23 +3303,15 @@ ul.comments li {
 
 .custom-top-bar-alert {
     width: 100%;
-    height: 40px;
-    padding: 6px;
+    padding: 12px;
     text-align: center;
-    color: #fff;
 }
-    .custom-top-bar-alert.success {
-        background-color: #3c763d;
-    }
-    .custom-top-bar-alert.danger {
-         background-color:#ca1727;
-    }
 
 .btn-respond {
 }
-.btn-respond:hover {
-    background-color: #e0e0e0;
-    
-    color: #fff;
-    /*box-shadow: 0 0 2px #000;*/
-}
+
+    .btn-respond:hover {
+        background-color: #e0e0e0;
+        color: #fff;
+        /*box-shadow: 0 0 2px #000;*/
+    }

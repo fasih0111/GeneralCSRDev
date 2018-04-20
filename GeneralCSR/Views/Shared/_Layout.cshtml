@@ -9,7 +9,7 @@
     <title>Rikyas</title>
     @*<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">*@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600" media="all">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
     <link href="/assets/vendors/css/all.min.css" rel="stylesheet" />
     <link href="/assets/custom/css/style.css" rel="stylesheet" />
     <link href="/assets/vendors/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
@@ -554,8 +554,95 @@
             $bodyElem += '<fieldset class="sf-step">';
 
             $bodyElem += '<div class="panel-heading panel-heading-gray title">Which category is the best fit for this issue.</div>';
-            $bodyElem += '<div class="panel-body">';
-            $bodyElem += '<div class="" id="category"><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="1"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/01.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="2"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/02.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="3"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/03.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="4"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/04.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="5"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/05.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="6"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/06.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="7"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/07.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="8"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/08.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="9"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/09.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="10"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/10.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="11"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/11.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="12"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/12.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="13"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/13.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="14"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/14.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="15"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/15.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="16"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/16.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="17"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/17.png"><div class="check-wrapper"><div class="check"></div></div></div></div>';
+            $bodyElem += '<div class="panel-body" style="max-height: 350px;overflow: auto;">';
+            //$bodyElem += '<div class="" id="category"><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="1"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/01.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="2"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/02.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="3"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/03.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="4"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/04.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="5"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/05.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="6"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/06.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="7"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/07.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="8"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/08.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="9"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/09.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="10"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/10.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="11"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/11.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="12"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/12.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="13"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/13.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="14"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/14.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="15"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/15.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="16"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/16.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="17"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/17.png"><div class="check-wrapper"><div class="check"></div></div></div></div>';
+            $bodyElem += '<div id="category" >' +
+                    '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="1">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I01.jpg">' +
+                        '<div class="cat-title"><p>No Poverty</p></div>' +
+                        '<div class="check-wrapper"><div class="check"></div></div>' +
+                    '</div>' +
+                    '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="2">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I02.jpg">' +
+                        '<div class="cat-title"><p>Zero Hunger</p></div>' +
+                        '<div class="check-wrapper"><div class="check"></div></div>' +
+                    '</div>' +
+                    '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="3">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I03.jpg">' +
+                        '<div class="cat-title"><p>Good Health & Well-Being</p></div>' +
+                        '<div class="check-wrapper"><div class="check"></div></div>' +
+                    '</div>' +
+                    '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="4">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I04.jpg">' +
+                        '<div class="cat-title"><p>Quality Education</p></div>' +
+                        '<div class="check-wrapper"><div class="check"></div></div>' +
+                    '</div>' +
+                    '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="5">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I05.jpg">' +
+                        '<div class="cat-title"><p>Gender Equality</p></div>' +
+                        '<div class="check-wrapper"><div class="check"></div></div>' +
+                    '</div>' +
+                    '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="6">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I06.jpg">' +
+                        '<div class="cat-title"><p>Clean Water & Sanitation</p></div>' +
+                        '<div class="check-wrapper"><div class="check"></div></div>' +
+                    '</div>' +
+                    '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="7">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I07.jpg">' +
+                        '<div class="cat-title"><p>Affordable & Clean Energy</p></div>' +
+                        '<div class="check-wrapper"><div class="check"></div></div>' +
+                    '</div>' +
+                    '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="8">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I08.jpg">' +
+                        '<div class="cat-title"><p>Decent Work & Economic Growth</p></div>' +
+                        '<div class="check-wrapper"><div class="check"></div></div>' +
+                    '</div>' +
+                    '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="9">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I09.jpg">' +
+                        '<div class="cat-title"><p>Industry, Innovation & Infrastructure</p></div>' +
+                        '<div class="check-wrapper"><div class="check"></div></div>' +
+                    '</div>' +
+                    '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="10">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I10.jpg">' +
+                        '<div class="cat-title"><p>Reduce Inequilities</p></div>' +
+                        '<div class="check-wrapper"><div class="check"></div></div>' +
+                    '</div>' +
+                    '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="11">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I11.jpg">' +
+                        '<div class="cat-title"><p>Sustainable Cities & Communities</p></div>' +
+                        '<div class="check-wrapper"><div class="check"></div></div>' +
+                    '</div>' +
+                    '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="12">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I12.jpg">' +
+                        '<div class="cat-title"><p>Responsible Consumption & Production</p></div>' +
+                        '<div class="check-wrapper"><div class="check"></div></div>' +
+                    '</div>' +
+                    '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="13">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I13.jpg">' +
+                        '<div class="cat-title"><p>Climate Action</p></div>' +
+                        '<div class="check-wrapper"><div class="check"></div></div>' +
+                    '</div>' +
+                    '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="14">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I14.jpg">' +
+                        '<div class="cat-title"><p>Life Below Water</p></div>' +
+                        '<div class="check-wrapper"><div class="check"></div></div>' +
+                    '</div>' +
+                    '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="15">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I15.jpg">' +
+                        '<div class="cat-title"><p>Life On Land</p></div>' +
+                        '<div class="check-wrapper"><div class="check"></div></div>' +
+                    '</div>' +
+                    '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="16">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I16.jpg">' +
+                        '<div class="cat-title"><p>Peace, Justise & Strong Institution</p></div>' +
+                        '<div class="check-wrapper"><div class="check"></div></div>' +
+                    '</div>' +
+                    '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="17">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I17.jpg">' +
+                        '<div class="cat-title"><p>Partnership For The Goals</p></div>' +
+                        '<div class="check-wrapper"><div class="check"></div></div>' +
+                    '</div>' +
+                '</div>';
             $bodyElem += '</fieldset>';
 
             $bodyElem += '<fieldset class="sf-step">';
@@ -641,7 +728,7 @@
             $bodyElem += '</div>';
             $bodyElem += '</div>';
             $bodyElem += '</div>';
-            showModal("", false, false, false, "", $bodyElem, "");
+            showModal("modal-lg", false, false, false, "", $bodyElem, "");
             $(".stepform").stepform();
 
             //$("#file-4").fileinput({
