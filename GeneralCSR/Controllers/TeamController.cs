@@ -38,6 +38,7 @@ namespace GeneralCSR.Controllers
         }
 
         [HttpPost]
+        [AuthorizeSession]
         public string GetTeams()
         {
             CFSession CFSess = (CFSession)Session["CFSess"];

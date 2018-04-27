@@ -111,5 +111,9 @@ namespace Models
         {
             return base.InsertSupportOppose(UserID, CommentID, IsSupport);
         }
+        public override DataTable GetPostDetails(int PostID)
+        {
+            return base.GetPostDetails(PostID);
+        }
     }
 }

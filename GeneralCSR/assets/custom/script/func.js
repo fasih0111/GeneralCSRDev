@@ -86,10 +86,13 @@ function showAlert(type, text, destination, isPrepend) {
 }
 
 
-function showModal(modalSizeClass, isHeader, isFooter, isCloseButton, title, body, footer) {
+function showModal(modalSizeClass, minHeight, isHeader, isFooter, isCloseButton, title, body, footer) {
     var $elem = '';
     var $randId = Math.random();
     var $animationClass = "";
+
+
+
     //if ((Math.floor(Math.random() * 2) + 1) == 1) $animationClass = "bounceInDown"; else $animationClass = "flipInX";
     $elem += '<div class="modal main-validate" id="' + $randId + '">';
     //$elem += '<div class="modal-dialog animated ' + $animationClass + '">';
@@ -100,7 +103,7 @@ function showModal(modalSizeClass, isHeader, isFooter, isCloseButton, title, bod
         $elem += '<h4 class="modal-title">' + title + '</h4>';
         $elem += '</div>';
     }
-    $elem += '<div class="modal-body">';
+    $elem += '<div class="modal-body ' + minHeight + '">';
     $elem += body;
     $elem += '</div>';
     if (isFooter) {

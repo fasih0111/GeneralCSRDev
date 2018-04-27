@@ -16,10 +16,55 @@
         </select>
     </div>
 
-</div>
 
+   
+
+</div>
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+        <div class="row">
+            @for (int i = 0; i < 10; i++)
+            {
+                <div class="col-md-3">
+                    <div class="panel img-box">
+                        <div class="img-box-top" style="height: 200px;">
+                            <div class="responsive-image" style="background-image: url(/uploads/files/20170412110549955_4e8c67cf80cc4208b7f0ace5d8064b3d_donation.png)"></div>
+                        </div>
+                        <div class="img-box-bottom">
+                            <div class="img-box-title"></div>
+
+                            <div class="img-box-options row no-margin">
+                                <div class="col-md-3 text-center" onclick="showArchiveInfo(this);" title="Info"><i class="material-icons">info</i></div>
+                                <div class="col-md-3 text-center"><i class="material-icons">remove_red_eye</i></div>
+                                <div class="col-md-3 text-center"><i class="material-icons">thumb_up</i></div>
+                                <div class="col-md-3 text-center"><i class="material-icons">report</i></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
 
 
 <script>
     function afterUserDetails() { }
+
+
+    function showArchiveInfo(e) {
+        var $me = $(e);
+
+        var $elem = '' +
+            '<div class="info-archive-box">' +
+                '<div class="pull-right">X</div>' +
+            '</div>';
+
+
+
+        $me.closest(".img-box").append($elem);
+    }
 </script>

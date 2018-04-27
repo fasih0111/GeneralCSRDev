@@ -244,6 +244,16 @@ namespace Models
                                };
             return SqlHelper.ExecuteDataTable(FCommon.ConStr, CommandType.StoredProcedure, "InsertSupportOppose", param);
         }
+
+        public virtual DataTable GetPostDetails(int PostID)
+        {
+            SqlParameter[] param = {
+                                       new SqlParameter("@PostID", PostID)
+                               };
+            return SqlHelper.ExecuteDataTable(FCommon.ConStr, CommandType.StoredProcedure, "GetPostDetails", param);
+        }
+
         
+
     }
 }

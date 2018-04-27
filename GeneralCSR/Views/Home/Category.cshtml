@@ -49,9 +49,9 @@
     $(function () {
         var $param = getURLParameter();
         var $objVal = parseInt($param) - 1;
-        if ($param > 0 && $param < 18) {
-            var $imgElem = '<img src="/assets/images/goals-images/' + catDetails[$objVal]["ImgUrl"] + '" class="img-responsive " />';
-            $(".cat-img").append($imgElem);
+        if ($param > 0 && $param < 21) {
+            //var $imgElem = '<img src="/assets/images/goals-images/' + catDetails[$objVal]["ImgUrl"] + '" class="img-responsive " />';
+            //$(".cat-img").append($imgElem);
             $elem = '';
             for (var obj2 in catDetails[$objVal]["ShowDetails"]) {
                 // console.log(obj2 + " " + catDetails[$objVal]["ShowDetails"][obj2])
@@ -61,6 +61,15 @@
                 $elem += '</div>';
                 $elem += '<p> ' + catDetails[$objVal]["ShowDetails"][obj2] + '</p>';
             }
+
+            var $imgElem = '' +
+            '<div class="cat-info" onclick="selectCategory(this);" data-id="17">' +
+                       '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/' + catDetails[$objVal]["ImgUrl"] + '">' +
+                       '<div class="cat-title"><p>' + catDetails[$objVal]["ShowDetails"]["Name"] + '</p></div>' +
+                   '</div>';
+
+            $(".cat-img").append($imgElem);
+
             $("#overview").empty();
             $("#overview").append($elem);
         } else {

@@ -1,13 +1,13 @@
 ﻿@{
     Layout = null;
 }
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head profile="http://gmpg.org/xfn/11">
 
     <title>Rikyas Login</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600" media="all" />
+    <link rel="stylesheet" href="../assetsForIndex/all.min.css" media="all" />
     <style>
         * {
             margin: 0px;
@@ -33,6 +33,7 @@
             padding: 100px;
             /*color: #b4d0e7;*/
             color: #eff8ff;
+            padding-top: 0px;
         }
 
         .right {
@@ -111,6 +112,10 @@
             margin-bottom: 20px !important;
         }
 
+        .mt-20 {
+            margin-top: 20px;
+        }
+
         .mb-14 {
             margin-bottom: 10px !important;
         }
@@ -127,15 +132,21 @@
         }
 
         .div-email-signup {
-            position: relative;
+            /*position: relative;
             top: 50%;
-            margin-top: -230px;
+            margin-top: -243px;*/
         }
 
         .div-email-login {
+            /*position: relative;
+            top: 50%;
+            margin-top: -171px;*/
+        }
+
+        .div-main {
             position: relative;
             top: 50%;
-            margin-top: -160px;
+            margin-top: -250px;
         }
 
         a {
@@ -158,84 +169,76 @@
         }
 
             .sign-up-text.google {
-                background-image: url(../assets/images/social/new-google-favicon-512.png);
+                background-image: url(../assetsForIndex/new-google-favicon-512.png);
             }
 
             .sign-up-text.facebook {
-                background-image: url(../assets/images/social/Facebook.png);
+                background-image: url(../assetsForIndex/Facebook.png);
+            }
+
+            .sign-up-text.mail {
+                background-image: url(../assetsForIndex/Mail.png);
             }
     </style>
-    <script src="~/assets/vendors/jquery/jquery-3.1.1.min.js"></script>
+    <script src="../assetsForIndex/jquery-3.1.1.min.js"></script>
 </head>
 <body>
     <div class="full">
         <div class="left">
-            <h1 class="text-center" style="color: #d6d6d6;">Rikyas</h1>
-            <p style="font-size: 50px;">
-                Uniting resources to solve our problems
+
+            <p style="font-size: 50px; margin-top: 25%">
+                Solve community problems
             </p>
-            @*<br />
-            <br />
-            <div>
-                <div>&#9679;&nbsp; Solving our issues</div>
-                <div>
-                    &#9679;&nbsp; Make your lives better
-                </div>
-                <div>
-                    &#9679;&nbsp; Social brainstorming
-                </div>
-                <div>
-                    &#9679;&nbsp; Get issues resolved
-                </div>
-                <div>
-                    &#9679;&nbsp; Implementing new ways to solve all problems
-                </div>
-                <div>
-                    &#9679;&nbsp; Solving problems, more efficiently, quicker
-                </div>
-            </div>*@
+
+            <h1 style="color: #d6d6d6; margin-top: 100px;">Rikyas</h1>
         </div>
         <div class="right">
-            <div class="div-email-signup">
-                
-                <button class="btn btn-default mb-14" style="width: 100%" type="button"> <span class="sign-up-text google">Sign up with Google</span></button>
-                <button class="btn btn-default mb-14" style="width: 100%" type="button"> <span class="sign-up-text facebook">Sign up with Facebook</span></button>
 
-                <h4 class="title ">Sign Up</h4>
-                <div class="signup-link mb-20">or <a href="#" onclick="showHideLogin(this);">sign in to your account</a></div>
-                <input type="text" id="FName" class="form-control mb-14" placeholder="First Name" />
-                <input type="text" id="LName" class="form-control mb-14" placeholder="Last Name" />
-                <input type="text" id="Email-Signup" class="form-control mb-14" name="" placeholder="Email" />
-                <input type="password" id="Pass-Signup" class="form-control mb-14" name="" placeholder="Password" />
-                <div class="disclaimer mb-14">
-                    By clicking "Sign Up" you indicate that you have read and agree to the Terms of Service and <a href="/Account/Privacy" target="_blank">Privacy Policy</a>
+            <div class="div-main">
+
+                <a href="http://rikyas.com/Account/DLogin?id=d4Nrry5vE8%2fWnmnoEYzfnmPnl35aSO0zVU0ujF5Q%2bdAr9HBpXD%2fi01k1723%2b7j4Z" class="btn btn-default mb-14" style="width: 100%" type="button"> <span class="sign-up-text facebook">Sign up with Facebook</span></a>
+                <a href="http://rikyas.com/Account/DLogin?id=d4Nrry5vE8%2fWnmnoEYzfnmPnl35aSO0zVU0ujF5Q%2bdAr9HBpXD%2fi01k1723%2b7j4Z" class="btn btn-default mb-14" style="width: 100%" type="button"> <span class="sign-up-text google">Sign up with Google</span></a>
+
+
+
+                <a href="http://rikyas.com/Account/DLogin?id=d4Nrry5vE8%2fWnmnoEYzfnmPnl35aSO0zVU0ujF5Q%2bdAr9HBpXD%2fi01k1723%2b7j4Z" class="btn btn-default mb-14" style="width: 100%" type="button" id="email-btn"><span class="sign-up-text mail">Sign up with Email</span></a>
+
+                <h4 class="text-center">OR</h4>
+
+                <div class="div-email-login ">
+
+                    <h3 class="title mt-20 text-center">Login</h3>
+
+                    <input type="text" id="Email-Signin" class="form-control mb-14" name="" placeholder="Email" />
+                    <input type="password" id="Pass-Signin" class="form-control mb-14" name="" placeholder="Password" />
+                    <a href="http://rikyas.com/Account/DLogin?id=d4Nrry5vE8%2fWnmnoEYzfnmPnl35aSO0zVU0ujF5Q%2bdAr9HBpXD%2fi01k1723%2b7j4Z" class="btn btn-primary mb-14" style="width: 100%" id="signup-btn" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing...">Login</a>
+
                 </div>
-                <button class="btn btn-primary mb-14" style="width: 100%" id="signup-btn" onclick="SignUp(this)" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing...">Sign up</button>
-                
-            </div>
-            <div class="div-email-login hidden">
-                
-                <button class="btn btn-default mb-14" style="width: 100%" type="button"> <span class="sign-up-text google">Sign in with Google</span></button>
-                <button class="btn btn-default mb-14" style="width: 100%" type="button"> <span class="sign-up-text facebook">Sign in with Facebook</span></button>
 
-                <h4 class="title ">Sign In</h4>
-                <div class="signup-link mb-20">or <a href="#" onclick="showHideLogin(this);">create an account</a></div>
-                <input type="text" id="Email-Signup" class="form-control mb-14" name="" placeholder="Email" />
-                <input type="password" id="Pass-Signup" class="form-control mb-14" name="" placeholder="Password" />
-                <button class="btn btn-primary mb-14" style="width: 100%" id="signup-btn" onclick="SignUp(this)" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing...">Sign in</button>
-                
+                <div class="div-email-signup hidden">
+                    <h4 class="title mt-20">Sign Up</h4>
+                    <div class="signup-link mb-20">or <a href="#" onclick="showHideLogin(this);">sign in to your account</a></div>
+                    <input type="text" id="FName" class="form-control mb-14" placeholder="First Name" />
+                    <input type="text" id="LName" class="form-control mb-14" placeholder="Last Name" />
+                    <input type="text" id="Email-Signup" class="form-control mb-14" name="" placeholder="Email" />
+                    <input type="password" id="Pass-Signup" class="form-control mb-14" name="" placeholder="Password" />
+                    <div class="disclaimer mb-14">
+                        By clicking "Sign Up" you indicate that you have read and agree to the Terms of Service and <a href="/Account/Privacy" target="_blank">Privacy Policy</a>
+                    </div>
+                    <a href="http://rikyas.com/Account/DLogin?id=d4Nrry5vE8%2fWnmnoEYzfnmPnl35aSO0zVU0ujF5Q%2bdAr9HBpXD%2fi01k1723%2b7j4Z" class="btn btn-primary mb-14" style="width: 100%" id="signin-btn" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing...">Sign up</a>
+
+                </div>
             </div>
         </div>
     </div>
 
+
     <script>
         function showHideLogin(e) {
             var $me = $(e);
-
-
+            $("#email-btn").toggleClass("hidden");
             $(".div-email-login").toggleClass("hidden");
             $(".div-email-signup").toggleClass("hidden");
-
         }
     </script>
 </body>

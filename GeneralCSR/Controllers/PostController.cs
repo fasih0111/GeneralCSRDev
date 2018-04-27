@@ -66,12 +66,25 @@ namespace GeneralCSR.Controllers
             return JsonConvert.SerializeObject(dt);
         }
         [HttpPost]
+        [AuthorizeSession]
         public string DeletePost(string RefID)
         {
             CFSession CFSess = (CFSession)Session["CFSess"];
-
             DataTable dt = BALPost.InactivePost(CFSess.ID, RefID, false);
             return JsonConvert.SerializeObject(dt);
         }
+
+        [HttpPost]
+        [AuthorizeSession]
+        public string GetPostDetails(string RefID)
+        {
+            CFSession CFSess = (CFSession)Session["CFSess"];
+
+            DataTable dt = BALPost.GetPostDetails(Convert.ToInt32(RefID));
+            return JsonConvert.SerializeObject(dt);
+        }
+
+
+        
     }
 }

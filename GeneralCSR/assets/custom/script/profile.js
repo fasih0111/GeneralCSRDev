@@ -31,7 +31,7 @@ function showSetInterestedTopics() {
 
     $footerElem += '<button type="button" class="btn btn-primary" onclick="insertInterestedCategories(this);">Submit</button>';
 
-    showModal("", true, true, true, "Select your interest", $bodyElem, $footerElem);
+    showModal("", "", true, true, true, "Select your interest", $bodyElem, $footerElem);
     setOverflowToLastModal();
 }
 

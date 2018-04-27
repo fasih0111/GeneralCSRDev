@@ -9,13 +9,13 @@
     <title>Rikyas</title>
     @*<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">*@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600" media="all">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="/assets/vendors/css/all.min.css" rel="stylesheet" />
     <link href="/assets/custom/css/style.css" rel="stylesheet" />
     <link href="/assets/vendors/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
 
     <link href="~/assets/vendors/css/fileinput.min.css" rel="stylesheet" />
-
+    @*<link href="~/assets/vendors/css/material-bootstrap-wizard.css" rel="stylesheet" />*@
     <script src="/assets/vendors/jquery/jquery-3.1.1.min.js"></script>
     @*<script src="/assets/vendors/script/emojione.min.js"></script>*@
     <script src="/assets/vendors/script/emojionearea.min.js"></script>
@@ -336,6 +336,12 @@
     <script src="~/assets/vendors/script/jq.stepform.js"></script>
     <script src="~/assets/vendors/script/dropzone.js"></script>
     <script src="~/assets/vendors/script/fileinput.min.js"></script>
+
+
+    @*<script src="~/assets/vendors/script/jquery.bootstrap.js"></script>*@
+    @*<script src="~/assets/vendors/script/material-bootstrap-wizard.js"></script>*@
+    @*<script src="~/assets/vendors/script/jquery.validate.min.js"></script>*@
+
     <script>
 
 
@@ -554,7 +560,8 @@
             $bodyElem += '<fieldset class="sf-step">';
 
             $bodyElem += '<div class="panel-heading panel-heading-gray title">Which category is the best fit for this issue.</div>';
-            $bodyElem += '<div class="panel-body" style="max-height: 350px;overflow: auto;">';
+            $bodyElem += '<div class="panel-body" style="max-height: 350px; overflow: auto;">';
+            //$bodyElem += '<div class="panel-body" >';
             //$bodyElem += '<div class="" id="category"><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="1"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/01.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="2"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/02.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="3"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/03.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="4"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/04.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="5"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/05.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="6"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/06.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="7"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/07.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="8"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/08.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="9"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/09.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="10"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/10.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="11"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/11.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="12"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/12.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="13"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/13.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="14"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/14.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="15"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/15.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="16"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/16.png"><div class="check-wrapper"><div class="check"></div></div></div><div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="17"><img class="img-responsive" data-img-id="01" src="/assets/images/goals-images/17.png"><div class="check-wrapper"><div class="check"></div></div></div></div>';
             $bodyElem += '<div id="category" >' +
                     '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="1">' +
@@ -640,6 +647,21 @@
                     '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="17">' +
                         '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I17.jpg">' +
                         '<div class="cat-title"><p>Partnership For The Goals</p></div>' +
+                        '<div class="check-wrapper"><div class="check"></div></div>' +
+                    '</div>' +
+                    '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="18">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I18.jpg">' +
+                        '<div class="cat-title"><p>Sport<s/p></div>' +
+                        '<div class="check-wrapper"><div class="check"></div></div>' +
+                    '</div>' +
+                    '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="19">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I19.jpg">' +
+                        '<div class="cat-title"><p>Children & Parenting</p></div>' +
+                        '<div class="check-wrapper"><div class="check"></div></div>' +
+                    '</div>' +
+                    '<div class="col-md-2 cat-info" onclick="selectCategory(this);" data-id="20">' +
+                        '<img class="img-responsive" data-img-id="01" src="/assets/images/Categories/I20.jpg">' +
+                        '<div class="cat-title"><p>Technology</p></div>' +
                         '<div class="check-wrapper"><div class="check"></div></div>' +
                     '</div>' +
                 '</div>';
@@ -728,7 +750,7 @@
             $bodyElem += '</div>';
             $bodyElem += '</div>';
             $bodyElem += '</div>';
-            showModal("modal-lg", false, false, false, "", $bodyElem, "");
+            showModal("modal-lg", "", false, false, false, "", $bodyElem, "");
             $(".stepform").stepform();
 
             //$("#file-4").fileinput({
@@ -738,18 +760,18 @@
             //    uploadUrl: "/Home/fileuploadsingle/1",
             //});
 
-            $("#file-4").fileinput({
-                theme: 'fa',
-                uploadAsync: true,
-                uploadUrl: 'http://localhost:1838/Home/fileuploadsingle',
-                allowedFileExtensions: ['jpg', 'png', 'gif', 'jpeg', 'pdf'],
-                maxFileSize: 1000,
-                maxFilesNum: 10,
-                //allowedFileTypes: ['image', 'video', 'flash'],
-                //slugCallback: function (filename) {
-                //    return filename.replace('(', '_').replace(']', '_');
-                //}
-            });
+            //$("#file-4").fileinput({
+            //    theme: 'fa',
+            //    uploadAsync: true,
+            //    uploadUrl: 'http://localhost:1838/Home/fileuploadsingle',
+            //    allowedFileExtensions: ['jpg', 'png', 'gif', 'jpeg', 'pdf'],
+            //    maxFileSize: 1000,
+            //    maxFilesNum: 10,
+            //    //allowedFileTypes: ['image', 'video', 'flash'],
+            //    //slugCallback: function (filename) {
+            //    //    return filename.replace('(', '_').replace(']', '_');
+            //    //}
+            //});
 
             $("#file1").fileinput({
                 theme: 'fa',
@@ -796,6 +818,164 @@
 
             //});
         }
+
+
+        //function showNewCreatePostWizard() {
+        //    var $elem = '' +
+        //    '<div class="wizard-container">' +
+		//                '<div class="card wizard-card" data-color="green" id="wizardProfile">' +
+        //    '<form action="" method="">' +
+        //    '<div class="wizard-header">' +
+        //    '<h3 class="wizard-title">' +
+        //    'Build Your Profile' +
+        //    '</h3>' +
+        //    '<h5>This information will let us know more about you.</h5>' +
+        //    '</div>' +
+        //    '<div class="wizard-navigation">' +
+        //    '<ul>' +
+		//	                            '<li><a href="#about" data-toggle="tab">About</a></li>' +
+		//	                            '<li><a href="#account" data-toggle="tab">Account</a></li>' +
+		//	                            '<li><a href="#address" data-toggle="tab">Address</a></li>' +
+		//	                        '</ul>' +
+		//						'</div>' +
+
+		//                        '<div class="tab-content">' +
+		//                            '<div class="tab-pane" id="about">' +
+		//                              '<div class="row">' +
+		//                                	'<h4 class="info-text"> Let\'s start with the basic information (with validation)</h4>' +
+        //    '<div class="col-sm-4 col-sm-offset-1">' +
+		//                                    	'<div class="picture-container">' +
+		//                                        	'<div class="picture">' +
+        //                                				'<img src="assets/img/default-avatar.png" class="picture-src" id="wizardPicturePreview" title=""/>' +
+		//                                            	'<input type="file" id="wizard-picture">' +
+		//                                        	'</div>' +
+		//                                        	'<h6>Choose Picture</h6>' +
+		//                                    	'</div>' +
+		//                                	'</div>' +
+		//                                	'<div class="col-sm-6">' +
+		//										'<div class="input-group">' +
+		//											'<span class="input-group-addon">' +
+		//												'<i class="material-icons">face</i>' +
+		//											'</span>' +
+		//											'<div class="form-group label-floating">' +
+		//	                                          '<label class="control-label">First Name <small>(required)</small></label>' +
+		//	                                          '<input name="firstname" type="text" class="form-control">' +
+		//	                                        '</div>' +
+		//										'</div>' +
+
+		//										'<div class="input-group">' +
+		//											'<span class="input-group-addon">' +
+		//												'<i class="material-icons">record_voice_over</i>' +
+		//											'</span>' +
+        //    '<div class="form-group label-floating">' +
+		//											  '<label class="control-label">Last Name <small>(required)</small></label>' +
+		//											  '<input name="lastname" type="text" class="form-control">' +
+		//											'</div>' +
+		//										'</div>' +
+		//                                	'</div>' +
+		//                                	'<div class="col-sm-10 col-sm-offset-1">' +
+		//										'<div class="input-group">' +
+		//											'<span class="input-group-addon">' +
+		//												'<i class="material-icons">email</i>' +
+		//											'</span>' +
+		//											'<div class="form-group label-floating">' +
+		//	                                            '<label class="control-label">Email <small>(required)</small></label>' +
+		//	                                            '<input name="email" type="email" class="form-control">' +
+		//	                                        '</div>' +
+		//										'</div>' +
+		//                                	'</div>' +
+		//                            	'</div>' +
+		//                            '</div>' +
+		//                            '<div class="tab-pane" id="account">' +
+		//                                '<h4 class="info-text"> What are you doing? (checkboxes) </h4>' +
+		//	                                                '<div class="row">' +
+		//                                    '<div class="col-sm-10 col-sm-offset-1">' +
+		//                                        '<div class="col-sm-4">' +
+		//                                            '<div class="choice" data-toggle="wizard-checkbox">' +
+		//                                                '<input type="checkbox" name="jobb" value="Design">' +
+		//                                                '<div class="icon">' +
+		//                                                    '<i class="fa fa-pencil"></i>' +
+		//                                                '</div>' +
+		//                                                '<h6>Design</h6>' +
+		//                                            '</div>' +
+		//                                        '</div>' +
+		//                                        '<div class="col-sm-4">' +
+		//                                            '<div class="choice" data-toggle="wizard-checkbox">' +
+		//                                                '<input type="checkbox" name="jobb" value="Code">' +
+		//                                                '<div class="icon">' +
+		//                                                    '<i class="fa fa-terminal"></i>' +
+		//                                                '</div>' +
+		//                                                '<h6>Code</h6>' +
+		//                                            '</div>' +
+		//                                        '</div>' +
+		//                                        '<div class="col-sm-4">' +
+		//                                            '<div class="choice" data-toggle="wizard-checkbox">' +
+		//                                                '<input type="checkbox" name="jobb" value="Develop">' +
+		//                                                '<div class="icon">' +
+		//                                                    '<i class="fa fa-laptop"></i>' +
+		//                                                '</div>' +
+		//                                                '<h6>Develop</h6>' +
+		//                                            '</div>' +
+		//                                        '</div>' +
+		//                                    '</div>' +
+		//                               '</div>' +
+		//                            '</div>' +
+		//                            '<div class="tab-pane" id="address">' +
+		//                                '<div class="row">' +
+		//                                    '<div class="col-sm-12">' +
+		//                                        '<h4 class="info-text"> Are you living in a nice area? </h4>' +
+		//                                    '</div>' +
+		//                                    '<div class="col-sm-7 col-sm-offset-1">' +
+	    //                                    	'<div class="form-group label-floating">' +
+	    //                                    		'<label class="control-label">Street Name</label>' +
+	    //                                			'<input type="text" class="form-control">' +
+	    //                                    	'</div>' +
+		//                                    '</div>' +
+		//                                    '<div class="col-sm-3">' +
+		//                                        '<div class="form-group label-floating">' +
+		//                                            '<label class="control-label">Street Number</label>' +
+		//                                            '<input type="text" class="form-control">' +
+		//                                        '</div>' +
+		//                                    '</div>' +
+		//                                    '<div class="col-sm-5 col-sm-offset-1">' +
+		//                                        '<div class="form-group label-floating">' +
+		//                                            '<label class="control-label">City</label>' +
+		//                                            '<input type="text" class="form-control">' +
+		//                                        '</div>' +
+		//                                    '</div>' +
+		//                                    '<div class="col-sm-5">' +
+		//                                        '<div class="form-group label-floating">' +
+		//                                            '<label class="control-label">Country</label>' +
+	    //                                        	'<select name="country" class="form-control">' +
+		//												'<option disabled="" selected=""></option>' +
+	    //                                            	'<option value="Afghanistan"> Afghanistan </option>' +
+	    //                                            	'<option value="...">...</option>' +
+	    //                                        	'</select>' +
+		//                                        '</div>' +
+		//                                    '</div>' +
+		//                                '</div>' +
+		//                            '</div>' +
+		//                        '</div>' +
+		//                        '<div class="wizard-footer">' +
+		//                            '<div class="pull-right">' +
+		//                                '<input type="button" class="btn btn-next btn-fill btn-success btn-wd" name="next" value="Next" />' +
+		//                                '<input type="button" class="btn btn-finish btn-fill btn-success btn-wd" name="finish" value="Finish" />' +
+		//                            '</div>' +
+
+		//                            '<div class="pull-left">' +
+		//                                '<input type="button" class="btn btn-previous btn-fill btn-default btn-wd" name="previous" value="Previous" />' +
+		//                            '</div>' +
+		//                            '<div class="clearfix"></div>' +
+		//                        '</div>' +
+		//                    '</form>' +
+		//                '</div>' +
+		//            '</div>';
+
+
+        //    $('body').append($elem);
+
+        //    //showModal("modal-lg", false, false, false, "", $elem, "");
+        //}
 
         //function noBack() {
         //    window.history.forward()

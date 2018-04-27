@@ -71,7 +71,7 @@ function showCreatePostModal() {
 
 
 
-    showModal("", true, true, true, "Lets solve an issue", $bodyElem, $footerElem);
+    showModal("", "", true, true, true, "Lets solve an issue", $bodyElem, $footerElem);
 
 
     $("#body").closest(".modal-body").css("overflow", "visible");
@@ -300,7 +300,7 @@ function getPostElem(data) {
     $elem += '</div>';
 
     $elem += '<a class="color-hover user-hover-details" data-user-id="' + data["UserID"] + '" title="testings" href="/Profile/Index/' + data["UserID"] + '">' + data["FullName"] + '</a><br />';
-    $elem += '<div class="samp">' + new Date(data["Date"]).toString("hh:mm tt dd/MMM/yyyy") + '</div>';
+    $elem += '<div class="samp">' + new Date(data["Date"]).toString("hh:mm tt dd/MM/yyyy") + '</div>';
     $elem += '</div>';
     $elem += '</div>';
     $elem += '</div>';
@@ -481,6 +481,7 @@ function getPostMenuElem() {
     '<ul class="dropdown-menu pull-right" role="menu">' +
         '<li><a href="javascript:void(0)" onclick="showEditPost(this);"><i class="material-icons">mode_edit</i> Edit Post</a></li>' +
         '<li><a href="javascript:void(0)" onclick="showDeletePost(this);"><i class="material-icons">delete</i> Delete Post</a></li>' +
+        '<li><a href="javascript:void(0)" onclick="todo(this);"><i class="material-icons">share</i> Share Post</a></li>' +
         '<li><a href="javascript:void(0)" onclick="showPostInvite(this);"><i class="material-icons">insert_invitation</i> Invite User</a></li>' +
     '</ul>';
     return $elem;
@@ -546,7 +547,7 @@ function seeMoreComment(e) {
 }
 
 function todo(e) {
-    showModal("", true, true, true, "Alert", "<h4 class='text-center'><i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Sorry! This feature is not available yet. please check back in the future</h4>", "");
+    showModal("", "", true, true, true, "Alert", "<h4 class='text-center'><i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Sorry! This feature is not available yet. please check back in the future</h4>", "");
 }
 function showCommentBox(e) {
     var $me = $(e);
@@ -632,7 +633,7 @@ function showCreateComment(e) {
     $footerElem += '<button type="button" class="btn btn-primary" onclick="insertComment(this);" data-id="'
         + $obj.data("id") + '" data-type="' + $obj.data("type") + '">Submit</button>';
 
-    showModal("", true, true, true, "Write A Comment", $bodyElem, $footerElem);
+    showModal("", "", true, true, true, "Write A Comment", $bodyElem, $footerElem);
     $(".txt-comment").emojioneArea({
         pickerPosition: "bottom",
         tonesStyle: "bullet",
@@ -670,7 +671,7 @@ function showCreateShareFiles(e) {
     $footerElem += '<button type="button" class="btn btn-primary" onclick="insertCommentAttachment(this);" data-id="'
         + $obj.data("id") + '" data-type="' + $obj.data("type") + '">Submit</button>';
 
-    showModal("", true, true, true, "Share Files", $bodyElem, $footerElem);
+    showModal("", "", true, true, true, "Share Files", $bodyElem, $footerElem);
 }
 
 function checkCommentFile(e) {
@@ -710,7 +711,7 @@ function checkCommentFile(e) {
         }
         $bodyElem += '</div></div>'
         var $footerElem = '<button type="button" class="btn btn-primary" onclick="insertCommentAttachment(this , ' + $me.closest(".panel").attr("data-id") + ');">Submit</button>';
-        showModal("", true, true, true, "Share File", $bodyElem, $footerElem);
+        showModal("", "", true, true, true, "Share File", $bodyElem, $footerElem);
     }
 }
 
@@ -822,7 +823,12 @@ function setComment(data, e) {
         $obj2.removeClass("count");
     }
 
-    $(".comment-date").timeago();
+    //$(".comment-date").timeago();
+
+    $('.comment-date').each(function () {
+        var $this = $(this);
+        $this.attr('title', $this.data('ts'));
+    }).timeago();
 
     setUserHoverDetails();
     //$('.tooltip-name').tooltipster({
@@ -925,7 +931,13 @@ function getCommentsElem(data) {
     var $isActiveClass = "";
     var $isCountClass = "";
 
-    $elem += '<span class="comment-date" title="' + data["CommentDate"] + '">' + data["CommentDate"] + '</span>';
+    var cDate = new Date(data["CommentDate"]);
+
+
+    $elem += '<span class="comment-date" title="' + data["CommentDate"] + '" data-ts="' + new Date(data["CommentDate"]).toString("hh:mm tt MM/dd/yyyy") + '">' + new Date(data["CommentDate"]).toString("hh:mm tt MM/dd/yyyy") + '</span>';
+
+
+
     $elem += $dotSpace;
 
     //if (data["IsMyEndorse"] > 0) $isActiveClass = $activeClass; else $isActiveClass = "";
@@ -1012,6 +1024,7 @@ function getCommentsElem(data) {
 
 
         $elem += '<li><a href="javascript:void(0)" onclick="showCommentReport(this);"><i class="material-icons">report</i> Report this comment</a></li>';
+        $elem += '<li><a href="javascript:void(0)" onclick="todo(this);"><i class="material-icons">share</i> Share comment</a></li>';
 
 
 
@@ -1187,7 +1200,7 @@ function showPostFollowers(data, e) {
             $bodyElem += getModalListLi(data[i]);
         }
         $bodyElem += '</ul>';
-        showModal("", true, true, true, "Post Followers", $bodyElem, "");
+        showModal("", "", true, true, true, "Post Followers", $bodyElem, "");
     } else
         console.log("No Followers");
 }
@@ -1210,9 +1223,9 @@ function showCommentSupporters(data, e) {
         }
         $bodyElem += '</ul>';
         if ($me.data("type") == "true") {
-            showModal("", true, true, true, "Comment Support", $bodyElem, "");
+            showModal("", "", true, true, true, "Comment Support", $bodyElem, "");
         } else {
-            showModal("", true, true, true, "Comment Oppose", $bodyElem, "");
+            showModal("", "", true, true, true, "Comment Oppose", $bodyElem, "");
         }
     } else {
         console.log("No Support");
@@ -1237,7 +1250,7 @@ function showCommentEndorsers(data, e) {
             $bodyElem += getModalListLi(data[i]);
         }
         $bodyElem += '</ul>';
-        showModal("", true, true, true, "Comment Endorse", $bodyElem, "");
+        showModal("", "", true, true, true, "Comment Endorse", $bodyElem, "");
     } else {
         console.log("No Endorse");
     }
@@ -1312,7 +1325,7 @@ function setCommentAttachments(data, e) {
             }
             $elem += '</div>';
             $elem += '</div>';
-            showModal("", true, true, true, "Archives", $elem, "");
+            showModal("", "", true, true, true, "Archives", $elem, "");
         }
     }
 }
@@ -1372,11 +1385,11 @@ function setArchiveAttachment(data, e) {
         }
         $elem += '</tbody>';
         $elem += '</table>';
-        showModal("modal-lg", true, true, true, "Archives", $elem, "");
+        showModal("modal-lg", "", true, true, true, "Archives", $elem, "");
 
         setOverflowToLastModal();
     } else
-        showModal("", true, true, true, "Archives", "<h3 class='text-center'>No Attachment found</h3>", "");
+        showModal("", "", true, true, true, "Archives", "<h3 class='text-center'>No Attachment found</h3>", "");
 }
 
 function showOrganization(e) {
@@ -1403,7 +1416,7 @@ function showOrganization(e) {
     $bodyElem += '</div>';
     $bodyElem += '</li>';
     $bodyElem += '</ul>';
-    showModal("", true, true, true, "Organization", $bodyElem, "");
+    showModal("", "", true, true, true, "Organization", $bodyElem, "");
 }
 
 function showInviteModal(e) {
@@ -1417,7 +1430,7 @@ function showInviteModal(e) {
     $bodyElem += '</div>';
 
     $bodyElem += '<div class="text-right"><span class="color-hover" onclick="addMoreInviteEmail(this)">Add More</span></div>';
-    showModal("", true, true, true, "Invitation", $bodyElem, "");
+    showModal("", "", true, true, true, "Invitation", $bodyElem, "");
 }
 
 function addMoreInviteEmail(e) {
@@ -1510,7 +1523,7 @@ function showCommentEditPopup(e) {
     $bodyElem += '<textarea class="form-control" rows="4">' + $comm + '</textarea>';
     $bodyElem += '</div>';
     var $footerElem = '<button type="button" class="btn btn-primary" onclick="editComment(this);" data-id="' + $obj.attr("data-id") + '"  data-post-id="' + $objMain.attr("data-id") + '" data-type="' + $objMain.attr("data-type") + '">Edit</button>';
-    showModal("", true, true, true, "Edit Comment", $bodyElem, $footerElem);
+    showModal("", "", true, true, true, "Edit Comment", $bodyElem, $footerElem);
 }
 
 function editComment(e) {
@@ -1529,7 +1542,7 @@ function showCommentDeletePopup(e) {
     var $obj = $me.closest('li.media');
     var $bodyElem = '<strong>Note:</strong> This comment will be deleted and you\'ll no longer be able to find it';
     var $footerElem = '<button type="button" class="btn btn-primary" onclick="deleteComment(this);" data-id="' + $obj.attr("data-id") + '">Delete</button>';
-    showModal("", true, true, true, "Confirmation", $bodyElem, $footerElem);
+    showModal("", "", true, true, true, "Confirmation", $bodyElem, $footerElem);
 }
 
 function deleteComment(e) {
@@ -1548,7 +1561,7 @@ function showPostInvite(e) {
     $bodyElem = '';
     var $footerElem = '<a class="btn btn-link" href="javascript:void(0)" onclick="closeModal(this);">No thanks, maybe later</a>';
     $footerElem += '<input type="button" class="btn btn-primary" value="Send Invitation" onclick="sendInvitation(this);" />';
-    showModal("", true, true, false, "Who do you want to invite?", $bodyElem, $footerElem);
+    showModal("", "", true, true, false, "Who do you want to invite?", $bodyElem, $footerElem);
 
 }
 /*Team*/
@@ -1585,7 +1598,7 @@ function showCreateTeam(e) {
     var $footerElem = '<a class="btn btn-link" href="javascript:void(0)" onclick="closeModal(this);">Cancel</a>';
     $footerElem += '<input type="button" class="btn btn-primary" value="Create Team" onclick="createTeam(this);" data-issue-id="' + $me.closest(".panel").data("id") + '"/>';
 
-    showModal("", true, true, false, "Want to create a team", $bodyElem, $footerElem);
+    showModal("", "", true, true, false, "Want to create a team", $bodyElem, $footerElem);
 }
 
 function createTeam(e) {
@@ -1723,7 +1736,7 @@ function afterDeletePost(data, e) {
 
 function insertCommentReport(e) {
     var $me = $(e);
-    showModal("", true, true, false, "Want to create a team", $bodyElem, $footerElem);
+    showModal("", "", true, true, false, "Want to create a team", $bodyElem, $footerElem);
 }
 
 function showCommentReport(e) {
@@ -1742,14 +1755,14 @@ function showCommentReport(e) {
     var $footerElem = '<a class="btn btn-link" href="javascript:void(0)" onclick="closeModal(this);">Cancel</a>';
     $footerElem += '<input type="button" class="btn btn-primary" value="Report" onclick="reportComment(this);" />';
 
-    showModal("", true, true, false, "Why are you reporting this?", $bodyElem, $footerElem);
+    showModal("", "", true, true, false, "Why are you reporting this?", $bodyElem, $footerElem);
 }
 
 function reportComment(e) {
     var $me = $(e);
     closeModal($me);
     var $footerElem = '<a class="btn btn-link" href="javascript:void(0)" onclick="closeModal(this);">Close</a>';
-    showModal("", true, true, false, "Confirmation", "<h5>Report submitted successfully</h5>", $footerElem);
+    showModal("", "", true, true, false, "Confirmation", "<h5>Report submitted successfully</h5>", $footerElem);
 }
 
 function showTagModal(e) {
@@ -1774,7 +1787,7 @@ function afterShowTagModal(data, e) {
 
         var $footerElem = '<button type="button" class="btn btn-primary" onclick="sendTag(this);">Tag Selected</button>';
 
-        showModal("", true, true, true, "Tag Someone", $bodyElem, $footerElem);
+        showModal("", "", true, true, true, "Tag Someone", $bodyElem, $footerElem);
 
 
         var $liElem = '';
@@ -1817,4 +1830,28 @@ function selectUserForTag(e) {
 function sendTag(e) {
     closeModal(e);
     showCustomAlert("Success", "Tag successfully", "success", "bottom-left");
+}
+
+function showEditPost(e) {
+
+
+
+    var $me = $(e);
+    var Data = { "RefID": $me.closest(".panel").data("id") };
+    runAjax("/Post/GetPostDetails", Data, true, $me, "button", afterGetEditPost, $me);
+    //showModal("", true, true, true, "Tag Someone", $bodyElem, $footerElem);
+
+    showCreatePostWizard();
+
+
+}
+
+function afterGetEditPost(data, e) {
+    var $me = $(e);
+    console.log(data);
+    $("#title").val(data[0].Title);
+    $("#body").val(data[0].Body);
+
+
+
 }

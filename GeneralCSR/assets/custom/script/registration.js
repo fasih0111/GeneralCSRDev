@@ -299,7 +299,7 @@ function afterUpdateUserDescription(data, e) {
             '<div class="col-md-6"><button class="btn btn-default mb-14" style="width: 100%" type="button" onclick="todo(this);"> <span class="sign-up-text facebook">Connect with Facebook</span></button></div>' +
         '</div>';
     var $footerElem = '<button class="btn btn-default" href="javascript:void(0)" onclick="skipSocialConnect(this);">Skip</button>';
-    showModal("", true, true, false, "Please connect with a social network.", $bodyElem, $footerElem);
+    showModal("", "", true, true, false, "Please connect with a social network.", $bodyElem, $footerElem);
     //getPosts("0", "0");
 }
 
@@ -313,10 +313,15 @@ function closeThisModal(e) {
 function searchOccupation(e) {
     var $me = $(e);
 
+    $(".tempss").remove();
     if ($me.val().trim() != "") {
         if (!($me.closest(".dropdown").hasClass("open"))) $me.closest(".dropdown").addClass("open");
         $(".occupations li").addClass("hidden");
         $(".occupations li:containsNC('" + $me.val() + "')").removeClass("hidden");
+
+        if ($(".occupations li:not('.hidden')").length == 0) {
+            $(".occupations").append("<li class='tempss text-center'><h4>Not found. Please search by putting key words</h4></li>");
+        } 
     } else {
         $me.closest(".dropdown").removeClass("open");
         $(".occupations li").addClass("hidden");

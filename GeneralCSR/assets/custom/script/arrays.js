@@ -15,7 +15,7 @@ var catDetails = [
             "Name": "No Poverty",
             "Goal": "End poverty in all its forms everywhere"
         },
-        "ImgUrl": "01.png"
+        "ImgUrl": "I01.jpg"
     }, {
 
         "ID": 2,
@@ -23,7 +23,7 @@ var catDetails = [
             "Name": "Zero Hunger",
             "Goal": "End hunger, achieve food security and improved nutrition and promote sustainable agriculture"
         },
-        "ImgUrl": "02.png"
+        "ImgUrl": "I02.jpg"
     }, {
 
         "ID": 3,
@@ -32,7 +32,7 @@ var catDetails = [
             "Goal": "Ensure healthy lives and promote well-being for all at all ages"
         },
 
-        "ImgUrl": "03.png"
+        "ImgUrl": "I03.jpg"
     }, {
 
         "ID": 4,
@@ -40,7 +40,7 @@ var catDetails = [
             "Name": "Quality Education",
             "Goal": "Ensure inclusive and quality education for all and promote lifelong learning"
         },
-        "ImgUrl": "04.png"
+        "ImgUrl": "I04.jpg"
     }, {
 
         "ID": 5,
@@ -48,7 +48,7 @@ var catDetails = [
             "Name": "Gender Equility",
             "Goal": "Achieve gender equality and empower all women and girls"
         },
-        "ImgUrl": "05.png"
+        "ImgUrl": "I05.jpg"
     }, {
 
         "ID": 6,
@@ -56,7 +56,7 @@ var catDetails = [
             "Name": "Clean Water & Sanitation",
             "Goal": "Ensure access to water and sanitation for all"
         },
-        "ImgUrl": "06.png"
+        "ImgUrl": "I06.jpg"
     }, {
 
         "ID": 7,
@@ -65,7 +65,7 @@ var catDetails = [
             "Goal": "Ensure access to affordable, reliable, sustainable and modern energy for all"
         },
 
-        "ImgUrl": "07.png"
+        "ImgUrl": "I07.jpg"
     }, {
 
         "ID": 8,
@@ -73,7 +73,7 @@ var catDetails = [
             "Name": "Decent Work & Economic Growth",
             "Goal": "Promote inclusive and sustainable economic growth, employment and decent work for all"
         },
-        "ImgUrl": "08.png"
+        "ImgUrl": "I08.jpg"
     }, {
 
         "ID": 9,
@@ -81,7 +81,7 @@ var catDetails = [
             "Name": "Industry, Innovation & Infrastucture",
             "Goal": "Build resilient infrastructure, promote sustainable industrialization and foster innovation"
         },
-        "ImgUrl": "09.png"
+        "ImgUrl": "I09.jpg"
     }, {
 
         "ID": 10,
@@ -89,7 +89,7 @@ var catDetails = [
             "Name": "Reduce Inequality",
             "Goal": "Reduce inequality within and among countries"
         },
-        "ImgUrl": "10.png"
+        "ImgUrl": "I10.jpg"
     }, {
 
         "ID": 11,
@@ -98,7 +98,7 @@ var catDetails = [
             "Goal": "Make cities inclusive, safe, resilient and sustainable"
         },
 
-        "ImgUrl": "11.png"
+        "ImgUrl": "I11.jpg"
     }, {
 
         "ID": 12,
@@ -106,7 +106,7 @@ var catDetails = [
             "Name": "Responsibile Consumption & Production",
             "Goal": "Ensure sustainable consumption and production patterns"
         },
-        "ImgUrl": "12.png"
+        "ImgUrl": "I12.jpg"
     }, {
 
         "ID": 13,
@@ -114,7 +114,7 @@ var catDetails = [
             "Name": "Climate Action",
             "Goal": "End poverty in all its forms everywhere"
         },
-        "ImgUrl": "13.png"
+        "ImgUrl": "I13.jpg"
     }, {
 
         "ID": 14,
@@ -122,7 +122,7 @@ var catDetails = [
             "Name": "Life Below Water",
             "Goal": "End hunger, achieve food security and improved nutrition and promote sustainable agriculture"
         },
-        "ImgUrl": "14.png"
+        "ImgUrl": "I14.jpg"
     }, {
 
         "ID": 15,
@@ -131,7 +131,7 @@ var catDetails = [
             "Goal": "Ensure healthy lives and promote well-being for all at all ages"
         },
 
-        "ImgUrl": "15.png"
+        "ImgUrl": "I15.jpg"
     }, {
 
         "ID": 16,
@@ -139,7 +139,7 @@ var catDetails = [
             "Name": "Peace Justice & Strong Institutions",
             "Goal": "Ensure inclusive and quality education for all and promote lifelong learning"
         },
-        "ImgUrl": "16.png"
+        "ImgUrl": "I16.jpg"
     }, {
 
         "ID": 17,
@@ -147,9 +147,33 @@ var catDetails = [
             "Name": "Partnership For The Goals",
             "Goal": "Ensure healthy lives and promote well-being for all at all ages"
         },
+        "ImgUrl": "I17.jpg"
+    },
+{
+    "ID": 18,
+    "ShowDetails": {
+        "Name": "Sports",
+        "Goal": "N/A"
+    },
+    "ImgUrl": "I18.jpg"
+},
+{
+    "ID": 19,
+    "ShowDetails": {
+        "Name": "Children & Parenting",
+        "Goal": "N/A"
+    },
+    "ImgUrl": "I19.jpg"
+},
+{
 
-        "ImgUrl": "17.png"
-    }
+    "ID": 20,
+    "ShowDetails": {
+        "Name": "Technology",
+        "Goal": "N/A"
+    },
+    "ImgUrl": "I20.jpg"
+}
 ];
 
 var countries = [

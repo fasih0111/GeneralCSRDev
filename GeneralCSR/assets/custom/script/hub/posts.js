@@ -68,7 +68,7 @@ generalHub.client.setComment = function (data) {
         $me.find(".actions-count .dot-space:last").empty();
     }
 
-    $(".comment-date").timeago();
+   // $(".comment-date").timeago();
 }
 generalHub.client.editComment = function (data) {
     var $me = $(".panel[data-type='P'][data-id='" + data[0].RefID + "'] ul.comments li.media[data-id='" + data[0].CommentID + "']");
