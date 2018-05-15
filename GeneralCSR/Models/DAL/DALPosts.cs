@@ -79,12 +79,13 @@ namespace Models
             return SqlHelper.ExecuteDataTable(FCommon.ConStr, CommandType.StoredProcedure, "spInsertUpdateComment", param);
         }
 
-        public virtual DataTable InsertUpdateCommentAttachment(string ID, string UserID, string RefID, string Description, bool IsActive, string OrignalName, string GeneratedName)
+        public virtual DataTable InsertUpdateCommentAttachment(string ID, string UserID, string Title, string RefID, string Description, bool IsActive, string OrignalName, string GeneratedName)
         {
             SqlParameter[] param = {
                                        new SqlParameter("@ID", ID),
                                        new SqlParameter("@UserID", UserID),
                                        new SqlParameter("@RefID", RefID),
+                                       new SqlParameter("@Title", Title),
                                        new SqlParameter("@Description", Description),
                                        new SqlParameter("@IsActive", IsActive),
                                        new SqlParameter("@OriginalName", OrignalName),
@@ -198,6 +199,21 @@ namespace Models
                                        new SqlParameter("@RefID", RefID)
                                };
             return SqlHelper.ExecuteDataTable(FCommon.ConStr, CommandType.StoredProcedure, "spGetPostAllAttachments", param);
+        }
+
+        public virtual DataTable getAttachmentDetails(string CommentAttachmentID)
+        {
+            SqlParameter[] param = {
+                                       new SqlParameter("@CommentAttachmentID", @CommentAttachmentID)
+                               };
+            return SqlHelper.ExecuteDataTable(FCommon.ConStr, CommandType.StoredProcedure, "getAttachmentDetails", param);
+        }
+
+        
+
+        public virtual DataTable GetPostRecentAttachments()
+        {
+            return SqlHelper.ExecuteDataTable(FCommon.ConStr, CommandType.StoredProcedure, "GetPostRecentAttachments");
         }
 
         public virtual DataTable UpdateCommentStatus(string ID, bool IsActive)

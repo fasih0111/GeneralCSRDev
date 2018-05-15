@@ -43,9 +43,9 @@ namespace Models
         {
             return base.InsertUpdateComment(ID, UserID, RefID, RefType, Comment, IsActive, OrignalName, GeneratedName);
         }
-        public override DataTable InsertUpdateCommentAttachment(string ID, string UserID, string RefID, string Description, bool IsActive, string OrignalName, string GeneratedName)
+        public override DataTable InsertUpdateCommentAttachment(string ID, string UserID, string Title, string RefID, string Description, bool IsActive, string OrignalName, string GeneratedName)
         {
-            return base.InsertUpdateCommentAttachment(ID, UserID, RefID, Description, IsActive, OrignalName, GeneratedName);
+            return base.InsertUpdateCommentAttachment(ID, UserID, Title, RefID, Description, IsActive, OrignalName, GeneratedName);
         }
         public override DataTable GetComments(string MyID, string ID, string RefID, string RefType)
         {
@@ -90,6 +90,14 @@ namespace Models
         public override DataTable GetPostAllAttachments(string RefID)
         {
             return base.GetPostAllAttachments(RefID);
+        }
+        public override DataTable getAttachmentDetails(string CommentAttachmentID)
+        {
+            return base.getAttachmentDetails(CommentAttachmentID);
+        }
+        public override DataTable GetPostRecentAttachments()
+        {
+            return base.GetPostRecentAttachments();
         }
         public override DataTable UpdateCommentStatus(string ID, bool IsActive)
         {

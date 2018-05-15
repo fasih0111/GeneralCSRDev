@@ -60,6 +60,20 @@ namespace GeneralCSR.Controllers
         }
 
         [HttpPost]
+        public string GetPostRecentAttachment(string RefID)
+        {
+            DataTable dt = BALPost.GetPostRecentAttachments();
+            return JsonConvert.SerializeObject(dt);
+        }
+
+        [HttpPost]
+        public string GetAttachmentDetails(string CommentAttachmentID)
+        {
+            DataTable dt = BALPost.getAttachmentDetails(CommentAttachmentID);
+            return JsonConvert.SerializeObject(dt);
+        }
+
+        [HttpPost]
         public string ShowArchivePosts(string CatID)
         {
             DataTable dt = BALPost.GetAttachmentsPosts(CatID);

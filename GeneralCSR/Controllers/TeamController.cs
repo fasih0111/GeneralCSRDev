@@ -45,7 +45,6 @@ namespace GeneralCSR.Controllers
             return JsonConvert.SerializeObject(BAL.GetTeams(0, Convert.ToInt32(CFSess.ID)));
         }
 
-
         [HttpPost]
         public string GetMyTeams()
         {
@@ -86,8 +85,6 @@ namespace GeneralCSR.Controllers
             //    (IssueID != 0) &
             //    (ImgUrl != "" & ImgUrl != null)
             //    )
-
-
             DataTable dtTeamName = BAL.GetIssueTitle(IssueID);
             if (dtTeamName.Rows.Count > 0)
             {

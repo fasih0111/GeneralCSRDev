@@ -300,7 +300,7 @@ function getPostElem(data) {
     $elem += '</div>';
 
     $elem += '<a class="color-hover user-hover-details" data-user-id="' + data["UserID"] + '" title="testings" href="/Profile/Index/' + data["UserID"] + '">' + data["FullName"] + '</a><br />';
-    $elem += '<div class="samp">' + new Date(data["Date"]).toString("hh:mm tt dd/MM/yyyy") + '</div>';
+    $elem += '<div class="samp">' + new Date(data["Date"]).toString("hh:mm tt MM/dd/yyyy") + '</div>';
     $elem += '</div>';
     $elem += '</div>';
     $elem += '</div>';
@@ -683,7 +683,7 @@ function checkCommentFile(e) {
 
         $bodyElem += '<div class="form-group">';
         $bodyElem += '<label for="body">Title</label>';
-        $bodyElem += '<input type="text" class="txt-comment form-control">';
+        $bodyElem += '<input type="text" class="txt-title form-control">';
         $bodyElem += '</div>';
 
         $bodyElem += '<div class="form-group">';
@@ -953,11 +953,14 @@ function getCommentsElem(data) {
 
 
     if (data["IsMySupport"] > 0) $isActiveClass = $activeClass; else $isActiveClass = "";
-    $elem += '<span class="color-hover btn-support ' + $isActiveClass + '" data-type="true" onclick="insertCommentSupportOppose(this);">Support</span>';
+    if (data["SupportCount"] > 0) $elem += '<span class="so-count">' + data["SupportCount"] + '</span>';
+    $elem += ' <span class="color-hover btn-support ' + $isActiveClass + '" data-type="true" onclick="insertCommentSupportOppose(this);">Support</span>';
     $elem += $dotSpace
 
     if (data["IsMyOppose"] > 0) $isActiveClass = $activeClass; else $isActiveClass = "";
-    $elem += '<span class="color-hover btn-oppose ' + $isActiveClass + '" data-type="false" onclick="insertCommentSupportOppose(this);">Oppose</span>';
+
+    if (data["OpposeCount"] > 0) $elem += '<span class="so-count">' + data["OpposeCount"] + '</span>';
+    $elem += ' <span class="color-hover btn-oppose ' + $isActiveClass + '" data-type="false" onclick="insertCommentSupportOppose(this);">Oppose</span>';
     $elem += $dotSpace
 
     //if (data["IsMySupport"] > 0) $isActiveClass = $activeClass; else $isActiveClass = "";
@@ -1341,55 +1344,123 @@ function setArchiveAttachment(data, e) {
 
     if (data.length > 0) {
         var $elem = '';
-        $elem += '<table class="table">';
-        $elem += '<thead>';
-        $elem += '<tr>';
-        $elem += '<th style="width:20%">Name</th>';
-        $elem += '<th style="width:20%">Date</th>';
-        $elem += '<th style="width:20%">Description</th>';
-        $elem += '<th style="width:40%">Preview</th>';
-        $elem += '</tr>';
-        $elem += '</thead>';
-        $elem += '<tbody>';
-        for (var i = 0; i < data.length; i++) {
-            if (data[i]["OrignalNames"] != "") {
+        //$elem += '<table class="table">';
+        //$elem += '<thead>';
+        //$elem += '<tr>';
+        //$elem += '<th style="width:20%">Name</th>';
+        //$elem += '<th style="width:20%">Date</th>';
+        //$elem += '<th style="width:20%">Description</th>';
+        //$elem += '<th style="width:40%">Preview</th>';
+        //$elem += '</tr>';
+        //$elem += '</thead>';
+        //$elem += '<tbody>';
+        //for (var i = 0; i < data.length; i++) {
+        //    if (data[i]["OrignalNames"] != "") {
 
-                var splitOrignalNames = data[i]["OrignalNames"].split(":");
-                var splitGeneratedNames = data[i]["GeneratedNames"].split(":");
-                $elem += '<tr>';
-                $elem += '<td>' + data[i]["FullName"] + '</td>';
-                $elem += '<td>' + new Date(data[i]["Date"]).toString("hh:mm tt dd/MMM/yyyy") + '</td>';
-                $elem += '<td>' + data[i]["Description"] + '</td>';
-                $elem += '<td style="display: table;">';
+        //        var splitOrignalNames = data[i]["OrignalNames"].split(":");
+        //        var splitGeneratedNames = data[i]["GeneratedNames"].split(":");
+        //        $elem += '<tr>';
+        //        $elem += '<td>' + data[i]["FullName"] + '</td>';
+        //        $elem += '<td>' + new Date(data[i]["Date"]).toString("hh:mm tt dd/MMM/yyyy") + '</td>';
+        //        $elem += '<td>' + data[i]["Description"] + '</td>';
+        //        $elem += '<td style="display: table;">';
 
-                for (var j = 0; j < splitOrignalNames.length - 1; j++) {
+        //        for (var j = 0; j < splitOrignalNames.length - 1; j++) {
 
 
-                    $elem += '<div class="file-preview-frame">';
-                    $elem += '<div class="file-content">';
-                    var $ext = getExtensionFromFileName(splitOrignalNames[j]);
-                    if ($ext.toLowerCase() == "jpg" || $ext.toLowerCase() == "png" || $ext.toLowerCase() == "jpeg")
-                        $elem += '<img width="150" height="140" src="/uploads/files/' + splitGeneratedNames[j] + '" />';
-                    else
-                        $elem += '<i class="fa fa-file fa-5x"></i>';
-                    $elem += '</div>';
-                    //$elem += '<div class="file-actions">';
-                    //$elem += '<div class="file-footer-buttons">';
-                    //$elem += '<button type="button" class="kv-file-zoom btn btn-xs btn-default" title="Download"><i class="fa fa-download" aria-hidden="true"></i></button></div>';
-                    //$elem += '</div>';
-                    $elem += '</div>';
-                }
-                $elem += '</td>';
-                $elem += '</tr>';
-            }
-        }
-        $elem += '</tbody>';
-        $elem += '</table>';
+        //            $elem += '<div class="file-preview-frame">';
+        //            $elem += '<div class="file-content">';
+        //            var $ext = getExtensionFromFileName(splitOrignalNames[j]);
+        //            if ($ext.toLowerCase() == "jpg" || $ext.toLowerCase() == "png" || $ext.toLowerCase() == "jpeg")
+        //                $elem += '<img width="150" height="140" src="/uploads/files/' + splitGeneratedNames[j] + '" />';
+        //            else
+        //                $elem += '<i class="fa fa-file fa-5x"></i>';
+        //            $elem += '</div>';
+        //            //$elem += '<div class="file-actions">';
+        //            //$elem += '<div class="file-footer-buttons">';
+        //            //$elem += '<button type="button" class="kv-file-zoom btn btn-xs btn-default" title="Download"><i class="fa fa-download" aria-hidden="true"></i></button></div>';
+        //            //$elem += '</div>';
+        //            $elem += '</div>';
+        //        }
+        //        $elem += '</td>';
+        //        $elem += '</tr>';
+        //    }
+        //}
+        //$elem += '</tbody>';
+        //$elem += '</table>';
+
+
+
+        //$elem += '<div class="row">';
+        //for (var i = 0; i < data.length; i++) {
+        //    if (data[i]["OrignalNames"] != "") {
+        //        var splitOrignalNames = data[i]["OrignalNames"].split(":");
+        //        var splitGeneratedNames = data[i]["GeneratedNames"].split(":");
+        //        for (var j = 0; j < splitOrignalNames.length - 1; j++) {
+
+        //            $elem += '' +
+        //            '<div class="col-md-3">' +
+        //                '<div class="panel img-box">' +
+        //                    '<div class="img-box-top" style="height: 200px;">' +
+        //                        '<div class="responsive-image" style="background-image: url(/uploads/files/' + splitGeneratedNames[j] + ')"></div>' +
+        //                    '</div>' +
+        //                    '<div class="img-box-bottom">' +
+        //                        '<div class="img-box-title">' + data[i]["Title"] + '</div>' +
+        //                        '<div class="img-box-options row no-margin">' +
+        //                            '<div class="col-md-3 text-center" onclick="showArchiveInfo(this);" title="Info"><i class="material-icons">info</i></div>' +
+        //                            '<div class="col-md-3 text-center"><i class="material-icons">remove_red_eye</i></div>' +
+        //                            '<div class="col-md-3 text-center"><i class="material-icons">thumb_up</i></div>' +
+        //                            '<div class="col-md-3 text-center"><i class="material-icons">report</i></div>' +
+        //                        '</div>' +
+        //                    '</div>' +
+        //                '</div>' +
+        //            '</div>';
+        //        }
+        //    }
+        //}
+        //$elem += '</div>';
+
+        $elem = getArchiveBoxElems(data);
+
         showModal("modal-lg", "", true, true, true, "Archives", $elem, "");
 
         setOverflowToLastModal();
     } else
         showModal("", "", true, true, true, "Archives", "<h3 class='text-center'>No Attachment found</h3>", "");
+}
+
+function getArchiveBoxElems(data) {
+    var $elem = '';
+    $elem += '<div class="row">';
+    for (var i = 0; i < data.length; i++) {
+        if (data[i]["OrignalNames"] != "") {
+            var splitOrignalNames = data[i]["OrignalNames"].split(":");
+            var splitGeneratedNames = data[i]["GeneratedNames"].split(":");
+            for (var j = 0; j < splitOrignalNames.length - 1; j++) {
+
+                $elem += '' +
+                '<div class="col-md-3">' +
+                    '<div class="panel img-box" data-id="' + data[i]["ID"] + '">' +
+                        '<div class="img-box-top" style="height: 200px;">' +
+                            '<div class="responsive-image" style="background-image: url(/uploads/files/' + splitGeneratedNames[j] + ')"></div>' +
+                        '</div>' +
+                        '<div class="img-box-bottom">' +
+                            '<div class="img-box-title">' + data[i]["Title"] + '</div>' +
+                            '<div class="img-box-options row no-margin">' +
+                                '<div class="col-md-3 text-center" onclick="showArchiveInfo(this);" title="Info"><i class="material-icons">info</i></div>' +
+                                '<div class="col-md-3 text-center"><i class="material-icons">remove_red_eye</i></div>' +
+                                '<div class="col-md-3 text-center"><i class="material-icons">thumb_up</i></div>' +
+                                '<div class="col-md-3 text-center"><i class="material-icons">report</i></div>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+            }
+        }
+    }
+    $elem += '</div>';
+
+    return $elem;
 }
 
 function showOrganization(e) {
@@ -1468,7 +1539,7 @@ function insertCommentAttachment(e, id) {
     var $me = $(e);
     var $obj = $(".post-div .panel[data-id='" + id + "']");
 
-    if ($me.closest(".modal").find(".txt-description").val().length > 0) {
+    if ($me.closest(".modal").find(".txt-description").val().length > 0 && $me.closest(".modal").find(".txt-title").val().length > 0) {
         if ($obj.find("input[type='file']")[0].files.length > 0) {
             var $fileObj = $obj.find("input[type='file']")[0];
             var formData = new FormData();
@@ -1486,7 +1557,7 @@ function insertCommentAttachment(e, id) {
                 processData: false,
                 success: function (response) {
                     if (response != "") {
-                        var Data = { "RefID": $obj.data("id"), "Description": $me.closest(".modal").find(".txt-description").val(), "FileName": response.split("|")[0], "FileGeneratedName": response.split("|")[1] };
+                        var Data = { "RefID": $obj.data("id"), "Title": $me.closest(".modal").find(".txt-title").val(), "Description": $me.closest(".modal").find(".txt-description").val(), "FileName": response.split("|")[0], "FileGeneratedName": response.split("|")[1] };
                         $me.val("");
                         runAjax("/Home/InsertCommentAttachment", Data, true, $obj, "full", afterInsertCommentAttachemnt, $me);
                     }
@@ -1851,7 +1922,50 @@ function afterGetEditPost(data, e) {
     console.log(data);
     $("#title").val(data[0].Title);
     $("#body").val(data[0].Body);
+}
 
+function showArchiveInfo(e) {
+    var $me = $(e);
 
+    var $elem = '' +
+        '<div class="info-archive-box" style="display: none;">' +
+            '<div class="info-close" onclick="closeArchiveInfo(this);">X</div>' +
+            '<ul class="info-archive-ul">' +
+                //'<li><a href="#">Date</a></li>' +
+                //'<li><a href="#">User</a></li>' +
+                //'<li><a href="#">Category</a></li>' +
+                //'<li><a href="#">Title</a></li>' +
+                //'<li><a href="#">Description</a></li>' +
 
+            '</ul>' +
+
+        '</div>';
+    $me.closest(".img-box").append($elem);
+    $me.closest(".img-box").find(".info-archive-box").fadeIn("fast");
+
+    getAttachmentDetails($me);
+}
+
+function getAttachmentDetails(e) {
+    var $me = $(e);
+    var Data = { "CommentAttachmentID": $me.closest(".img-box").data("id") };
+    runAjax("/Post/GetAttachmentDetails", Data, false, "", "", setAttachmentDetails, $me);
+}
+function setAttachmentDetails(data, e) {
+    var $me = $(e);
+    var $elem = '' +
+    '<li><a href="#">' + new Date(data[0].Date).toString("hh:mm tt dd/MM/yyyy") + '</a></li>' +
+            '<li><a href="#">' + data[0].FullName + '</a></li>' +
+            '<li><a href="#">No Poverty</a></li>' +
+            '<li><a href="#">' + data[0].Title + '</a></li>' +
+            '<li><a href="#">' + data[0].Description + '</a></li>';
+
+    $me.closest(".img-box").find(".info-archive-ul").append($elem);
+}
+
+function closeArchiveInfo(e) {
+    var $me = $(e);
+    $me.closest('.info-archive-box').fadeOut("fast", function () {
+        $(this).remove();
+    });
 }

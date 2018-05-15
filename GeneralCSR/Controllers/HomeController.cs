@@ -175,7 +175,7 @@ namespace GeneralCSR.Controllers
 
 
         [HttpPost]
-        public string GetNGO(string ID )
+        public string GetNGO(string ID)
         {
             return JsonConvert.SerializeObject(BALUser.GetNgo());
         }
@@ -360,10 +360,10 @@ namespace GeneralCSR.Controllers
         }
 
         [HttpPost]
-        public string InsertCommentAttachment(string RefID, string Description, string FileName, string FileGeneratedName)
+        public string InsertCommentAttachment(string RefID, string Title, string Description, string FileName, string FileGeneratedName)
         {
             CFSession CFSess = (CFSession)Session["CFSess"];
-            DataTable dr = BALPost.InsertUpdateCommentAttachment("", CFSess.ID, RefID, Description, true, FileName, FileGeneratedName);
+            DataTable dr = BALPost.InsertUpdateCommentAttachment("", CFSess.ID, RefID, Title, Description, true, FileName, FileGeneratedName);
             if (dr != null)
             {
                 var hubContext = GlobalHost.ConnectionManager.GetHubContext<GeneralHub>();
